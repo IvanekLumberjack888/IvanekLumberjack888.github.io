@@ -1,0 +1,38 @@
+body {
+    font-family: sans-serif;
+    margin: 20px;
+    line-height: 1.6;
+}
+
+h1, h2 {
+    color: #333;
+}
+
+.skills {
+    list-style-type: none;
+    padding: 0;
+}
+
+.skills li {
+    display: inline-block;
+    margin-right: 10px;
+    background-color: #e6f7ff;
+    padding: 5px 10px;
+    border-radius: 5px;
+    border: 1px solid #91caff;
+}
+
+.projects {
+    list-style-type: none;
+    padding: 0;
+}
+
+.projects li {
+    margin-bottom: 10px;
+}
+
+.contact {
+    margin-top: 20px;
+    border-top: 1px solid #ddd;
+    padding-top: 10px;
+}
