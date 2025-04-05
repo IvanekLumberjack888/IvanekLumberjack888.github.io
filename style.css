@@ -1,38 +1,24 @@
 body {
+    margin: 0;
     font-family: sans-serif;
-    margin: 20px;
-    line-height: 1.6;
-}
-
-h1, h2 {
     color: #333;
 }
 
-.skills {
-    list-style-type: none;
-    padding: 0;
+.background-image {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-image: url(C:\Users\ivous\Documents\webovka\forest.jpg); 
+    background-size: cover;
+    background-position: center;
+    z-index: -1;
 }
 
-.skills li {
-    display: inline-block;
-    margin-right: 10px;
-    background-color: #e6f7ff;
-    padding: 5px 10px;
-    border-radius: 5px;
-    border: 1px solid #91caff;
+.content {
+    padding: 20px;
+    background-color: rgba(255, 255, 255, 0.8); /* Průhledné pozadí pro obsah */
+    position: relative; 
 }
 
-.projects {
-    list-style-type: none;
-    padding: 0;
-}
-
-.projects li {
-    margin-bottom: 10px;
-}
-
-.contact {
-    margin-top: 20px;
-    border-top: 1px solid #ddd;
-    padding-top: 10px;
-}
