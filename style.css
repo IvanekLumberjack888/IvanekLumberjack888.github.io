@@ -89,11 +89,33 @@ body {
     line-height: 1.4;
 }
 
-.contact-image {
+.contact {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+
+.contact div[style*="position: relative"] {
+    margin-bottom: 10px; /* Mezera pod obrázkem s odkazem */
+}
+
+.contact img.contact-image {
     width: 40px; /* Menší obrázek pro kontakt na mobilech */
-    display: block;
-    margin-left: auto;
-    margin-right: auto;
+    cursor: pointer;
+    transition: transform 0.3s ease-in-out;
+}
+
+.contact img.contact-image:hover {
+    transform: scale(1.1);
+}
+
+.contact div[style*="position: absolute"] {
+    opacity: 0;
+    transition: opacity 0.3s ease-in-out;
+}
+
+.contact div[style*="position: relative"]:hover div[style*="position: absolute"] {
+    opacity: 1;
 }
 
 .header, .about, .skills, .projects, .experience, .contact {
@@ -119,6 +141,10 @@ h2 {
 
 /* Media query pro větší obrazovky (např. tablety a desktopy) */
 @media (min-width: 768px) {
+    .container {
+        width: 70%; /* Trochu užší kontejner na větších obrazovkách */
+    }
+
     .header, .about, .skills, .projects, .experience, .contact {
         text-align: center; /* Zarovnání na střed na větších obrazovkách */
     }
@@ -142,8 +168,12 @@ h2 {
         line-height: 1.6;
     }
 
-    .contact-image {
+    .contact img.contact-image {
         width: 50px; /* Větší obrázek pro kontakt na větších obrazovkách */
+    }
+
+    .contact div[style*="position: relative"] {
+        margin-bottom: 20px;
     }
 
     h2 {
