@@ -3,7 +3,10 @@ body {
     margin: 0;
     padding: 0;
     color: #fff;
-    background-color: #1a1a1a;
+    background-image: url('images/background.jpg');
+    background-size: cover;
+    background-position: center;
+    background-attachment: fixed; /* Fixní pozadí */
 }
 
 .swiper {
@@ -17,19 +20,13 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
-    background-size: cover;
-    background-position: center;
-}
-
-.swiper-slide:nth-child(1) {
-    background-image: url('images/background.jpg');
+    background-color: rgba(0, 0, 0, 0.5); /* Průhledné pozadí */
 }
 
 .header, .about, .skills, .projects, .experience, .contact {
     width: 80%;
     max-width: 800px;
     padding: 20px;
-    background-color: rgba(0, 0, 0, 0.7);
     border-radius: 10px;
 }
 
@@ -70,4 +67,14 @@ h1 {
 
 .swiper-pagination-bullet-active {
     opacity: 1;
+}
+
+/* Přechody pro text */
+.swiper-slide p, .swiper-slide h2, .swiper-slide ul {
+    animation: fade 1s ease-in-out;
+}
+
+@keyframes fade {
+    from { opacity: 0; }
+    to { opacity: 1; }
 }
