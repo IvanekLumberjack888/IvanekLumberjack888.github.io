@@ -50,13 +50,13 @@ body {
     margin: 0 10px;
 }
 
-.skills ul, .projects ul, .experience ul {
+.skills ul, .projects ul {
     list-style: none;
     padding: 0;
     text-align: left; /* Zarovnání seznamů doleva */
 }
 
-.skills li, .projects li, .experience li {
+.skills li, .projects li {
     margin-bottom: 10px;
 }
 
@@ -133,28 +133,11 @@ h2 {
     text-align: center; /* Zarovnání nadpisů na střed */
 }
 
-.about p, .contact p {
+.about p, .experience p, .contact p {
     font-size: 1.1em; /* Sjednocení velikosti odstavců */
     line-height: 1.6;
     text-align: center; /* Zarovnání odstavců na střed */
-}
-
-.experience {
-    text-align: center; /* Zarovnání textu na střed pro celou sekci */
-}
-
-.experience ul {
-    list-style: none;
-    padding: 0;
-    text-align: center; /* Zarovnání položek seznamu na střed */
-    display: inline-block; /* Aby se seznam choval jako blok na střed */
-}
-
-.experience li {
-    margin-bottom: 10px;
-    color: #c2e59c; /* Stejná barva písma jako v dovednostech a projektech */
-    font-size: 1em; /* Stejná velikost písma */
-    line-height: 1.4; /* Stejné řádkování */
+    color: #c2e59c; /* Stejná barva písma */
 }
 
 /* Media query pro větší obrazovky (např. tablety a desktopy) */
@@ -200,13 +183,8 @@ h2 {
         text-align: center; /* Zarovnání nadpisů na střed na větších obrazovkách */
     }
 
-    .about p, .contact p {
+    .about p, .experience p, .contact p {
         font-size: 1.2em;
         text-align: center; /* Zarovnání odstavců na střed na větších obrazovkách */
-    }
-
-    .experience li {
-        font-size: 1.1em;
-        line-height: 1.6;
     }
 }
