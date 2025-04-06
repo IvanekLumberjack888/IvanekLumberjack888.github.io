@@ -58,6 +58,7 @@ body {
 
 .skills li, .projects li {
     margin-bottom: 10px;
+    color: #c2e59c; /* Bílá barva písma pro položky dovedností a projektů */
 }
 
 .contact a {
@@ -131,13 +132,14 @@ h2 {
     font-size: 1.8em; /* Sjednocení velikosti nadpisů */
     margin-bottom: 15px;
     text-align: center; /* Zarovnání nadpisů na střed */
+    color: #fff; /* Bílá barva nadpisů */
 }
 
 .about p, .experience p, .contact p {
     font-size: 1.1em; /* Sjednocení velikosti odstavců */
     line-height: 1.6;
     text-align: center; /* Zarovnání odstavců na střed */
-    color: #c2e59c; /* Stejná barva písma */
+    color: #fff; /* Bílá barva textu */
 }
 
 /* Media query pro větší obrazovky (např. tablety a desktopy) */
@@ -186,5 +188,9 @@ h2 {
     .about p, .experience p, .contact p {
         font-size: 1.2em;
         text-align: center; /* Zarovnání odstavců na střed na větších obrazovkách */
+    }
+
+    .skills li, .projects li {
+        color: #c2e59c; /* Světle zelená barva písma pro položky dovedností a projektů na větších obrazovkách */
     }
 }
