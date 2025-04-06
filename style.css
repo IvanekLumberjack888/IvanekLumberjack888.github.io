@@ -1,3 +1,4 @@
+/* Základní styly (beze změn) */
 body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
@@ -65,23 +66,25 @@ body {
 }
 
 .skill-image, .project-image, .contact-image {
-    width: 200px; /* Zmenšené obrázky */
+    width: 100px; /* Zmenšené obrázky pro mobily */
     height: auto;
-    margin-bottom: 20px;
+    margin-bottom: 10px;
 }
 
 .skill-content, .project-content {
     display: flex;
     align-items: center;
+    flex-wrap: wrap; /* Zalamování prvků na menších obrazovkách */
+    justify-content: center; /* Centrování prvků */
 }
 
 .skill-content ul, .project-content ul {
-    margin-left: 20px;
+    margin-left: 10px;
     color: #c2e59c; /* Světle zelený text */
 }
 
 .contact-image {
-    width: 100px; /* Zmenšený obrázek pro kontakt */
+    width: 50px; /* Zmenšený obrázek pro kontakt na mobilech */
 }
 
 .header, .about, .skills, .projects, .experience, .contact {
@@ -94,11 +97,41 @@ body {
 }
 
 .skills ul, .projects ul {
-    font-size: 1.1em; /* Zvětšení písma */
-    line-height: 1.6; /* Zvětšení řádkování */
+    font-size: 1em; /* Zmenšení písma pro mobily */
+    line-height: 1.4; /* Zmenšení řádkování pro mobily */
     text-shadow: 1px 1px 2px #000; /* Přidání stínu textu */
 }
 
 .skill-content img {
-    margin-right: 20px; /* Mezera mezi obrázkem a textem */
+    margin-right: 10px; /* Menší mezera mezi obrázkem a textem na mobilech */
+}
+
+/* Media query pro větší obrazovky (např. tablety a desktopy) */
+@media (min-width: 768px) {
+    .skill-image, .project-image, .contact-image {
+        width: 200px; /* Větší obrázky pro větší obrazovky */
+        margin-bottom: 20px;
+    }
+
+    .skill-content, .project-content {
+        flex-wrap: nowrap; /* Nezalamovat prvky na větších obrazovkách */
+        justify-content: flex-start; /* Zarovnat prvky doleva */
+    }
+
+    .skill-content ul, .project-content ul {
+        margin-left: 20px;
+    }
+
+    .contact-image {
+        width: 100px; /* Větší obrázek pro kontakt na větších obrazovkách */
+    }
+
+    .skills ul, .projects ul {
+        font-size: 1.1em; /* Větší písmo pro větší obrazovky */
+        line-height: 1.6; /* Větší řádkování pro větší obrazovky */
+    }
+
+    .skill-content img {
+        margin-right: 20px; /* Větší mezera mezi obrázkem a textem na větších obrazovkách */
+    }
 }
