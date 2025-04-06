@@ -6,7 +6,7 @@ body {
     background-image: url('images/background.jpg');
     background-size: cover;
     background-position: center;
-    background-attachment: fixed; /* Fixní pozadí */
+    background-attachment: fixed;
 }
 
 .swiper {
@@ -20,7 +20,19 @@ body {
     justify-content: center;
     align-items: center;
     text-align: center;
-    background-color: rgba(0, 0, 0, 0.5); /* Průhledné pozadí */
+    background-color: rgba(0, 0, 0, 0.5);
+}
+
+.swiper-slide:nth-child(2) { /* O mně */
+    background-image: url('images/forest.jpg');
+    background-size: cover;
+    background-position: center;
+}
+
+.swiper-slide:nth-child(4) { /* Projekty */
+    background-image: url('images/projekt_1.jpg');
+    background-size: cover;
+    background-position: center;
 }
 
 .header, .about, .skills, .projects, .experience, .contact {
@@ -69,7 +81,6 @@ h1 {
     opacity: 1;
 }
 
-/* Přechody pro text */
 .swiper-slide p, .swiper-slide h2, .swiper-slide ul {
     animation: fade 1s ease-in-out;
 }
