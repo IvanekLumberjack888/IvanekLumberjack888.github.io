@@ -114,6 +114,7 @@ h2 {
 .about p, .contact p {
     font-size: 1.1em; /* Sjednocení velikosti odstavců */
     line-height: 1.6;
+    text-align: center; /* Zarovnání odstavců na střed */
 }
 
 /* Media query pro větší obrazovky (např. tablety a desktopy) */
@@ -153,5 +154,6 @@ h2 {
 
     .about p, .contact p {
         font-size: 1.2em;
+        text-align: center; /* Zarovnání odstavců na střed na větších obrazovkách */
     }
 }
