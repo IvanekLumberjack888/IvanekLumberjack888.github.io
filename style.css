@@ -22,6 +22,7 @@ body {
     padding: 20px;
     border-radius: 10px;
     background-color: rgba(0, 50, 20, 0.6); /* Zelené pozadí */
+    text-align: center; /* Zarovnání textu na střed */
 }
 
 .header {
@@ -34,14 +35,12 @@ body {
 .header h1 {
     font-size: 3em;
     margin-bottom: 10px;
-    text-align: center;
     color: #a8e063; /* Zelený nadpis */
 }
 
 .header .subtitle {
     font-size: 1.5em;
     margin-bottom: 20px;
-    text-align: center;
     color: #c2e59c; /* Světle zelený podnadpis */
 }
 
@@ -54,6 +53,7 @@ body {
 .skills ul, .projects ul, .experience ul {
     list-style: none;
     padding: 0;
+    text-align: left; /* Zarovnání seznamů doleva */
 }
 
 .skills li, .projects li, .experience li {
@@ -66,9 +66,12 @@ body {
 }
 
 .skill-image, .project-image, .contact-image {
-    width: 80px; /* Ještě menší obrázky pro mobily */
+    width: 80px; /* Menší obrázky pro mobily */
     height: auto;
     margin: 5px; /* Menší okraje */
+    display: block; /* Aby se obrázky chovaly jako blokové prvky */
+    margin-left: auto;
+    margin-right: auto; /* Centrování obrázků */
 }
 
 .skill-content, .project-content {
@@ -81,11 +84,16 @@ body {
     margin-left: 0; /* Žádný levý okraj na mobilech */
     padding-left: 20px; /* Odsazení pro odrážky */
     color: #c2e59c; /* Světle zelený text */
-    text-align: left; /* Zarovnání textu doleva na mobilech */
+    text-align: left; /* Zarovnání textu doleva pro lepší čitelnost seznamů */
+    font-size: 1em; /* Sjednocení velikosti písma v seznamech pro mobily */
+    line-height: 1.4;
 }
 
 .contact-image {
-    width: 40px; /* Ještě menší obrázek pro kontakt na mobilech */
+    width: 40px; /* Menší obrázek pro kontakt na mobilech */
+    display: block;
+    margin-left: auto;
+    margin-right: auto;
 }
 
 .header, .about, .skills, .projects, .experience, .contact {
@@ -97,46 +105,45 @@ body {
     to { opacity: 1; }
 }
 
-.skills ul, .projects ul {
-    font-size: 0.9em; /* Ještě menší písmo pro mobily */
-    line-height: 1.3; /* Ještě menší řádkování pro mobily */
-    text-shadow: 1px 1px 2px #000; /* Přidání stínu textu */
+h2 {
+    font-size: 1.8em; /* Sjednocení velikosti nadpisů */
+    margin-bottom: 15px;
 }
 
-.skill-content img {
-    margin-right: 0; /* Žádný pravý okraj na mobilech */
-    margin-bottom: 10px; /* Mezera pod obrázkem */
+.about p, .contact p {
+    font-size: 1.1em; /* Sjednocení velikosti odstavců */
+    line-height: 1.6;
 }
 
 /* Media query pro větší obrazovky (např. tablety a desktopy) */
 @media (min-width: 768px) {
+    .header, .about, .skills, .projects, .experience, .contact {
+        text-align: center; /* Zarovnání na střed na větších obrazovkách */
+    }
+
     .skill-image, .project-image, .contact-image {
-        width: 200px; /* Větší obrázky pro větší obrazovky */
-        margin: 0 0 20px 0; /* Standardní okraje pro větší obrazovky */
+        width: 100px; /* Větší obrázky pro větší obrazovky */
+        margin: 10px;
+        display: inline-block; /* Obrázky vedle sebe */
     }
 
     .skill-content, .project-content {
         flex-direction: row; /* Obrázky a text vedle sebe na větších obrazovkách */
-        align-items: center; /* Vertikální centrování na větších obrazovkách */
-        justify-content: flex-start; /* Zarovnat prvky doleva */
+        align-items: center; /* Vertikální centrování */
+        justify-content: center; /* Centrování obsahu */
     }
 
     .skill-content ul, .project-content ul {
         margin-left: 20px;
-        text-align: left; /* Zarovnání textu doleva na větších obrazovkách */
+        text-align: left;
+        font-size: 1.1em;
+        line-height: 1.6;
     }
 
     .contact-image {
-        width: 100px; /* Větší obrázek pro kontakt na větších obrazovkách */
+        width: 50px; /* Větší obrázek pro kontakt na větších obrazovkách */
     }
 
-    .skills ul, .projects ul {
-        font-size: 1.1em; /* Větší písmo pro větší obrazovky */
-        line-height: 1.6; /* Větší řádkování pro větší obrazovky */
-    }
-
-    .skill-content img {
-        margin-right: 20px; /* Mezera mezi obrázkem a textem na větších obrazovkách */
-        margin-bottom: 0; /* Žádná mezera pod obrázkem na větších obrazovkách */
-    }
-}
+    h2 {
+        font-size: 2em;
+        margin-bottom: 20px;
