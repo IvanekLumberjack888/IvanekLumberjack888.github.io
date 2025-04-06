@@ -23,17 +23,24 @@ body {
     background-color: rgba(0, 0, 0, 0.5);
 }
 
-h1 {
+.header {
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+.header h1 {
     font-size: 3em;
     margin-bottom: 10px;
 }
 
-.subtitle {
+.header .subtitle {
     font-size: 1.5em;
     margin-bottom: 20px;
 }
 
-.social-links a {
+.header .social-links a {
     color: #fff;
     text-decoration: none;
     margin: 0 10px;
@@ -53,11 +60,20 @@ h1 {
     text-decoration: none;
 }
 
-.skill-image, .project-image {
+.skill-image, .project-image, .contact-image {
     width: 100%;
     max-width: 400px;
     height: auto;
     margin-bottom: 20px;
+}
+
+.skill-content, .project-content {
+    display: flex;
+    align-items: center;
+}
+
+.skill-content ul, .project-content ul {
+    margin-left: 20px;
 }
 
 .swiper-pagination-bullet {
