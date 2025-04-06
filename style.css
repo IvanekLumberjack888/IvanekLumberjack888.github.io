@@ -139,6 +139,24 @@ h2 {
     text-align: center; /* Zarovnání odstavců na střed */
 }
 
+.experience {
+    text-align: center; /* Zarovnání textu na střed pro celou sekci */
+}
+
+.experience ul {
+    list-style: none;
+    padding: 0;
+    text-align: left; /* Zarovnání položek seznamu doleva pro lepší čitelnost */
+    display: inline-block; /* Aby se seznam choval jako blok na střed */
+}
+
+.experience li {
+    margin-bottom: 10px;
+    color: #c2e59c; /* Stejná barva písma jako v dovednostech a projektech */
+    font-size: 1em; /* Stejná velikost písma */
+    line-height: 1.4; /* Stejné řádkování */
+}
+
 /* Media query pro větší obrazovky (např. tablety a desktopy) */
 @media (min-width: 768px) {
     .container {
@@ -185,5 +203,10 @@ h2 {
     .about p, .contact p {
         font-size: 1.2em;
         text-align: center; /* Zarovnání odstavců na střed na větších obrazovkách */
+    }
+
+    .experience li {
+        font-size: 1.1em;
+        line-height: 1.6;
     }
 }
