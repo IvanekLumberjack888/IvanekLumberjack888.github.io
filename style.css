@@ -33,11 +33,13 @@ body {
 .header h1 {
     font-size: 3em;
     margin-bottom: 10px;
+    text-align: center;
 }
 
 .header .subtitle {
     font-size: 1.5em;
     margin-bottom: 20px;
+    text-align: center;
 }
 
 .header .social-links a {
@@ -61,8 +63,7 @@ body {
 }
 
 .skill-image, .project-image, .contact-image {
-    width: 100%;
-    max-width: 400px;
+    width: 200px; /* Zmenšené obrázky */
     height: auto;
     margin-bottom: 20px;
 }
@@ -76,13 +77,8 @@ body {
     margin-left: 20px;
 }
 
-.swiper-pagination-bullet {
-    background-color: #fff;
-    opacity: 0.8;
-}
-
-.swiper-pagination-bullet-active {
-    opacity: 1;
+.contact-image {
+    width: 100px; /* Zmenšený obrázek pro kontakt */
 }
 
 .header, .about, .skills, .projects, .experience, .contact {
