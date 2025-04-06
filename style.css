@@ -1,4 +1,4 @@
-/* Základní styly (beze změn) */
+/* Základní styly */
 body {
     font-family: 'Roboto', sans-serif;
     margin: 0;
@@ -66,25 +66,26 @@ body {
 }
 
 .skill-image, .project-image, .contact-image {
-    width: 100px; /* Zmenšené obrázky pro mobily */
+    width: 80px; /* Ještě menší obrázky pro mobily */
     height: auto;
-    margin-bottom: 10px;
+    margin: 5px; /* Menší okraje */
 }
 
 .skill-content, .project-content {
     display: flex;
-    align-items: center;
-    flex-wrap: wrap; /* Zalamování prvků na menších obrazovkách */
-    justify-content: center; /* Centrování prvků */
+    flex-direction: column; /* Obrázky a text pod sebou na mobilech */
+    align-items: center; /* Centrování na mobilech */
 }
 
 .skill-content ul, .project-content ul {
-    margin-left: 10px;
+    margin-left: 0; /* Žádný levý okraj na mobilech */
+    padding-left: 20px; /* Odsazení pro odrážky */
     color: #c2e59c; /* Světle zelený text */
+    text-align: left; /* Zarovnání textu doleva na mobilech */
 }
 
 .contact-image {
-    width: 50px; /* Zmenšený obrázek pro kontakt na mobilech */
+    width: 40px; /* Ještě menší obrázek pro kontakt na mobilech */
 }
 
 .header, .about, .skills, .projects, .experience, .contact {
@@ -97,29 +98,32 @@ body {
 }
 
 .skills ul, .projects ul {
-    font-size: 1em; /* Zmenšení písma pro mobily */
-    line-height: 1.4; /* Zmenšení řádkování pro mobily */
+    font-size: 0.9em; /* Ještě menší písmo pro mobily */
+    line-height: 1.3; /* Ještě menší řádkování pro mobily */
     text-shadow: 1px 1px 2px #000; /* Přidání stínu textu */
 }
 
 .skill-content img {
-    margin-right: 10px; /* Menší mezera mezi obrázkem a textem na mobilech */
+    margin-right: 0; /* Žádný pravý okraj na mobilech */
+    margin-bottom: 10px; /* Mezera pod obrázkem */
 }
 
 /* Media query pro větší obrazovky (např. tablety a desktopy) */
 @media (min-width: 768px) {
     .skill-image, .project-image, .contact-image {
         width: 200px; /* Větší obrázky pro větší obrazovky */
-        margin-bottom: 20px;
+        margin: 0 0 20px 0; /* Standardní okraje pro větší obrazovky */
     }
 
     .skill-content, .project-content {
-        flex-wrap: nowrap; /* Nezalamovat prvky na větších obrazovkách */
+        flex-direction: row; /* Obrázky a text vedle sebe na větších obrazovkách */
+        align-items: center; /* Vertikální centrování na větších obrazovkách */
         justify-content: flex-start; /* Zarovnat prvky doleva */
     }
 
     .skill-content ul, .project-content ul {
         margin-left: 20px;
+        text-align: left; /* Zarovnání textu doleva na větších obrazovkách */
     }
 
     .contact-image {
@@ -132,6 +136,7 @@ body {
     }
 
     .skill-content img {
-        margin-right: 20px; /* Větší mezera mezi obrázkem a textem na větších obrazovkách */
+        margin-right: 20px; /* Mezera mezi obrázkem a textem na větších obrazovkách */
+        margin-bottom: 0; /* Žádná mezera pod obrázkem na větších obrazovkách */
     }
 }
