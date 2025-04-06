@@ -146,7 +146,7 @@ h2 {
 .experience ul {
     list-style: none;
     padding: 0;
-    text-align: left; /* Zarovnání položek seznamu doleva pro lepší čitelnost */
+    text-align: center; /* Zarovnání položek seznamu na střed */
     display: inline-block; /* Aby se seznam choval jako blok na střed */
 }
 
