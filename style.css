@@ -98,3 +98,7 @@ body {
     line-height: 1.6; /* Zvětšení řádkování */
     text-shadow: 1px 1px 2px #000; /* Přidání stínu textu */
 }
+
+.skill-content img {
+    margin-right: 20px; /* Mezera mezi obrázkem a textem */
+}
