@@ -108,6 +108,7 @@ body {
 h2 {
     font-size: 1.8em; /* Sjednocení velikosti nadpisů */
     margin-bottom: 15px;
+    text-align: center; /* Zarovnání nadpisů na střed */
 }
 
 .about p, .contact p {
@@ -147,3 +148,10 @@ h2 {
     h2 {
         font-size: 2em;
         margin-bottom: 20px;
+        text-align: center; /* Zarovnání nadpisů na střed na větších obrazovkách */
+    }
+
+    .about p, .contact p {
+        font-size: 1.2em;
+    }
+}
