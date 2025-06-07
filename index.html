@@ -1,77 +1,191 @@
 <!DOCTYPE html>
-<html lang="cs">
+<html lang="en">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ivo Doležal - IT Specialista</title>
+    <title>Ivo Doležal - IT Specialist</title>
     <link rel="stylesheet" href="style.css">
     <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@400;700&display=swap" rel="stylesheet">
+    <style>
+        .lang-switch {
+            position: absolute;
+            top: 20px;
+            right: 30px;
+            z-index: 1000;
+        }
+        .lang-switch button {
+            background: #eee;
+            border: 1px solid #ccc;
+            border-radius: 5px;
+            padding: 6px 14px;
+            margin-left: 5px;
+            cursor: pointer;
+            font-weight: bold;
+        }
+        .lang-switch button.active {
+            background: #333;
+            color: #fff;
+        }
+    </style>
 </head>
 <body>
+    <div class="lang-switch">
+        <button id="enBtn" class="active">EN</button>
+        <button id="czBtn">CZ</button>
+    </div>
     <div class="container">
-        <div class="header">
-            <h1>Ivo Doležal <span aria-label="Mávající ruka" role="img">👋</span></h1>
-            <p class="subtitle">IT specialista / Analytik dat 📊</p>
-            <div class="social-links">
-                <a href="https://github.com/IvanekLumberjack888" target="_blank" rel="noopener noreferrer"><span aria-label="GitHub ikona" role="img">GitHub</span> <span aria-label="Odkaz" role="img">🔗</span></a>
-                <a href="https://www.linkedin.com/in/ivodolezal888/" target="_blank" rel="noopener noreferrer"><span aria-label="LinkedIn ikona" role="img">LinkedIn</span> <span aria-label="Odkaz" role="img">🔗</span></a>
+        <!-- ENGLISH CONTENT -->
+        <div id="en" class="lang-content">
+            <div class="header">
+                <h1>Ivo Doležal <span aria-label="Waving Hand" role="img">👋</span></h1>
+                <p class="subtitle">IT Specialist / Data Analyst 📊</p>
+                <div class="social-links">
+                    <a href="https://github.com/IvanekLumberjack888" target="_blank" rel="noopener noreferrer">GitHub <span aria-label="Link" role="img">🔗</span></a>
+                    <a href="https://www.linkedin.com/in/ivodolezal888/" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-label="Link" role="img">🔗</span></a>
+                </div>
+            </div>
+            <div class="about">
+                <h2>About Me <span aria-label="Man Technologist" role="img">👨‍💻</span></h2>
+                <p>Junior Project Manager focused on data and programming. I lead digitalization initiatives in M365 ☁️. Every day, I strive to move forward—stagnation is not a path I want to take. 🎯</p>
+            </div>
+            <div class="skills">
+                <h2>Skills <span aria-label="Sparkles" role="img">✨</span></h2>
+                <div class="skill-content">
+                    <ul>
+                        <li>Project Management 🚀</li>
+                        <li>M365 (Teams, Forms, Planner, SharePoint) ☁️</li>
+                        <li>Excel 📈</li>
+                        <img src="images/projekt_2.jpg" alt="Project 2" class="skill-image">
+                        <li>Power BI 📊</li>
+                        <li>Python (Basics) 🐍</li>
+                        <li>SQL (Basics) 💾</li>
+                        <li>HTML</li>
+                        <li>CSS</li>
+                        <li>Data Analysis (Interest and ongoing development) 🔍</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="projects">
+                <h2>Projects <span aria-label="Lightbulb" role="img">💡</span></h2>
+                <div class="project-content">
+                    <ul>
+                        <li><strong>Digitalization 2026:</strong> Digitalizing business processes in M365 with data integration ✅</li>
+                        <li><strong>ENGETO – Data Analysis:</strong> Data analysis using Python and SQL 🔬</li>
+                        <img src="images/projekt_1.jpg" alt="Project 1" class="project-image">
+                        <li><strong>Fleet Analytics:</strong> Improving fleet reporting 🚗</li>
+                        <li><strong>Personal Website:</strong> Online portfolio of my skills 🌐</li>
+                        <li><strong>Data Analyst with Python:</strong> Data analysis with Python (GitHub) 🐍</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="experience">
+                <h2>Experience <span aria-label="Briefcase" role="img">💼</span></h2>
+                <p style="white-space: pre-line;">Developing effective solutions in M365 👍
+Communication with management 💬
+Project implementation (Preparation, Testing, Go Live) 🚦
+Process improvement based on feedback 🔄</p>
+            </div>
+            <div class="contact">
+                <h2>Contact <span aria-label="E-mail" role="img">📧</span></h2>
+                <div style="position: relative; display: flex; flex-direction: column; align-items: center;">
+                    <a href="https://mapy.com/s/rebamuvofa" target="_blank" rel="noopener noreferrer">
+                        <img src="images/forest.jpg" alt="Forest" class="contact-image" style="cursor: pointer;">
+                        <div style="position: absolute; top: -25px; left: 50%; transform: translateX(-50%); opacity: 0; transition: opacity 0.3s ease-in-out; font-size: 0.9em; color: #fff; background-color: rgba(0, 0, 0, 0.7); padding: 5px 10px; border-radius: 5px; white-space: nowrap;">📍 Brno</div>
+                    </a>
+                </div>
+                <p>Collaboration and knowledge sharing welcome!</p>
+                <p><a href="mailto:ivousd@gmail.com">ivousd@gmail.com</a></p>
+                <p><a href="https://github.com/IvanekLumberjack888" target="_blank" rel="noopener noreferrer">GitHub <span aria-label="Link" role="img">🔗</span></a></p>
+                <p><a href="https://www.linkedin.com/in/ivodolezal888/" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-label="Link" role="img">🔗</span></a></p>
             </div>
         </div>
-        <div class="about">
-            <h2>O mně <span aria-label="Muž programátor" role="img">👨‍💻</span></h2>
-            <p>Junior Project Manager s orientací na data a programování. Vedu digitalizaci v M365 ☁️. Každý den se snažím posouvat dál, protože stagnace není cesta, kterou bych chtěl jít. 🎯</p>
-        </div>
-        <div class="skills">
-            <h2>Dovednosti <span aria-label="Jiskry" role="img">✨</span></h2>
-            <div class="skill-content">
-                <ul>
-                    <li>Projektové řízení 🚀</li>
-                    <li>M365 (Teams, Forms, Planner, SharePoint) ☁️</li>
-                    <li>Excel 📈</li>
-                    <img src="images/projekt_2.jpg" alt="Projekt 2" class="skill-image">
-                    <li>Power BI 📊</li>
-                    <li>Python (Základy) 🐍</li>
-                    <li>SQL (Základy) ️💾</li>
-                    <li>HTML <span aria-label="HTML ikona" role="img"></span></li>
-                    <li>CSS <span aria-label="CSS ikona" role="img"></span></li>
-                    <li>Datová Analýza (Zájem a rozvoj) 🔍</li>
-                </ul>
+        <!-- CZECH CONTENT -->
+        <div id="cz" class="lang-content" style="display:none;">
+            <div class="header">
+                <h1>Ivo Doležal <span aria-label="Mávající ruka" role="img">👋</span></h1>
+                <p class="subtitle">IT specialista / Analytik dat 📊</p>
+                <div class="social-links">
+                    <a href="https://github.com/IvanekLumberjack888" target="_blank" rel="noopener noreferrer">GitHub <span aria-label="Odkaz" role="img">🔗</span></a>
+                    <a href="https://www.linkedin.com/in/ivodolezal888/" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-label="Odkaz" role="img">🔗</span></a>
+                </div>
             </div>
-        </div>
-        <div class="projects">
-            <h2>Projekty <span aria-label="Žárovka" role="img">💡</span></h2>
-            <div class="project-content">
-                <ul>
-                    <li><strong>Digitalizace 2026:</strong> Digitalizace procesů v M365 s daty ✅</li>
-                    <li><strong>ENGETO - Datová analýza:</strong> Analýza dat pomocí Pythonu a SQL 🔬</li>
-                    <img src="images/projekt_1.jpg" alt="Projekt 1" class="project-image">
-                    <li><strong>Fleet Analytics:</strong> Zlepšení reportingu vozového parku 🚗</li>
-                    <li><strong>Osobní Webová Stránka:</strong> Online portfolio dovedností 🌐</li>
-                    <li><strong>Data Analyst s Python:</strong> Analýza dat pomocí Pythonu (GitHub) 🐍</li>
-                </ul>
+            <div class="about">
+                <h2>O mně <span aria-label="Muž programátor" role="img">👨‍💻</span></h2>
+                <p>Junior Project Manager s orientací na data a programování. Vedu digitalizaci v M365 ☁️. Každý den se snažím posouvat dál, protože stagnace není cesta, kterou bych chtěl jít. 🎯</p>
             </div>
-        </div>
-        <div class="experience">
-            <h2>Zkušenosti <span aria-label="Aktovka" role="img">💼</span></h2>
-            <p style="white-space: pre-line;">Vývoj efektivních řešení v M365 👍
+            <div class="skills">
+                <h2>Dovednosti <span aria-label="Jiskry" role="img">✨</span></h2>
+                <div class="skill-content">
+                    <ul>
+                        <li>Projektové řízení 🚀</li>
+                        <li>M365 (Teams, Forms, Planner, SharePoint) ☁️</li>
+                        <li>Excel 📈</li>
+                        <img src="images/projekt_2.jpg" alt="Projekt 2" class="skill-image">
+                        <li>Power BI 📊</li>
+                        <li>Python (Základy) 🐍</li>
+                        <li>SQL (Základy) 💾</li>
+                        <li>HTML</li>
+                        <li>CSS</li>
+                        <li>Datová Analýza (Zájem a rozvoj) 🔍</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="projects">
+                <h2>Projekty <span aria-label="Žárovka" role="img">💡</span></h2>
+                <div class="project-content">
+                    <ul>
+                        <li><strong>Digitalizace 2026:</strong> Digitalizace procesů v M365 s daty ✅</li>
+                        <li><strong>ENGETO - Datová analýza:</strong> Analýza dat pomocí Pythonu a SQL 🔬</li>
+                        <img src="images/projekt_1.jpg" alt="Projekt 1" class="project-image">
+                        <li><strong>Fleet Analytics:</strong> Zlepšení reportingu vozového parku 🚗</li>
+                        <li><strong>Osobní Webová Stránka:</strong> Online portfolio dovedností 🌐</li>
+                        <li><strong>Data Analyst s Python:</strong> Analýza dat pomocí Pythonu (GitHub) 🐍</li>
+                    </ul>
+                </div>
+            </div>
+            <div class="experience">
+                <h2>Zkušenosti <span aria-label="Aktovka" role="img">💼</span></h2>
+                <p style="white-space: pre-line;">Vývoj efektivních řešení v M365 👍
 Komunikace s vedením 💬
 Implementace projektů (Příprava, Testování, Go Live) 🚦
 Zlepšování procesů na základě zpětné vazby 🔄</p>
-        </div>
-        <div class="contact">
-            <h2>Kontakt <span aria-label="E-mail" role="img">📧</span></h2>
-            <div style="position: relative; display: flex; flex-direction: column; align-items: center;">
-                <a href="https://mapy.com/s/rebamuvofa" target="_blank" rel="noopener noreferrer">
-                    <img src="images/forest.jpg" alt="Les" class="contact-image" style="cursor: pointer;">
-                    <div style="position: absolute; top: -25px; left: 50%; transform: translateX(-50%); opacity: 0; transition: opacity 0.3s ease-in-out; font-size: 0.9em; color: #fff; background-color: rgba(0, 0, 0, 0.7); padding: 5px 10px; border-radius: 5px; white-space: nowrap;">📍 Brno</div>
-                </a>
             </div>
-            <p>Spolupráce a sdílení zkušeností vítány!</p>
-            <p><a href="mailto:ivousd@gmail.com">ivousd@gmail.com</a></p>
-            <p><a href="https://github.com/IvanekLumberjack888" target="_blank" rel="noopener noreferrer"><span aria-label="GitHub ikona" role="img">GitHub</span> <span aria-label="Odkaz" role="img">🔗</span></a></p>
-            <p><a href="https://www.linkedin.com/in/ivodolezal888/" target="_blank" rel="noopener noreferrer"><span aria-label="LinkedIn ikona" role="img">LinkedIn</span> <span aria-label="Odkaz" role="img">🔗</span></a></p>
+            <div class="contact">
+                <h2>Kontakt <span aria-label="E-mail" role="img">📧</span></h2>
+                <div style="position: relative; display: flex; flex-direction: column; align-items: center;">
+                    <a href="https://mapy.com/s/rebamuvofa" target="_blank" rel="noopener noreferrer">
+                        <img src="images/forest.jpg" alt="Les" class="contact-image" style="cursor: pointer;">
+                        <div style="position: absolute; top: -25px; left: 50%; transform: translateX(-50%); opacity: 0; transition: opacity 0.3s ease-in-out; font-size: 0.9em; color: #fff; background-color: rgba(0, 0, 0, 0.7); padding: 5px 10px; border-radius: 5px; white-space: nowrap;">📍 Brno</div>
+                    </a>
+                </div>
+                <p>Spolupráce a sdílení zkušeností vítány!</p>
+                <p><a href="mailto:ivousd@gmail.com">ivousd@gmail.com</a></p>
+                <p><a href="https://github.com/IvanekLumberjack888" target="_blank" rel="noopener noreferrer">GitHub <span aria-label="Odkaz" role="img">🔗</span></a></p>
+                <p><a href="https://www.linkedin.com/in/ivodolezal888/" target="_blank" rel="noopener noreferrer">LinkedIn <span aria-label="Odkaz" role="img">🔗</span></a></p>
+            </div>
         </div>
     </div>
+    <script>
+        const enBtn = document.getElementById('enBtn');
+        const czBtn = document.getElementById('czBtn');
+        const enDiv = document.getElementById('en');
+        const czDiv = document.getElementById('cz');
+
+        enBtn.onclick = function() {
+            enDiv.style.display = '';
+            czDiv.style.display = 'none';
+            enBtn.classList.add('active');
+            czBtn.classList.remove('active');
+            document.documentElement.lang = "en";
+        };
+        czBtn.onclick = function() {
+            enDiv.style.display = 'none';
+            czDiv.style.display = '';
+            czBtn.classList.add('active');
+            enBtn.classList.remove('active');
+            document.documentElement.lang = "cs";
+        };
+    </script>
     <script src="https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.js"></script>
     <script src="js/script.js"></script>
 </body>
