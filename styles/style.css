@@ -117,26 +117,20 @@ body {
   font-size: 1.2rem;
   color: var(--text-color);
 }
-
 /* Odkazy zeleně v projektech a kontaktech */
 #projects a, #contact a {
   color: var(--text-color) !important;
   text-decoration: underline;
   cursor: pointer;
 }
-#projects a:hover,
-#contact a:hover {
+#projects a:hover, #contact a:hover {
   color: var(--h3-color) !important;
   text-decoration: none;
 }
-
 /* Zeleně celý text v kontaktech */
-#contact,
-#contact h2,
-#contact p {
+#contact, #contact h2, #contact p {
   color: var(--text-color);
 }
-
 /* Jednotný styl pro ostatní kontejnery */
 .glass-card h2 {
   font-size: 2rem;
