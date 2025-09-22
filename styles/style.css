@@ -107,8 +107,6 @@ body {
   max-width: var(--max-width);
   text-align: center;
 }
-
-/* Styl první sekce s H1 */
 #home h1 {
   font-size: 2.8rem;
   font-weight: 700;
@@ -120,15 +118,23 @@ body {
   color: var(--text-color);
 }
 
-/* Styl pro odkazy v sekci Projekty na zelenou */
-#projects a {
+/* Odkazy zeleně v projektech a kontaktech */
+#projects a, #contact a {
   color: var(--text-color) !important;
   text-decoration: underline;
   cursor: pointer;
 }
-#projects a:hover {
+#projects a:hover,
+#contact a:hover {
   color: var(--h3-color) !important;
   text-decoration: none;
+}
+
+/* Zeleně celý text v kontaktech */
+#contact,
+#contact h2,
+#contact p {
+  color: var(--text-color);
 }
 
 /* Jednotný styl pro ostatní kontejnery */
@@ -150,7 +156,6 @@ body {
   line-height: 1.6;
   margin-bottom: 1.2rem;
 }
-
 .icon-row {
   display: flex;
   gap: 2rem;
@@ -162,33 +167,11 @@ body {
   width: 80px;
   height: auto;
 }
-
-/* Styl pro odkazy v sekci Projekty na zelenou */
-#projects a {
-  color: var(--text-color) !important;
-  text-decoration: underline;
-  cursor: pointer;
-}
-#projects a:hover {
-  color: var(--h3-color) !important;
-  text-decoration: none;
-}
-
-/* Zelená barva pro celý text a odkazy v sekci Kontakt */
-#contact,
-#contact h2,
-#contact p,
-#contact a {
-  color: var(--text-color);
-}
-
 @media (max-width: 768px) {
   .container {
-    color: var(--text-color) !important;
     width: 98vw;
   }
   .menu-links {
-    color: var(--text-color) !important;
     gap: 1rem;
   }
 }
