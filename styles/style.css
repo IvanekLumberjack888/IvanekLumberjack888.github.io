@@ -9,20 +9,17 @@
   --radius: 20px;
   --max-width: 1000px;
 }
-
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
-
 body {
   font-family: 'Inter', sans-serif;
   background: url('../images/background.jpg') center/cover fixed;
   color: var(--text-color);
   padding-top: 80px;
 }
-
 .social-buttons-top {
   position: fixed;
   top: 10px;
@@ -31,7 +28,6 @@ body {
   gap: 1rem;
   z-index: 1000;
 }
-
 .social-btn {
   display: flex;
   align-items: center;
@@ -44,17 +40,14 @@ body {
   text-decoration: none;
   backdrop-filter: blur(8px);
 }
-
 .social-btn img {
   width: 24px;
   height: 24px;
 }
-
 .social-btn:hover {
   background: var(--text-color);
   color: var(--h1-color);
 }
-
 .top-menu {
   position: fixed;
   top: 0;
@@ -67,14 +60,12 @@ body {
   padding: 10px 1rem;
   z-index: 999;
 }
-
 .menu-links {
   display: flex;
   gap: 2rem;
   list-style: none;
   position: relative;
 }
-
 .menu-links li + li::before {
   content: '•';
   color: #0B3D0B;
@@ -83,11 +74,9 @@ body {
   top: 50%;
   transform: translateY(-50%);
 }
-
 .menu-links li {
   position: relative;
 }
-
 .menu-links a {
   color: var(--text-color);
   text-decoration: none;
@@ -96,20 +85,17 @@ body {
   transition: background 0.3s, color 0.3s;
   display: inline-block;
 }
-
 .menu-links a.active,
 .menu-links a:hover {
   background: #253215;
   color: var(--h2-color);
 }
-
 .container {
   max-width: var(--max-width);
   width: 95vw;
   margin: 0 auto;
   padding: 2rem 0;
 }
-
 .glass-card {
   background: var(--bg-glass);
   border: 1px solid var(--border-glass);
@@ -129,20 +115,19 @@ body {
   color: var(--h1-color);
   margin-bottom: 0.5rem;
 }
-
 #home .subtitle {
   font-size: 1.2rem;
   color: var(--text-color);
 }
-/* Styl pro odkazy */
+
+/* Styl pro odkazy v sekci Projekty na zelenou */
 #projects a {
-  color: var(--text-color);
+  color: var(--text-color) !important;
   text-decoration: underline;
   cursor: pointer;
 }
-
 #projects a:hover {
-  color: var(--h3-color);
+  color: var(--h3-color) !important;
   text-decoration: none;
 }
 
@@ -153,14 +138,12 @@ body {
   color: var(--h2-color);
   margin-bottom: 1rem;
 }
-
 .glass-card h3 {
   font-size: 1.4rem;
   font-weight: bold;
   color: var(--h3-color);
-  margin: 1rem;
+  margin: 1rem 0 0.5rem;
 }
-
 .glass-card p {
   font-size: 1rem;
   color: var(--text-color);
@@ -174,7 +157,6 @@ body {
   justify-content: center;
   margin-top: 1rem;
 }
-
 .icon-row img,
 .location-small {
   width: 80px;
