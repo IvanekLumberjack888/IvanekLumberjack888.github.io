@@ -162,16 +162,17 @@ body {
   line-height: 1.6;
   margin-bottom: 1.2rem;
 }
-.icon-row {
-  display: flex;
-  gap: 2rem;
-  justify-content: center;
-  margin-top: 1rem;
+.icon-row img {
+  width: auto;
+  height: 150px;
+  object-fit: contain;
+  margin: 0 1rem;
 }
-.icon-row img,
-.location-small {
-  width: 150px;
-  height: auto;
+.icon-row img {
+  min-height: 150px;
+  width: auto;
+  object-fit: contain;
+  margin: 0 1rem;
 }
 @media (max-width: 768px) {
   .container {
