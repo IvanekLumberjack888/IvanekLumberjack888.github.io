@@ -62,27 +62,30 @@ const translations = {
 function setLang(lang) {
   for (const key in translations[lang]) {
     if (key === "projects_list") {
-      // rewrite projects section
       const el = document.getElementById("projects_list");
       el.innerHTML = "";
       translations[lang][key].forEach(txt => {
         el.innerHTML += `<h3><a href="#">${txt}</a></h3>`;
       });
     } else if (key === "skills_text") {
-      document.getElementById(key).innerHTML = translations[lang][key];
-    } else if (document.getElementById(key)) {
-      document.getElementById(key).textContent = translations[lang][key];
+      const s = document.getElementById(key);
+      if(s) s.innerHTML = translations[lang][key];
+    } else {
+      const e = document.getElementById(key);
+      if(e) e.textContent = translations[lang][key];
     }
   }
 }
 
-document.getElementById("enBtn").onclick = function() {
-  setLang("en");
-  this.classList.add("active");
-  document.getElementById("czBtn").classList.remove("active");
-};
-document.getElementById("czBtn").onclick = function() {
-  setLang("cz");
-  this.classList.add("active");
-  document.getElementById("enBtn").classList.remove("active");
-};
+document.addEventListener('DOMContentLoaded', function() {
+  document.getElementById("enBtn").onclick = function() {
+    setLang("en");
+    this.classList.add("active");
+    document.getElementById("czBtn").classList.remove("active");
+  };
+  document.getElementById("czBtn").onclick = function() {
+    setLang("cz");
+    this.classList.add("active");
+    document.getElementById("enBtn").classList.remove("active");
+  };
+});
