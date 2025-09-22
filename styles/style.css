@@ -163,6 +163,25 @@ body {
   height: auto;
 }
 
+/* Styl pro odkazy v sekci Projekty na zelenou */
+#projects a {
+  color: var(--text-color) !important;
+  text-decoration: underline;
+  cursor: pointer;
+}
+#projects a:hover {
+  color: var(--h3-color) !important;
+  text-decoration: none;
+}
+
+/* Zelená barva pro celý text a odkazy v sekci Kontakt */
+#contact,
+#contact h2,
+#contact p,
+#contact a {
+  color: var(--text-color);
+}
+
 @media (max-width: 768px) {
   .container {
     color: var(--text-color) !important;
