@@ -145,7 +145,7 @@ body {
 
 .glass-card h3 {
   font-size: 1.4rem;
-  font-weight: 600;
+  font-weight: bold;
   color: var(--h3-color);
   margin: 1rem 0 0.5rem;
 }
