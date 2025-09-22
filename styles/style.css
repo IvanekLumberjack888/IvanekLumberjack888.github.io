@@ -131,6 +131,18 @@ body {
 #contact, #contact h2, #contact p {
   color: var(--text-color);
 }
+
+/* Styl obrázku v kontaktu */
+#contact img {
+  width: 150px;
+  height: 150px;
+  object-fit: cover;
+  border-radius: 8px;
+  box-shadow: 0 2px 16px rgba(0,0,0,0.07);
+  margin-top: 1rem;
+  margin-bottom: 1rem;
+  cursor: pointer;
+}
 /* Jednotný styl pro ostatní kontejnery */
 .glass-card h2 {
   font-size: 2rem;
