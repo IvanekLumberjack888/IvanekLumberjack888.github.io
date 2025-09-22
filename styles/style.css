@@ -117,22 +117,36 @@ body {
   font-size: 1.2rem;
   color: var(--text-color);
 }
-/* Odkazy zeleně v projektech a kontaktech */
+/* Zelené odkazy v projektech a kontaktech */
 #projects a, #contact a {
   color: var(--text-color) !important;
   text-decoration: underline;
   cursor: pointer;
 }
-#projects a:hover, #contact a:hover {
+#projects a:hover,
+#contact a:hover {
   color: var(--h3-color) !important;
   text-decoration: none;
 }
-/* Zeleně celý text v kontaktech */
+/* Zelený text v kontaktech */
 #contact, #contact h2, #contact p {
   color: var(--text-color);
 }
-
-/* Styl obrázku v kontaktu */
+/* Obrázky v sekci O mně */
+.icon-row {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  align-items: center;
+  margin-top: 1rem;
+}
+.icon-row img {
+  height: 150px;
+  width: auto;
+  object-fit: contain;
+  margin: 0 1rem;
+}
+/* Obrázek v sekci Kontakt */
 #contact img {
   width: 150px;
   height: 150px;
@@ -141,8 +155,8 @@ body {
   box-shadow: 0 2px 16px rgba(0,0,0,0.07);
   margin-top: 1rem;
   margin-bottom: 1rem;
-  cursor: pointer;
 }
+
 /* Jednotný styl pro ostatní kontejnery */
 .glass-card h2 {
   font-size: 2rem;
@@ -161,18 +175,6 @@ body {
   color: var(--text-color);
   line-height: 1.6;
   margin-bottom: 1.2rem;
-}
-.icon-row img {
-  width: auto;
-  height: 150px;
-  object-fit: contain;
-  margin: 0 1rem;
-}
-.icon-row img {
-  min-height: 150px;
-  width: auto;
-  object-fit: contain;
-  margin: 0 1rem;
 }
 @media (max-width: 768px) {
   .container {
