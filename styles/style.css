@@ -165,9 +165,11 @@ body {
 
 @media (max-width: 768px) {
   .container {
+    color: var(--text-color) !important;
     width: 98vw;
   }
   .menu-links {
+    color: var(--text-color) !important;
     gap: 1rem;
   }
 }
