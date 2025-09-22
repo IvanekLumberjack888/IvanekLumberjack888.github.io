@@ -1,22 +1,23 @@
-document.addEventListener('DOMContentLoaded', function() {
-    const skills = document.querySelector('.skills');
-    const experience = document.querySelector('.experience');
-    const skillsList = skills.querySelector('ul');
-    const experienceList = experience.querySelector('ul');
+document.addEventListener('DOMContentLoaded', () => {
+  const enBtn = document.getElementById('enBtn');
+  const czBtn = document.getElementById('czBtn');
+  enBtn.addEventListener('click', () => {
+    enBtn.classList.add('active');
+    czBtn.classList.remove('active');
+  });
+  czBtn.addEventListener('click', () => {
+    czBtn.classList.add('active');
+    enBtn.classList.remove('active');
+  });
 
-    skills.addEventListener('click', function() {
-        if (skillsList.style.display === 'none') {
-            skillsList.style.display = 'block';
-        } else {
-            skillsList.style.display = 'none';
-        }
+  const menuLinks = document.querySelectorAll('.menu-links a');
+  menuLinks.forEach(link => {
+    link.addEventListener('click', e => {
+      e.preventDefault();
+      menuLinks.forEach(l => l.classList.remove('active'));
+      link.classList.add('active');
+      document.querySelector(link.getAttribute('href'))
+              .scrollIntoView({behavior:'smooth',block:'start'});
     });
-
-    experience.addEventListener('click', function() {
-        if (experienceList.style.display === 'none') {
-            experienceList.style.display = 'block';
-        } else {
-            experienceList.style.display = 'none';
-        }
-    });
+  });
 });
