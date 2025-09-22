@@ -1,82 +1,173 @@
-<!DOCTYPE html>
-<html lang="cs">
-<head>
-  <meta charset="UTF-8" />
-  <meta name="viewport" content="width=device-width, initial-scale=1" />
-  <title>Ivo Doležal – Portfolio</title>
-  <link rel="stylesheet" href="styles/style.css" />
-</head>
-<body>
-  <div class="social-buttons-top">
-    <a href="https://github.com/IvanekLumberjack888" class="social-btn">
-      <img src="images/github.png" alt="GitHub" /> GitHub
-    </a>
-    <a href="https://www.linkedin.com/in/ivodolezal888/" class="social-btn">
-      <img src="images/linkedin.png" alt="LinkedIn" /> LinkedIn
-    </a>
-  </div>
-  <nav class="top-menu">
-    <ul class="menu-links">
-      <li><a href="#home" class="active">Domů</a></li>
-      <li><a href="#skills">Dovednosti</a></li>
-      <li><a href="#projects">Projekty</a></li>
-      <li><a href="#experience">Zkušenosti</a></li>
-      <li><a href="#contact">Kontakt</a></li>
-    </ul>
-  </nav>
-  <div class="container">
-    <section id="home" class="glass-card">
-      <h1>Ivo Doležal</h1>
-      <p class="subtitle">Data Engineer | Systémový Inovátor</p>
-    </section>
+:root {
+  --h1-color: #B29180;
+  --h2-color: #B29180;
+  --h3-color: #A8E063;
+  --text-color: #A8E063;
+  --bg-glass: rgba(34, 77, 34, 0.8);
+  --border-glass: rgba(34, 77, 34, 1);
+  --shadow: 0 8px 32px rgba(0,0,0,0.13);
+  --radius: 20px;
+  --max-width: 1000px;
+}
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+body {
+  font-family: 'Inter', sans-serif;
+  background: url('../images/background.jpg') center/cover fixed;
+  color: var(--text-color);
+  padding-top: 80px;
+}
+.social-buttons-top {
+  position: fixed;
+  top: 10px;
+  left: 10px;
+  display: flex;
+  gap: 1rem;
+  z-index: 1000;
+}
+.social-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--bg-glass);
+  border: 1px solid var(--border-glass);
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  color: var(--text-color);
+  text-decoration: none;
+  backdrop-filter: blur(8px);
+}
+.social-btn img {
+  width: 24px;
+  height: 24px;
+}
+.social-btn:hover {
+  background: var(--text-color);
+  color: var(--h1-color);
+}
+.top-menu {
+  position: fixed;
+  top: 0;
+  left: 0;
+  right: 0;
+  background: #0b3d0b;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  padding: 10px 1rem;
+  z-index: 999;
+}
+.menu-links {
+  display: flex;
+  gap: 2rem;
+  list-style: none;
+  position: relative;
+}
+.menu-links li + li::before {
+  content: '•';
+  color: #0B3D0B;
+  position: absolute;
+  left: -1rem;
+  top: 50%;
+  transform: translateY(-50%);
+}
+.menu-links li {
+  position: relative;
+}
+.menu-links a {
+  color: var(--text-color);
+  text-decoration: none;
+  padding: 0.6rem 1.2rem;
+  border-radius: 6px;
+  transition: background 0.3s, color 0.3s;
+  display: inline-block;
+}
+.menu-links a.active,
+.menu-links a:hover {
+  background: #253215;
+  color: var(--h2-color);
+}
+.container {
+  max-width: var(--max-width);
+  width: 95vw;
+  margin: 0 auto;
+  padding: 2rem 0;
+}
+.glass-card {
+  background: var(--bg-glass);
+  border: 1px solid var(--border-glass);
+  border-radius: var(--radius);
+  box-shadow: var(--shadow);
+  backdrop-filter: blur(12px);
+  margin: 3rem auto;
+  padding: 2rem;
+  max-width: var(--max-width);
+  text-align: center;
+}
 
-    <section id="about" class="glass-card">
-      <h2>O mně</h2>
-      <p>
-        Občas vidím struktury a vzorce, které ostatní nevidí. Mám dar pronikat do skrytých systémů a nacházet řešení tam, kde ho jiní nevidí. Jak čtete v datech vy? Já čtu mezi řádky. Strašně rád se vrtám v datech a hledám ty skryté poklady, které tam někdo zanechal.
-      </p>
-      <div class="icon-row">
-        <img src="images/data_mining.png" alt="Data Mining" />
-        <img src="images/m365.png" alt="M365" />
-        <img src="images/tools.png" alt="Tools" />
-      </div>
-    </section>
+/* Styl první sekce s H1 */
+#home h1 {
+  font-size: 2.8rem;
+  font-weight: 700;
+  color: var(--h1-color);
+  margin-bottom: 0.5rem;
+}
+#home .subtitle {
+  font-size: 1.2rem;
+  color: var(--text-color);
+}
 
-    <section id="skills" class="glass-card">
-      <h2>Dovednosti</h2>
-      <h3>Data Engineering &amp; Architektura</h3>
-      <p>ETL/ELT Pipelines, Data Warehousing, Python &amp; SQL</p>
-      <h3>Systémová Integrace</h3>
-      <p>M365 Ekosystém, Power Platform, Power Automate</p>
-      <h3>Analytické Nástroje</h3>
-      <p>Power BI &amp; DAX, GitHub Copilot, Excel Advanced</p>
-    </section>
+/* Styl pro odkazy v sekci Projekty na zelenou */
+#projects a {
+  color: var(--text-color) !important;
+  text-decoration: underline;
+  cursor: pointer;
+}
+#projects a:hover {
+  color: var(--h3-color) !important;
+  text-decoration: none;
+}
 
-    <section id="projects" class="glass-card">
-      <h2>Projekty</h2>
-      <h3><a href="https://github.com/IvanekLumberjack888/text_analyzer">Text Analyzer</a></h3>
-      <h3><a href="https://github.com/IvanekLumberjack888/Bulls-and-Cows">Bulls &amp; Cows</a></h3>
-      <h3><a href="https://github.com/IvanekLumberjack888/Elections-Scraper">Election Scraper</a></h3>
-      <h3><a href="https://github.com/IvanekLumberjack888/sql-projekt-engeto">Analýza HDP vs mzdy (2006–2018)</a></h3>
-    </section>
+/* Jednotný styl pro ostatní kontejnery */
+.glass-card h2 {
+  font-size: 2rem;
+  font-weight: bold;
+  color: var(--h2-color);
+  margin-bottom: 1rem;
+}
+.glass-card h3 {
+  font-size: 1.4rem;
+  font-weight: bold;
+  color: var(--h3-color);
+  margin: 1rem 0 0.5rem;
+}
+.glass-card p {
+  font-size: 1rem;
+  color: var(--text-color);
+  line-height: 1.6;
+  margin-bottom: 1.2rem;
+}
 
-    <section id="experience" class="glass-card">
-      <h2>Zkušenosti</h2>
-      <h3>Implementace AI-powered řešení v Microsoft PowerBI</h3>
-      <p>.</p>
-      <h3>Automatizace procesů pomocí GitHub Copilot</h3>
-      <p>.</p>
-      <h3>Digitalizace</h3>
-      <p>.</p>
-    </section>
+.icon-row {
+  display: flex;
+  gap: 2rem;
+  justify-content: center;
+  margin-top: 1rem;
+}
+.icon-row img,
+.location-small {
+  width: 80px;
+  height: auto;
+}
 
-    <section id="contact" class="glass-card">
-      <h2>Kontakt</h2>
-      <p><a href="mailto:ivousd@gmail.com">ivousd@gmail.com</a></p>
-      <p>
-        <a href="https://mapy.cz/s/brno"><img src="images/forest.png" alt="Brno" class="location-small"></a>
-      </p>
-    </section>
-  </div>
-</body>
-</html>
+@media (max-width: 768px) {
+  .container {
+    width: 98vw;
+  }
+  .menu-links {
+    gap: 1rem;
+  }
+}
