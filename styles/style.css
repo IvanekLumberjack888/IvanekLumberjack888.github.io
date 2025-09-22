@@ -134,6 +134,17 @@ body {
   font-size: 1.2rem;
   color: var(--text-color);
 }
+/* Styl pro odkazy */
+#projects a {
+  color: var(--text-color);
+  text-decoration: underline;
+  cursor: pointer;
+}
+
+#projects a:hover {
+  color: var(--h3-color);
+  text-decoration: none;
+}
 
 /* Jednotný styl pro ostatní kontejnery */
 .glass-card h2 {
