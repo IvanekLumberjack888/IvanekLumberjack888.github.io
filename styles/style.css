@@ -20,34 +20,8 @@ body {
   color: var(--text-color);
   padding-top: 80px;
 }
-.social-buttons-top {
-  position: fixed;
-  top: 10px;
-  left: 10px;
-  display: flex;
-  gap: 1rem;
-  z-index: 1000;
-}
-.social-btn {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: var(--bg-glass);
-  border: 1px solid var(--border-glass);
-  border-radius: 8px;
-  padding: 0.5rem 1rem;
-  color: var(--text-color);
-  text-decoration: none;
-  backdrop-filter: blur(8px);
-}
-.social-btn img {
-  width: 24px;
-  height: 24px;
-}
-.social-btn:hover {
-  background: var(--text-color);
-  color: var(--h1-color);
-}
+
+/* Responzivní horní menu */
 .top-menu {
   position: fixed;
   top: 0;
@@ -90,6 +64,35 @@ body {
   background: #253215;
   color: var(--h2-color);
 }
+
+/* Sociální tlačítka v kontaktu */
+.social-buttons {
+  display: flex;
+  gap: 1rem;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+}
+.social-btn {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background: var(--bg-glass);
+  border: 1px solid var(--border-glass);
+  border-radius: 8px;
+  padding: 0.5rem 1rem;
+  color: var(--text-color);
+  text-decoration: none;
+  backdrop-filter: blur(8px);
+}
+.social-btn img {
+  width: 24px;
+  height: 24px;
+}
+.social-btn:hover {
+  background: var(--text-color);
+  color: var(--h1-color);
+}
+
 .container {
   max-width: var(--max-width);
   width: 95vw;
@@ -132,7 +135,8 @@ body {
 #contact, #contact h2, #contact p {
   color: var(--text-color);
 }
-/* Obrázky v sekci O mně */
+
+/* Obrázky v icon-row */
 .icon-row {
   display: flex;
   gap: 2rem;
@@ -142,10 +146,12 @@ body {
 }
 .icon-row img {
   height: 150px;
+  max-width: 307px;
   width: auto;
   object-fit: contain;
   margin: 0 1rem;
 }
+
 /* Obrázek v sekci Kontakt */
 #contact img {
   width: 150px;
@@ -176,11 +182,35 @@ body {
   line-height: 1.6;
   margin-bottom: 1.2rem;
 }
+
+/* Responzivní úpravy pro mobily */
 @media (max-width: 768px) {
   .container {
     width: 98vw;
   }
+  
+  /* Menu pro mobily - menší gap a padding */
   .menu-links {
-    gap: 1rem;
+    gap: 0.5rem;
+  }
+  .menu-links a {
+    padding: 0.4rem 0.8rem;
+    font-size: 0.9rem;
+  }
+  
+  /* Sociální tlačítka na mobilu */
+  .social-buttons {
+    flex-direction: column;
+    align-items: center;
+  }
+}
+
+@media (max-width: 480px) {
+  /* Úplně skrýt menu na velmi malých obrazovkách */
+  .top-menu {
+    display: none;
+  }
+  body {
+    padding-top: 20px;
   }
 }
