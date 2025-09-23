@@ -65,13 +65,33 @@ body {
   color: var(--h2-color);
 }
 
-/* Sociální tlačítka v kontaktu */
-.social-buttons {
-  display: flex;
-  gap: 1rem;
-  justify-content: center;
-  margin-bottom: 1.5rem;
+/* Layout kontaktu - 3 sloupce */
+.contact-layout {
+  display: grid;
+  grid-template-columns: 1fr 1fr 1fr;
+  align-items: center;
+  gap: 2rem;
+  margin-top: 1rem;
 }
+
+.contact-left {
+  display: flex;
+  justify-content: center;
+}
+
+.contact-center {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 1rem;
+}
+
+.contact-right {
+  display: flex;
+  justify-content: center;
+}
+
+/* Styly pro sociální tlačítka */
 .social-btn {
   display: flex;
   align-items: center;
@@ -189,7 +209,7 @@ body {
     width: 98vw;
   }
   
-  /* Menu pro mobily - menší gap a padding */
+  /* Menu pro mobily */
   .menu-links {
     gap: 0.5rem;
   }
@@ -198,15 +218,14 @@ body {
     font-size: 0.9rem;
   }
   
-  /* Sociální tlačítka na mobilu */
-  .social-buttons {
-    flex-direction: column;
-    align-items: center;
+  /* Kontakt layout pro mobily - vertikálně */
+  .contact-layout {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
   }
 }
 
 @media (max-width: 480px) {
-  /* Úplně skrýt menu na velmi malých obrazovkách */
   .top-menu {
     display: none;
   }
