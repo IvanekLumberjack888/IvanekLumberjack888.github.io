@@ -9,89 +9,55 @@
 <body>
   <nav class="top-menu">
     <ul class="menu-links">
-      <li><a href="#home" class="active">Domů</a></li>
-      <li><a href="#about">O mně</a></li>
-      <li><a href="#skills">Dovednosti</a></li>
-      <li><a href="#projects">Projekty</a></li>
-      <li><a href="#experience">Zkušenosti</a></li>
-      <li><a href="#contact">Kontakt</a></li>
+      <li><a id="menu_home" href="#home" class="active">Domů</a></li>
+      <li><a id="menu_skills" href="#skills">Dovednosti</a></li>
+      <li><a id="menu_projects" href="#projects">Projekty</a></li>
+      <li><a id="menu_experience" href="#experience">Zkušenosti</a></li>
+      <li><a id="menu_contact" href="#contact">Kontakt</a></li>
+      <li>
+        <button id="czBtn" class="lang-btn active" aria-label="Čeština">CZ</button> /
+        <button id="enBtn" class="lang-btn" aria-label="English">EN</button>
+      </li>
     </ul>
   </nav>
   <div class="container">
     <section id="home" class="glass-card">
-      <h1>Ivo Doležal</h1>
-      <p class="subtitle">Data Engineer | Systémový Inovátor</p>
+      <h1 id="title_name">Ivo Doležal</h1>
+      <p class="subtitle" id="title_sub">Data Engineer | Systémový Inovátor</p>
     </section>
     <section id="about" class="glass-card">
-      <h2>O mně</h2>
-      <p><strong>Od dřeva k datům - stavím systémy, které vydrží.</strong></p>
-      <p>Proč "od dřeva"? To vám povím u kávy – dnes můj materiál nejsou fošny, ale data, nástroje Python, SQL, PowerBI. Stavím funkční, robustní systémy i v digitálním světě.</p>
-      <p>Transformace z manuální práce do světa dat a technologií – kurz Datové analýzy s Pythonem u Engeto, praxe v automobilovém průmyslu, digitální reporting, webové aplikace na M365.</p>
+      <h2 id="section_about">O mně</h2>
+      <p id="about_text">
+        Občas vidím struktury a vzorce, které ostatní nevidí. Mám dar pronikat do skrytých systémů a nacházet řešení tam, kde ho jiní nevidí. Jak čtete v datech vy? Já čtu mezi řádky. Strašně rád se vrtám v datech a hledám ty skryté poklady, které tam někdo zanechal.
+      </p>
     </section>
     <section id="skills" class="glass-card">
-      <h2>Dovednosti</h2>
-      <ul>
-        <li>Python (analýza, scraping, automatizace)</li>
-        <li>SQL & databáze (DBeaver, PostgreSQL)</li>
-        <li>Power BI (dashboardy, DAX)</li>
-        <li>SharePoint, Power Automate, M365 integrace</li>
-        <li>Vizualizace a reporting</li>
-      </ul>
+      <h2 id="skills_h2">Dovednosti</h2>
+      <div id="skills_text">
+        <strong>Data Engineering &amp; Architektura</strong><br>ETL/ELT Pipelines, Data Warehousing, Python &amp; SQL<br><strong>Systémová Integrace</strong><br>M365 Ekosystém, Power Platform, Power Automate<br><strong>Analytické Nástroje</strong><br>Power BI &amp; DAX, GitHub Copilot, Excel Advanced
+      </div>
     </section>
     <section id="projects" class="glass-card">
-      <h2>Projekty</h2>
-      <!-- Text Analyzer dynamický teaser z README.md -->
-      <div class="project-card" id="teaser_text_analyzer">
-        <img src="images/text_analyzer.png" alt="Text Analyzer demo" width="80">
-        <h3>
-          <a href="https://github.com/IvanekLumberjack888/text_analyzer" target="_blank">Text Analyzer</a>
-        </h3>
-        <p>
-          Nahrávám informace o projektu z README...
-        </p>
-        <a href="https://ivaneklumberjack888.github.io/text_analyzer/" target="_blank">Demoverze na GitHub Pages</a>
-      </div>
-
-      <div class="project-card">
-        <img src="images/bulls_and_cows.png" alt="Bulls and Cows demo" width="80">
-        <h3>
-          <a href="https://github.com/IvanekLumberjack888/Bulls-and-Cows" target="_blank">Bulls &amp; Cows</a>
-        </h3>
-        <p>
-          Logická hra na trénink dedukce – Python, interaktivní, pro logické myšlení.
-        </p>
-      </div>
-
-      <div class="project-card">
-        <img src="images/elections_scraper.png" alt="Election Scraper" width="80">
-        <h3>
-          <a href="https://github.com/IvanekLumberjack888/Elections-Scraper" target="_blank">Election Scraper</a>
-        </h3>
-        <p>
-          Web scraping volebních dat – Automatizovaný Python skript, export do CSV, vizualizace.
-        </p>
-      </div>
-
-      <div class="project-card">
-        <img src="images/sql_project_engeto.png" alt="SQL HDP projekt" width="80">
-        <h3>
-          <a href="https://github.com/IvanekLumberjack888/sql-projekt-engeto" target="_blank">HDP vs mzdy (2006–2018)</a>
-        </h3>
-        <p>
-          SQL analýza ekonomických dat – DBeaver, PowerBI, výstupy pro reporting.
-        </p>
+      <h2 id="projects_h2">Projekty</h2>
+      <div id="projects_list">
+        <h3><a href="https://github.com/IvanekLumberjack888/text_analyzer" target="_blank">Text Analyzer</a> | <a href="https://ivaneklumberjack888.github.io/text_analyzer/" target="_blank">Prezentace</a></h3>
+        <h3><a href="https://github.com/IvanekLumberjack888/Bulls-and-Cows" target="_blank">Bulls & Cows</a> | <a href="https://ivaneklumberjack888.github.io/Bulls-and-Cows/" target="_blank">Prezentace</a></h3>
+        <h3><a href="https://github.com/IvanekLumberjack888/Elections-Scraper" target="_blank">Election Scraper</a> | <a href="https://ivaneklumberjack888.github.io/Elections-Scraper/" target="_blank">Prezentace</a></h3>
+        <h3><a href="https://github.com/IvanekLumberjack888/sql-projekt-engeto" target="_blank">Analýza HDP vs mzdy (2006–2018)</a> | <a href="https://ivaneklumberjack888.github.io/sql-projekt-engeto/" target="_blank">Prezentace</a></h3>
+        <h3><a href="https://github.com/IvanekLumberjack888/PowerBI-for-Engeto" target="_blank">PowerBI pro Engeto</a> | <a href="https://ivaneklumberjack888.github.io/PowerBI-for-Engeto/" target="_blank">Prezentace</a></h3>
       </div>
     </section>
     <section id="experience" class="glass-card">
-      <h2>Zkušenosti</h2>
-      <ul>
-        <li>Digitalizace vozového parku v Hedin Automotive CZ</li>
-        <li>Datová analýza s Pythonem (Engeto)</li>
-        <li>Webové projekty: SharePoint, M365, reporting</li>
-      </ul>
+      <h2 id="exp_h2">Zkušenosti</h2>
+      <h3 id="exp_ai">Implementace AI-powered řešení v Microsoft PowerBI</h3>
+      <p id="exp_ai_txt">Povídání</p>
+      <h3 id="exp_auto">Automatizace procesů pomocí GitHub Copilot</h3>
+      <p id="exp_auto_txt">Povídání</p>
+      <h3 id="exp_digit">Digitalizace</h3>
+      <p id="exp_digit_txt">Povídání</p>
     </section>
     <section id="contact" class="glass-card">
-      <h2>Kontakt</h2>
+      <h2 id="contact_h2">Kontakt</h2>
       <div class="contact-layout">
         <div class="contact-left">
           <a href="https://github.com/IvanekLumberjack888" class="social-btn">
@@ -99,7 +65,7 @@
           </a>
         </div>
         <div class="contact-center">
-          <p><a href="mailto:ivousd@gmail.com">ivousd@gmail.com</a></p>
+          <p id="contact_mail"><a href="mailto:ivousd@gmail.com">ivousd@gmail.com</a></p>
           <p>
             <a href="https://maps.app.goo.gl/sNJcxnnuiAK6wuK58" target="_blank" rel="noopener noreferrer">
               <img src="images/forest.jpg" alt="Brno" width="150" height="150" />
@@ -114,8 +80,6 @@
       </div>
     </section>
   </div>
-  <!-- Dynamické načítání teaseru -->
   <script src="js/script.js"></script>
-  <script src="https://cdn.jsdelivr.net/npm/marked/marked.min.js"></script>
 </body>
 </html>
