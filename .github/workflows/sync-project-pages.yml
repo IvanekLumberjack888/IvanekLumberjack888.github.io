@@ -1,0 +1,41 @@
+name: Sync Project Pages
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 * * * *' # každou hodinu
+
+jobs:
+  sync-pages:
+    runs-on: ubuntu-latest
+    steps:
+      - name: Checkout IvanekLumberjack888.github.io
+        uses: actions/checkout@v4
+
+      - name: Sync Bulls-and-Cows index.md
+        run: |
+          mkdir -p bulls-and-cows
+          curl -sL https://raw.githubusercontent.com/IvanekLumberjack888/Bulls-and-Cows/main/index.md -o bulls-and-cows/index.md
+
+      - name: Sync Elections-Scraper index.md
+        run: |
+          mkdir -p elections-scraper
+          curl -sL https://raw.githubusercontent.com/IvanekLumberjack888/Elections-Scraper/main/index.md -o elections-scraper/index.md
+
+      - name: Sync SQL Engeto index.md
+        run: |
+          mkdir -p sql-projekt-engeto
+          curl -sL https://raw.githubusercontent.com/IvanekLumberjack888/sql-projekt-engeto/main/index.md -o sql-projekt-engeto/index.md
+
+      - name: Sync PowerBI index.md
+        run: |
+          mkdir -p powerbi-for-engeto
+          curl -sL https://raw.githubusercontent.com/IvanekLumberjack888/PowerBI-for-Engeto/main/index.md -o powerbi-for-engeto/index.md
+
+      - name: Commit and push changes
+        run: |
+          git config --global user.email "github-actions[bot]@users.noreply.github.com"
+          git config --global user.name "github-actions[bot]"
+          git add .
+          git diff --cached --quiet || git commit -m "Sync project index.md pages"
+          git push
