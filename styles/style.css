@@ -1,235 +1,233 @@
 :root {
-  --h1-color: #B29180;
-  --h2-color: #B29180;
-  --h3-color: #A8E063;
-  --text-color: #A8E063;
-  --bg-glass: rgba(34, 77, 34, 0.8);
-  --border-glass: rgba(34, 77, 34, 1);
-  --shadow: 0 8px 32px rgba(0,0,0,0.13);
-  --radius: 20px;
-  --max-width: 1000px;
+  --main-green: #96D5AB;
+  --dark-green: #466963;
+  --accent: #2e5940;
+  --bg-glass: rgba(150, 213, 171, 0.13);
+  --white: #fff;
+  --light-gray: #f6f9f7;
+  --shadow: 0 2px 16px rgba(34,89,64,0.09);
 }
-* {
+
+body {
+  background: var(--light-gray);
+  font-family: 'Inter', Arial, sans-serif;
+  color: var(--accent);
+  min-height: 100vh;
   margin: 0;
   padding: 0;
-  box-sizing: border-box;
-}
-body {
-  font-family: 'Inter', sans-serif;
-  background: url('../images/background.jpg') center/cover fixed;
-  color: var(--text-color);
-  padding-top: 80px;
 }
 
-/* Responzivní horní menu */
-.top-menu {
-  position: fixed;
-  top: 0;
-  left: 0;
-  right: 0;
-  background: #0b3d0b;
-  display: flex;
-  align-items: center;
-  justify-content: center;
-  padding: 10px 1rem;
-  z-index: 999;
-}
-.menu-links {
-  display: flex;
-  gap: 2rem;
-  list-style: none;
-  position: relative;
-}
-.menu-links li + li::before {
-  content: '•';
-  color: #0B3D0B;
-  position: absolute;
-  left: -1rem;
-  top: 50%;
-  transform: translateY(-50%);
-}
-.menu-links li {
-  position: relative;
-}
-.menu-links a {
-  color: var(--text-color);
-  text-decoration: none;
-  padding: 0.6rem 1.2rem;
-  border-radius: 6px;
-  transition: background 0.3s, color 0.3s;
-  display: inline-block;
-}
-.menu-links a.active,
-.menu-links a:hover {
-  background: #253215;
-  color: var(--h2-color);
-}
-
-/* Layout kontaktu - 3 sloupce */
-.contact-layout {
-  display: grid;
-  grid-template-columns: 1fr 1fr 1fr;
-  align-items: center;
-  gap: 2rem;
-  margin-top: 1rem;
-}
-
-.contact-left {
-  display: flex;
-  justify-content: center;
-}
-
-.contact-center {
-  display: flex;
-  flex-direction: column;
-  align-items: center;
-  gap: 1rem;
-}
-
-.contact-right {
-  display: flex;
-  justify-content: center;
-}
-
-/* Styly pro sociální tlačítka */
-.social-btn {
-  display: flex;
-  align-items: center;
-  gap: 0.5rem;
-  background: var(--bg-glass);
-  border: 1px solid var(--border-glass);
-  border-radius: 8px;
-  padding: 0.5rem 1rem;
-  color: var(--text-color);
-  text-decoration: none;
-  backdrop-filter: blur(8px);
-}
-.social-btn img {
-  width: 24px;
-  height: 24px;
-}
-.social-btn:hover {
-  background: var(--text-color);
-  color: var(--h1-color);
-}
-
-.container {
-  max-width: var(--max-width);
-  width: 95vw;
-  margin: 0 auto;
-  padding: 2rem 0;
-}
-.glass-card {
-  background: var(--bg-glass);
-  border: 1px solid var(--border-glass);
-  border-radius: var(--radius);
-  box-shadow: var(--shadow);
-  backdrop-filter: blur(12px);
-  margin: 3rem auto;
-  padding: 2rem;
-  max-width: var(--max-width);
+.site-header {
+  background: linear-gradient(120deg, var(--main-green) 15%, var(--dark-green) 90%);
+  color: var(--white);
+  padding: 48px 0 40px;
   text-align: center;
 }
-#home h1 {
-  font-size: 2.8rem;
-  font-weight: 700;
-  color: var(--h1-color);
-  margin-bottom: 0.5rem;
+.header-content h1 {
+  font-size: 3rem;
+  margin-bottom: .2em;
+  letter-spacing: -.02em;
 }
-#home .subtitle {
+.header-content .subtitle {
   font-size: 1.2rem;
-  color: var(--text-color);
+  font-weight: 500;
+  margin-bottom: 1.5em;
 }
-/* Zelené odkazy v projektech a kontaktech */
-#projects a, #contact a {
-  color: var(--text-color) !important;
-  text-decoration: underline;
-  cursor: pointer;
-}
-#projects a:hover,
-#contact a:hover {
-  color: var(--h3-color) !important;
-  text-decoration: none;
-}
-/* Zelený text v kontaktech */
-#contact, #contact h2, #contact p {
-  color: var(--text-color);
-}
-
-/* Obrázky v icon-row */
-.icon-row {
+.header-buttons {
   display: flex;
-  gap: 2rem;
+  gap: 20px;
   justify-content: center;
-  align-items: center;
-  margin-top: 1rem;
+  margin-top: 1em;
 }
-.icon-row img {
-  height: 150px;
-  max-width: 307px;
-  width: auto;
-  object-fit: contain;
-  margin: 0 1rem;
-}
-
-/* Obrázek v sekci Kontakt */
-#contact img {
-  width: 150px;
-  height: 150px;
-  object-fit: cover;
-  border-radius: 8px;
-  box-shadow: 0 2px 16px rgba(0,0,0,0.07);
-  margin-top: 1rem;
-  margin-bottom: 1rem;
-}
-
-/* Jednotný styl pro ostatní kontejnery */
-.glass-card h2 {
-  font-size: 2rem;
+.btn-ghost {
+  background: none;
+  border: 2px solid var(--white);
+  color: var(--white);
+  padding: 9px 28px;
+  border-radius: 28px;
   font-weight: bold;
-  color: var(--h2-color);
-  margin-bottom: 1rem;
-}
-.glass-card h3 {
-  font-size: 1.4rem;
-  font-weight: bold;
-  color: var(--h3-color);
-  margin: 1rem 0 0.5rem;
-}
-.glass-card p {
+  letter-spacing: 1px;
+  cursor: pointer;
   font-size: 1rem;
-  color: var(--text-color);
-  line-height: 1.6;
-  margin-bottom: 1.2rem;
+  text-decoration: none;
+  transition: background 0.23s, color 0.23s;
+}
+.btn-ghost:hover {
+  background: var(--white);
+  color: var(--accent);
 }
 
-/* Responzivní úpravy pro mobily */
-@media (max-width: 768px) {
-  .container {
-    width: 98vw;
-  }
-  
-  /* Menu pro mobily */
-  .menu-links {
-    gap: 0.5rem;
-  }
-  .menu-links a {
-    padding: 0.4rem 0.8rem;
-    font-size: 0.9rem;
-  }
-  
-  /* Kontakt layout pro mobily - vertikálně */
-  .contact-layout {
-    grid-template-columns: 1fr;
-    gap: 1.5rem;
-  }
+.section {
+  max-width: 1100px;
+  margin: 42px auto 0;
+  padding: 38px 24px;
+  background: var(--white);
+  border-radius: 16px;
+  box-shadow: var(--shadow);
 }
 
-@media (max-width: 480px) {
-  .top-menu {
-    display: none;
+.section.glass {
+  background: var(--bg-glass);
+  backdrop-filter: blur(3.5px);
+  border: 1px solid var(--main-green);
+  color: var(--accent);
+}
+
+.uvod-flex {
+  display: flex;
+  gap: 48px;
+  justify-content: space-between;
+  align-items: flex-start;
+  flex-wrap: wrap;
+}
+.uvod-text {
+  flex: 2;
+  min-width: 230px;
+}
+.aktualni-prace {
+  flex: 1 1 280px;
+  background: var(--main-green);
+  color: var(--dark-green);
+  padding: 18px 20px;
+  border-radius: 12px;
+  box-shadow: 0 2px 8px rgba(34,89,64,0.05);
+  margin-top: 0;
+}
+.aktualni-prace h3 { margin-top: 0 }
+.aktualni-prace b { color: var(--accent); }
+.aktualni-prace .popisek { font-size: 0.98em; color: var(--accent); margin-top: 5px; }
+
+.section h2 {
+  font-size: 2.2rem;
+  color: var(--accent);
+  margin-bottom: 18px;
+  font-weight: 700;
+}
+.section h4, .section h5 {
+  margin-top: 0;
+  margin-bottom: .4em;
+  color: var(--dark-green);
+}
+.section-desc {
+  color: var(--dark-green);
+  margin-bottom: 18px;
+  font-size: 1.07rem;
+}
+
+/* Projekty grid */
+.projekty-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(225px, 1fr));
+  gap: 28px;
+  margin-top: 24px;
+}
+.project-card {
+  background: var(--main-green);
+  color: var(--accent);
+  border-radius: 16px;
+  padding: 20px 24px 18px;
+  box-shadow: 0 2px 9px rgba(34,89,64,0.07);
+  display: flex;
+  flex-direction: column;
+  align-items: flex-start;
+}
+.project-card h4 { font-size: 1.23rem; }
+.btn, .btn.btn-demo {
+  padding: 8px 20px;
+  margin-top: 8px;
+  margin-right: 6px;
+  border: none;
+  border-radius: 22px;
+  background: var(--accent);
+  color: var(--white);
+  font-weight: bold;
+  cursor: pointer;
+  font-size: 1rem;
+  text-decoration: none;
+  transition: background 0.2s;
+  display: inline-block;
+}
+.btn-demo {
+  background: #fff;
+  color: var(--accent);
+  border: 2px solid var(--accent);
+}
+.btn-demo:hover {
+  background: var(--accent);
+  color: #fff;
+}
+
+.skills-grid {
+  display: flex;
+  gap: 42px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 30px;
+}
+.skills-grid > div {
+  min-width: 170px;
+}
+.skills-grid h5 {
+  margin-bottom: 8px;
+  font-size: 1.09rem;
+}
+.skills-grid ul {
+  list-style: none;
+  padding-left: 0;
+}
+.skills-grid li {
+  margin-bottom: 7px;
+  font-size: 1rem;
+}
+
+/* Kontakt */
+.kontakt-grid {
+  display: flex;
+  gap: 32px;
+  justify-content: center;
+  flex-wrap: wrap;
+  margin-top: 26px;
+}
+.contact-card {
+  background: var(--main-green);
+  padding: 23px 30px 17px;
+  border-radius: 14px;
+  color: var(--accent);
+  flex: 1 1 185px;
+  max-width: 235px;
+  min-width: 180px;
+  text-align: center;
+  box-shadow: 0 0 5px rgba(34,89,64,.06);
+}
+.contact-card h5 {
+  margin: 7px 0 6px;
+  font-size: 1.03rem;
+}
+.contact-icon {
+  font-size: 2.2rem;
+  display: block;
+  margin-bottom: 8px;
+}
+
+.footer {
+  text-align: center;
+  margin-top: 36px;
+  color: var(--accent);
+  font-size: 0.98em;
+  opacity: 0.84;
+  padding-bottom: 16px;
+}
+
+/* Responsivita */
+@media (max-width: 900px) {
+  .uvod-flex, .skills-grid, .kontakt-grid {
+    flex-direction: column;
+    gap: 24px;
+    align-items: stretch;
   }
-  body {
-    padding-top: 20px;
-  }
+  .site-header .header-content h1 { font-size: 2.3rem }
+}
+@media (max-width: 600px) {
+  .section { padding: 24px 5px }
+  .header-content { padding-left: 6px; padding-right: 6px; }
 }
