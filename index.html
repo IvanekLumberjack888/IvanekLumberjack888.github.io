@@ -2,114 +2,123 @@
 <html lang="cs">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ivo Doležal | Portfolio</title>
   <link rel="stylesheet" href="styles/style.css">
   <link rel="icon" type="image/x-icon" href="images/favicon.ico">
 </head>
 <body>
-  <!-- #1 Úvod: Foto v pozadí -->
-  <section class="hero-section">
+  <!-- 1. Hero sekce s fotkou -->
+  <section class="hero">
     <div class="hero-bg"></div>
-    <div class="container hero-content">
+    <div class="hero-content">
       <h1>Ivo Doležal</h1>
-      <p class="subtitle">Data Engineer | Systémový inovátor</p>
-      <p class="hero-claim">Od dřeva k datům – stavím systémy, které vydrží.</p>
-    </div>
-  </section>
-
-  <!-- #2 O mně: světle zelená, glassmorfismus -->
-  <section class="about-section">
-    <div class="container glass-card">
-      <h2>O mně</h2>
-      <div class="about-flex">
-        <div class="about-text">
-          <p>Proč „od dřeva“? Dříve jsem pracoval se dřevem. Každý materiál má své vlastnosti, každá práce potřebuje správný nástroj.<br>
-          Dnes je mojí doménou práce s daty (Python, SQL, Power BI) – s pečlivostí a analytikou.</p>
-          <p>Mám neobvyklý dar – vidím struktury, kde jiní vidí chaos. Analytické myšlení a zkušenosti „pod kapotou“.</p>
-        </div>
-        <aside class="position-card">
-          <h3>Aktuální pozice</h3>
-          <div class="work-box">
-            <strong>Digitalizace vozového parku</strong><br>
-            Hedin Automotive CZ
-            <p>Webové řešení na SharePointu. Transformace procesů do digitální podoby.</p>
-          </div>
-        </aside>
+      <p class="hero-subtitle">Data Engineer | Systémový inovátor</p>
+      <p class="hero-desc">Od dřeva k datům – stavím systémy, které vydrží.</p>
+      <div class="hero-btns">
+        <a href="#projekty" class="hero-btn">Moje projekty</a>
+        <a href="#kontakt" class="hero-btn ghost">Kontakt</a>
       </div>
     </div>
   </section>
-
-  <!-- #3 Moje projekty: bílé pozadí, card grid v dřevěných odstínech -->
-  <section id="projects" class="projects-section">
+  
+  <!-- 2. O mně + Aktuální práce sekce (pastelově zelený blok, vpravo tmavě zelená card) -->
+  <section class="about">
+    <div class="container about-wrap">
+      <div class="about-main">
+        <h2>Od dřeva k datům</h2>
+        <p>
+          Proč „od dřeva“? Dříve jsem pracoval rukama se dřevem. Každý materiál má své vlastnosti, každá práce potřebuje správný nástroj.<br>
+          Dnes je mojí doménou práce s daty (Python, SQL, Power BI) – s pečlivostí a analytikou.<br>
+          Mám neobvyklý dar – vidím struktury, kde jiní vidí chaos. Analytické myšlení a zkušenosti „pod kapotou“.
+        </p>
+      </div>
+      <div class="about-side-card">
+        <h3>Aktuální pozice</h3>
+        <div class="about-card-content">
+          <strong>Digitalizace vozového parku</strong><br>
+          Hedin Automotive CZ
+          <p>Webové řešení na SharePointu. Transformace procesů do digitální podoby.</p>
+        </div>
+      </div>
+    </div>
+  </section>
+  
+  <!-- 3. Projekty v dřevo card boxech, grid layout, vycentrováno -->
+  <section id="projekty" class="projects">
     <div class="container">
       <h2>Moje projekty</h2>
+      <p class="projects-desc">Praktické projekty, které ukazují mé dovednosti v oblasti dat, programování a automatizace</p>
       <div class="projects-grid">
         <div class="project-card wood">
-          <h4>Text Analyzer</h4>
-          <p>Analýza textových dat v Pythonu.</p>
+          <h3>Text Analyzer</h3>
+          <p>Analýza textových dat v Pythonu</p>
           <a href="#" class="project-btn">GitHub</a>
         </div>
         <div class="project-card wood-light">
-          <h4>Bulls & Cows</h4>
-          <p>Logická hra v Pythonu.</p>
+          <h3>Bulls & Cows</h3>
+          <p>Interaktivní hra implementovaná v Pythonu s logikou</p>
           <a href="#" class="project-btn">GitHub</a>
         </div>
         <div class="project-card wood">
-          <h4>Election Scraper</h4>
-          <p>Scraping volebních dat.</p>
+          <h3>Election Scraper</h3>
+          <p>Scraping + analýza volebních dat</p>
+          <a href="#" class="project-btn">GitHub</a>
+        </div>
+        <div class="project-card wood-light">
+          <h3>Analýza HDP vs mzdy</h3>
+          <p>Komplexní SQL analýza ekonomických dat</p>
+          <a href="#" class="project-btn">GitHub</a>
+        </div>
+        <div class="project-card wood">
+          <h3>PowerBI pro Engeto</h3>
+          <p>Dashboard & vizualizace v Power BI</p>
           <a href="#" class="project-btn">GitHub</a>
         </div>
       </div>
     </div>
   </section>
   
-  <!-- #4 Dovednosti: pastelově zelené pozadí, sloupcově/grid -->
-  <section id="skills" class="skills-section">
+  <!-- 4. Dovednosti: tmavě zelené pozadí, card grid -->
+  <section id="dovednosti" class="skills">
     <div class="container">
       <h2>Dovednosti</h2>
       <div class="skills-grid">
-        <div>
-          <h5>Programování</h5>
-          <ul>
-            <li>Python</li><li>SQL</li><li>PostgreSQL</li><li>Web scraping</li>
-          </ul>
+        <div class="skill-card">
+          <h4>Programování</h4>
+          <ul><li>Python</li><li>SQL</li><li>PostgreSQL</li><li>Web scraping</li></ul>
         </div>
-        <div>
-          <h5>Vizualizace</h5>
-          <ul>
-            <li>Power BI</li><li>DAX</li><li>Dashboards</li><li>Reporting</li>
-          </ul>
+        <div class="skill-card">
+          <h4>Vizualizace</h4>
+          <ul><li>Power BI</li><li>DAX</li><li>Dashboards</li><li>Reporting</li></ul>
         </div>
-        <div>
-          <h5>Systémy</h5>
-          <ul>
-            <li>SharePoint</li><li>Power Automate</li><li>M365</li><li>Digitalizace</li>
-          </ul>
+        <div class="skill-card">
+          <h4>Systémy</h4>
+          <ul><li>SharePoint</li><li>Power Automate</li><li>M365</li><li>Digitalizace</li></ul>
         </div>
       </div>
     </div>
   </section>
-
-  <!-- #5 Kontakt: čistě bílá, velké zaoblené obrázky, centrum -->
-  <section id="contact" class="contact-section">
+  
+  <!-- 5. Kontakt (světlé, centrum, card boxy, velké obrázky) -->
+  <section id="kontakt" class="contact">
     <div class="container">
       <h2>Kontakt</h2>
       <div class="contact-grid">
-        <div class="contact-card-icon">
-          <img src="images/github.png" alt="GitHub" class="contact-img-big">
-          <span class="contact-title">GitHub</span>
-          <span class="contact-text">IvanekLumberjack888</span>
+        <div class="contact-card">
+          <img src="images/github.png" alt="GitHub" class="contact-img">
+          <h5>GitHub</h5>
+          <p>IvanekLumberjack888</p>
         </div>
-        <div class="contact-card-icon">
-          <img src="images/linkedin.png" alt="LinkedIn" class="contact-img-big">
-          <span class="contact-title">LinkedIn</span>
-          <span class="contact-text">Ivo Doležal</span>
+        <div class="contact-card">
+          <img src="images/linkedin.png" alt="LinkedIn" class="contact-img">
+          <h5>LinkedIn</h5>
+          <p>Ivo Doležal</p>
         </div>
-        <div class="contact-card-icon">
-          <img src="images/mail_me.png" alt="Email" class="contact-img-big">
-          <span class="contact-title">Email</span>
-          <span class="contact-text">ivousd@gmail.com</span>
+        <div class="contact-card">
+          <img src="images/mail_me.png" alt="Email" class="contact-img">
+          <h5>Email</h5>
+          <p>ivousd@gmail.com</p>
         </div>
       </div>
       <footer class="footer">
