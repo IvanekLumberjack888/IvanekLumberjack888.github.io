@@ -1,99 +1,202 @@
-const translations = {
-  cz: {
-    menu_home: "Domů",
-    menu_skills: "Dovednosti",
-    menu_projects: "Projekty",
-    menu_experience: "Zkušenosti",
-    menu_contact: "Kontakt",
-    title_name: "Ivo Doležal",
-    title_sub: "Data Engineer | Systémový Inovátor",
-    section_about: "O mně",
-    about_text:
-      "Občas vidím struktury a vzorce, které ostatní nevidí. Mám dar pronikat do skrytých systémů a nacházet řešení tam, kde ho jiní nevidí. Jak čtete v datech vy? Já čtu mezi řádky. Strašně rád se vrtám v datech a hledám ty skryté poklady, které tam někdo zanechal.",
-    skills_h2: "Dovednosti",
-    skills_text:
-      "<strong>Data Engineering &amp; Architektura</strong><br>ETL/ELT Pipelines, Data Warehousing, Python &amp; SQL<br><strong>Systémová Integrace</strong><br>M365 Ekosystém, Power Platform, Power Automate<br><strong>Analytické Nástroje</strong><br>Power BI &amp; DAX, GitHub Copilot, Excel Advanced",
-    projects_h2: "Projekty",
-    projects_list: [
-      `<h3><a href="https://github.com/IvanekLumberjack888/text_analyzer" target="_blank">Text Analyzer</a> | <a href="https://ivaneklumberjack888.github.io/text_analyzer/" target="_blank">Prezentace</a></h3>`,
-      `<h3><a href="https://github.com/IvanekLumberjack888/Bulls-and-Cows" target="_blank">Bulls & Cows</a> | <a href="https://ivaneklumberjack888.github.io/Bulls-and-Cows/" target="_blank">Prezentace</a></h3>`,
-      `<h3><a href="https://github.com/IvanekLumberjack888/Elections-Scraper" target="_blank">Election Scraper</a> | <a href="https://ivaneklumberjack888.github.io/Elections-Scraper/" target="_blank">Prezentace</a></h3>`,
-      `<h3><a href="https://github.com/IvanekLumberjack888/sql-projekt-engeto" target="_blank">Analýza HDP vs mzdy (2006–2018)</a> | <a href="https://ivaneklumberjack888.github.io/sql-projekt-engeto/" target="_blank">Prezentace</a></h3>`,
-      `<h3><a href="https://github.com/IvanekLumberjack888/PowerBI-for-Engeto" target="_blank">PowerBI pro Engeto</a> | <a href="https://ivaneklumberjack888.github.io/PowerBI-for-Engeto/" target="_blank">Prezentace</a></h3>`
-    ],
-    exp_h2: "Zkušenosti",
-    exp_ai: "Implementace AI-powered řešení v Microsoft PowerBI",
-    exp_ai_txt: "Povídání",
-    exp_auto: "Automatizace procesů pomocí GitHub Copilot",
-    exp_auto_txt: "Povídání",
-    exp_digit: "Digitalizace",
-    exp_digit_txt: "Povídání",
-    contact_h2: "Kontakt",
-    contact_mail: "ivousd@gmail.com"
-  },
-  en: {
-    menu_home: "Home",
-    menu_skills: "Skills",
-    menu_projects: "Projects",
-    menu_experience: "Experience",
-    menu_contact: "Contact",
-    title_name: "Ivo Doležal",
-    title_sub: "Data Engineer | Systems Innovator",
-    section_about: "About Me",
-    about_text:
-      "Sometimes I see structures and patterns that others don't notice. I have a talent for uncovering hidden systems and finding solutions where others cannot. How do you read data? I read between the lines. I love digging into data and looking for hidden treasures someone left there.",
-    skills_h2: "Skills",
-    skills_text:
-      "<strong>Data Engineering & Architecture</strong><br>ETL/ELT Pipelines, Data Warehousing, Python & SQL<br><strong>System Integration</strong><br>M365 Ecosystem, Power Platform, Power Automate<br><strong>Analytical Tools</strong><br>Power BI & DAX, GitHub Copilot, Excel Advanced",
-    projects_h2: "Projects",
-    projects_list: [
-      `<h3><a href="https://github.com/IvanekLumberjack888/text_analyzer" target="_blank">Text Analyzer</a> | <a href="https://ivaneklumberjack888.github.io/text_analyzer/" target="_blank">Demo</a></h3>`,
-      `<h3><a href="https://github.com/IvanekLumberjack888/Bulls-and-Cows" target="_blank">Bulls & Cows</a> | <a href="https://ivaneklumberjack888.github.io/Bulls-and-Cows/" target="_blank">Demo</a></h3>`,
-      `<h3><a href="https://github.com/IvanekLumberjack888/Elections-Scraper" target="_blank">Election Scraper</a> | <a href="https://ivaneklumberjack888.github.io/Elections-Scraper/" target="_blank">Demo</a></h3>`,
-      `<h3><a href="https://github.com/IvanekLumberjack888/sql-projekt-engeto" target="_blank">Analysis GDP vs Wages (2006–2018)</a> | <a href="https://ivaneklumberjack888.github.io/sql-projekt-engeto/" target="_blank">Demo</a></h3>`,
-      `<h3><a href="https://github.com/IvanekLumberjack888/PowerBI-for-Engeto" target="_blank">PowerBI for Engeto</a> | <a href="https://ivaneklumberjack888.github.io/PowerBI-for-Engeto/" target="_blank">Demo</a></h3>`
-    ],
-    exp_h2: "Experience",
-    exp_ai: "AI-powered solutions in Microsoft PowerBI",
-    exp_ai_txt: "Story",
-    exp_auto: "Process Automation with GitHub Copilot",
-    exp_auto_txt: "Story",
-    exp_digit: "Digitalization",
-    exp_digit_txt: "Story",
-    contact_h2: "Contact",
-    contact_mail: "ivousd@gmail.com"
-  }
-};
-
-function setLang(lang) {
-  for (const key in translations[lang]) {
-    if (key === "projects_list") {
-      const el = document.getElementById("projects_list");
-      if (el) {
-        el.innerHTML = "";
-        translations[lang][key].forEach((txt) => {
-          el.innerHTML += txt;
-        });
-      }
-    } else if (key === "skills_text") {
-      const s = document.getElementById(key);
-      if (s) s.innerHTML = translations[lang][key];
-    } else {
-      const e = document.getElementById(key);
-      if (e) e.textContent = translations[lang][key];
+// Projects data
+const projects = [
+    {
+        title: "Text Analyzer",
+        description: "Pokročilý nástroj pro analýzu textových dat s využitím Python knihoven",
+        tech: ["Python", "Pandas", "NLP"],
+        github: "https://github.com/IvanekLumberjack888/text_analyzer",
+        demo: "https://ivaneklumberjack888.github.io/text_analyzer/",
+        icon: "code"
+    },
+    {
+        title: "Bulls & Cows",
+        description: "Interaktivní hra implementovaná v Pythonu s logickým algoritmem",
+        tech: ["Python", "Algoritmy", "Game Logic"],
+        github: "https://github.com/IvanekLumberjack888/Bulls-and-Cows",
+        demo: "https://ivaneklumberjack888.github.io/Bulls-and-Cows/",
+        icon: "code"
+    },
+    {
+        title: "Election Scraper",
+        description: "Web scraping nástroj pro sběr a analýzu volebních dat",
+        tech: ["Python", "Web Scraping", "Data Analysis"],
+        github: "https://github.com/IvanekLumberjack888/Elections-Scraper",
+        demo: "https://ivaneklumberjack888.github.io/Elections-Scraper/",
+        icon: "globe"
+    },
+    {
+        title: "Analýza HDP vs mzdy",
+        description: "Komplexní SQL analýza ekonomických dat za období 2006-2018",
+        tech: ["SQL", "PostgreSQL", "Data Analysis"],
+        github: "https://github.com/IvanekLumberjack888/sql-projekt-engeto",
+        demo: "https://ivaneklumberjack888.github.io/sql-projekt-engeto/",
+        icon: "database"
+    },
+    {
+        title: "PowerBI pro Engeto",
+        description: "Interaktivní dashboard a vizualizace dat v Power BI",
+        tech: ["Power BI", "DAX", "Data Visualization"],
+        github: "https://github.com/IvanekLumberjack888/PowerBI-for-Engeto",
+        demo: "https://ivaneklumberjack888.github.io/PowerBI-for-Engeto/",
+        icon: "bar-chart-3"
     }
-  }
+];
+
+// Skills data
+const skills = [
+    { 
+        category: "Programování", 
+        items: ["Python", "SQL", "PostgreSQL", "Web Scraping"], 
+        icon: "code" 
+    },
+    { 
+        category: "Vizualizace", 
+        items: ["Power BI", "DAX", "Dashboards", "Reporting"], 
+        icon: "bar-chart-3" 
+    },
+    { 
+        category: "Systémy", 
+        items: ["SharePoint", "Power Automate", "M365", "Digitalizace"], 
+        icon: "wrench" 
+    }
+];
+
+// Initialize the page
+document.addEventListener('DOMContentLoaded', function() {
+    // Initialize Lucide icons
+    lucide.createIcons();
+    
+    // Populate projects
+    populateProjects();
+    
+    // Populate skills
+    populateSkills();
+    
+    // Setup smooth scrolling for anchor links
+    setupSmoothScrolling();
+    
+    // Setup intersection observer for animations
+    setupAnimations();
+    
+    // Re-initialize icons after dynamic content is added
+    setTimeout(() => {
+        lucide.createIcons();
+    }, 100);
+});
+
+// Populate projects section
+function populateProjects() {
+    const projectsGrid = document.getElementById('projects-grid');
+    if (!projectsGrid) return;
+    
+    projectsGrid.innerHTML = projects.map(project => `
+        <div class="project-card hover-lift fade-in-up">
+            <div class="project-header">
+                <div class="project-title-with-icon">
+                    <div class="project-icon">
+                        <i data-lucide="${project.icon}"></i>
+                    </div>
+                    <h3 class="project-title">${project.title}</h3>
+                </div>
+                <p class="project-description">${project.description}</p>
+            </div>
+            <div class="project-content">
+                <div class="tech-badges">
+                    ${project.tech.map(tech => `
+                        <span class="badge">${tech}</span>
+                    `).join('')}
+                </div>
+                <div class="project-buttons">
+                    <a href="${project.github}" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-outline-green">
+                        <i data-lucide="github"></i>
+                        GitHub
+                    </a>
+                    <a href="${project.demo}" target="_blank" rel="noopener noreferrer" class="btn btn-sm btn-green">
+                        <i data-lucide="external-link"></i>
+                        Demo
+                    </a>
+                </div>
+            </div>
+        </div>
+    `).join('');
 }
 
-document.addEventListener("DOMContentLoaded", function () {
-  document.getElementById("enBtn").onclick = function () {
-    setLang("en");
-    this.classList.add("active");
-    document.getElementById("czBtn").classList.remove("active");
-  };
-  document.getElementById("czBtn").onclick = function () {
-    setLang("cz");
-    this.classList.add("active");
-    document.getElementById("enBtn").classList.remove("active");
-  };
-});
+// Populate skills section
+function populateSkills() {
+    const skillsGrid = document.getElementById('skills-grid');
+    if (!skillsGrid) return;
+    
+    skillsGrid.innerHTML = skills.map(skillGroup => `
+        <div class="skill-card hover-lift fade-in-up">
+            <div class="skill-header">
+                <div class="skill-icon">
+                    <i data-lucide="${skillGroup.icon}"></i>
+                </div>
+                <h3 class="skill-category">${skillGroup.category}</h3>
+            </div>
+            <div class="skill-content">
+                <div class="skill-items">
+                    ${skillGroup.items.map(skill => `
+                        <div class="skill-item">
+                            <div class="skill-dot"></div>
+                            <span class="skill-name">${skill}</span>
+                        </div>
+                    `).join('')}
+                </div>
+            </div>
+        </div>
+    `).join('');
+}
+
+// Setup smooth scrolling for anchor links
+function setupSmoothScrolling() {
+    document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+        anchor.addEventListener('click', function (e) {
+            e.preventDefault();
+            const target = document.querySelector(this.getAttribute('href'));
+            if (target) {
+                target.scrollIntoView({
+                    behavior: 'smooth',
+                    block: 'start'
+                });
+            }
+        });
+    });
+}
+
+// Setup intersection observer for animations
+function setupAnimations() {
+    const observerOptions = {
+        threshold: 0.1,
+        rootMargin: '0px 0px -50px 0px'
+    };
+    
+    const observer = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                entry.target.style.animationDelay = '0s';
+                entry.target.classList.add('animate');
+                observer.unobserve(entry.target);
+            }
+        });
+    }, observerOptions);
+    
+    // Observe all fade-in-up elements
+    document.querySelectorAll('.fade-in-up').forEach(el => {
+        observer.observe(el);
+    });
+}
+
+// Add CSS for animation trigger
+const style = document.createElement('style');
+style.textContent = `
+    .fade-in-up:not(.animate) {
+        opacity: 0;
+        transform: translateY(30px);
+    }
+    
+    .fade-in-up.animate {
+        animation: fadeInUp 0.8s ease-out forwards;
+    }
+`;
+document.head.appendChild(style);
