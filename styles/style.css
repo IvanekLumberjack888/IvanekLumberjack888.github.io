@@ -55,13 +55,14 @@ body {
   text-shadow: 0 3px 8px rgb(0 0 0 / 0.3);
 }
 .hero-subtitle {
-  font-weight: 600;
+  font-weight: 700;
   font-size: 1.25rem;
   margin-bottom: 20px;
   background: rgba(255 255 255 / 0.1);
   padding: 6px 14px;
   border-radius: 18px;
   display: inline-block;
+  color: var(--main-green);
 }
 .hero-desc {
   font-weight: 700;
@@ -136,20 +137,34 @@ body {
   line-height: 1.6;
   color: var(--dark-green);
 }
+.about-text strong {
+  font-weight: 700;
+}
 .about-card {
   flex: 1 1 320px;
-  background-color: var(--dark-green);
-  color: var(--white);
+  background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
+  background-color: rgba(255, 253, 231, 0.85);
+  color: var(--dark-green);
   border-radius: var(--radius);
-  padding: 22px 22px 18px 22px;
-  box-shadow: var(--shadow);
+  padding: 28px 26px;
+  box-shadow: 0 12px 48px rgba(34, 84, 61, 0.2), inset 0 1px 0 rgba(255,255,255,0.3);
   font-size: 1rem;
   margin-top: 0;
+  border: 1px solid rgba(150, 213, 171, 0.3);
 }
 .about-card h3 {
   margin-top: 0;
-  margin-bottom: 10px;
+  margin-bottom: 12px;
   font-weight: 700;
+  font-size: 1.15rem;
+}
+.about-card p {
+  margin: 0;
+  line-height: 1.7;
+}
+.about-card strong {
+  font-weight: 700;
+  color: var(--dark-green);
 }
 /* Projects Section */
 .projects-section {
@@ -188,6 +203,13 @@ body {
   font-size: 1.10rem;
   margin-bottom: 15px;
 }
+.project-links {
+  display: flex;
+  gap: 12px;
+  align-items: center;
+  justify-content: flex-start;
+  margin-top: 16px;
+}
 .project-btn {
   background-color: var(--main-green);
   color: var(--dark-green);
@@ -197,7 +219,6 @@ body {
   text-decoration: none;
   transition: background-color 0.2s, color 0.2s;
   display: inline-block;
-  margin-top: 12px;
   box-shadow: 0 3px 8px rgba(34, 77, 34, 0.12);
 }
 .project-btn:hover {
@@ -208,6 +229,9 @@ body {
 .skills-section {
   background-color: var(--dark-green);
   padding: 66px 0 50px 0;
+}
+.skills-section .section-title {
+  color: var(--main-green);
 }
 .skills-grid {
   display: grid;
