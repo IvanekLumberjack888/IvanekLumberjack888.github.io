@@ -28,7 +28,7 @@ body {
 .hero {
   position: relative;
   height: 500px;
-  background: url('https://github.com/IvanekLumberjack888/IvanekLumberjack888.github.io/blob/main/images/background.jpg') center/cover no-repeat;
+  background: url('images/background.jpg') center/cover no-repeat;
   color: #fff;
   display: flex;
   justify-content: center;
@@ -137,9 +137,6 @@ body {
   line-height: 1.6;
   color: var(--dark-green);
 }
-.about-text strong {
-  font-weight: 700;
-}
 .about-card {
   flex: 1 1 320px;
   background: linear-gradient(135deg, rgba(255,255,255,0.1) 0%, rgba(255,255,255,0.05) 100%);
@@ -149,7 +146,6 @@ body {
   padding: 28px 26px;
   box-shadow: 0 12px 48px rgba(34, 84, 61, 0.2), inset 0 1px 0 rgba(255,255,255,0.3);
   font-size: 1rem;
-  margin-top: 0;
   border: 1px solid rgba(150, 213, 171, 0.3);
 }
 .about-card h3 {
@@ -157,14 +153,6 @@ body {
   margin-bottom: 12px;
   font-weight: 700;
   font-size: 1.15rem;
-}
-.about-card p {
-  margin: 0;
-  line-height: 1.7;
-}
-.about-card strong {
-  font-weight: 700;
-  color: var(--dark-green);
 }
 /* Projects Section */
 .projects-section {
@@ -288,19 +276,6 @@ body {
   box-shadow: 0 10px 40px rgba(34, 77, 34, 0.3);
   transform: translateY(-8px);
 }
-.contact-img {
-  width: 128px;
-  height: 128px;
-  border-radius: 50%;
-  object-fit: cover;
-  margin-bottom: 22px;
-  border: 6px solid var(--dark-green);
-  box-shadow: 0 8px 40px rgba(34, 77, 34, 0.25);
-  transition: transform 0.3s ease;
-}
-.contact-card:hover .contact-img {
-  transform: scale(1.15);
-}
 .contact-card h5 {
   margin-bottom: 10px;
   font-size: 1.23rem;
@@ -353,10 +328,6 @@ body {
   .about-text h2,
   .section-title {
     font-size: 1.4rem;
-  }
-  .contact-img {
-    width: 90px;
-    height: 90px;
   }
   .project-card,
   .skill-card,
