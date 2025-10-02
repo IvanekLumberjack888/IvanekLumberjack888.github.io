@@ -28,7 +28,7 @@ body {
 .hero {
   position: relative;
   height: 500px;
-  background: url('images/image.jpg') center/cover no-repeat;
+  background: url('images/background.jpg') center/cover no-repeat;
   color: #fff;
   display: flex;
   justify-content: center;
