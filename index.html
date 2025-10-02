@@ -1,86 +1,107 @@
 <!DOCTYPE html>
 <html lang="cs">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width,initial-scale=1.0">
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1" />
   <title>Ivo Doležal | Portfolio</title>
-  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
-  <link rel="stylesheet" href="styles/style.css">
-  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles/style.css" />
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon" />
 </head>
 <body>
-  <!-- Horní hero sekce s background.jpg -->
-  <header class="hero-section">
+  <!-- Hero with background image -->
+  <section class="hero">
+    <div class="hero-overlay"></div>
     <div class="container hero-content">
-      <h1 class="hero-title">Ivo Doležal</h1>
-      <p class="hero-subtitle">Data Engineer | Systémový inovátor</p>
-      <p class="hero-desc">Od dřeva k datům – stavím systémy, které vydrží.</p>
+      <h1>Ivo Doležal</h1>
+      <p class="subtitle">Data Engineer | Systémový inovátor</p>
+      <p class="claim">Od dřeva k datům – stavím systémy, které vydrží.</p>
+      <div class="hero-buttons">
+        <a href="#projects" class="btn-primary">Moje projekty</a>
+        <a href="#contact" class="btn-secondary">Kontakt</a>
+      </div>
     </div>
-  </header>
+  </section>
 
-  <!-- O mně + aktuální práce -->
-  <section class="about-section">
-    <div class="container about-layout">
-      <div class="about-info">
+  <!-- About Section -->
+  <section id="about" class="about-section">
+    <div class="container about-wrapper">
+      <div class="about-text">
         <h2>Od dřeva k datům</h2>
         <p>
-          Proč „od dřeva"? Dříve jsem pracoval rukama se dřevem. Každý materiál má své vlastnosti, každá práce potřebuje správný nástroj.<br>
-          Dnes je moje doména data – Python, SQL, Power BI, trpělivost a analytika.<br>
-          Vidím struktury tam, kde ostatní vidí chaos. Analytické myšlení a zkušenosti „pod kapotou“.
+          Proč „od dřeva“? Dříve jsem pracoval rukama a docela dost se dřevem. Naučil jsem se, že každý materiál má své vlastnosti a každá práce potřebuje správný nástroj a přístup.
+        </p>
+        <p>
+          Dnes je můj materiál data a nástroje Python, SQL a Power BI. Ale princip zůstává stejný – preciznost, trpělivost a pochopení toho, s čím pracuji.
+        </p>
+        <p>
+          Mám neobvyklý dar – vidím struktury a vzorce tam, kde ostatní vidí jen chaos. Není to magie, je to kombinace analytického myšlení a zkušeností s tím, jak věci fungují „pod kapotou“.
         </p>
       </div>
-      <div class="about-card">
-        <h3 class="about-card-title">Aktuální pozice</h3>
-        <div class="about-card-content">
-          <strong>Digitalizace vozového parku</strong><br>
-          Hedin Automotive CZ
-          <p>Webové řešení na SharePointu. Transformace procesů do digitální podoby.</p>
+      <aside class="current-position">
+        <h3>Aktuální pozice</h3>
+        <div class="position-box">
+          <strong>Digitalizace vozového parku</strong><br />
+          Hedin Automotive CZ<br />
+          Vytvářím komplexní webové řešení pro správu vozového parku na platformě SharePoint. Transformace papírových procesů do digitální podoby.
         </div>
-      </div>
+      </aside>
     </div>
   </section>
 
-  <!-- Projekty: grid, card boxy -->
-  <section class="projects-section">
+  <!-- Projects -->
+  <section id="projects" class="projects-section">
     <div class="container">
-      <h2 class="section-title">Moje projekty</h2>
+      <h2>Moje projekty</h2>
+      <p class="projects-description">
+        Praktické projekty, které ukazují mé dovednosti v oblasti dat, programování a automatizace
+      </p>
       <div class="projects-grid">
-        <div class="project-card card-wood">
+        <article class="project-card wood">
           <h3>Text Analyzer</h3>
-          <p>Analýza textových dat v Pythonu</p>
-          <a href="#" class="project-btn">GitHub</a>
-        </div>
-        <div class="project-card card-wood-light">
+          <p>Pokročilý nástroj pro analýzu textových dat s využitím Python knihoven.</p>
+          <a href="#" class="btn-primary small-btn">GitHub</a>
+          <a href="#" class="btn-primary small-btn">Demo</a>
+        </article>
+
+        <article class="project-card wood-light">
           <h3>Bulls & Cows</h3>
-          <p>Interaktivní hra v Pythonu</p>
-          <a href="#" class="project-btn">GitHub</a>
-        </div>
-        <div class="project-card card-wood">
+          <p>Interaktivní hra implementovaná v Pythonu s logickým algoritmem.</p>
+          <a href="#" class="btn-primary small-btn">GitHub</a>
+          <a href="#" class="btn-primary small-btn">Demo</a>
+        </article>
+
+        <article class="project-card wood">
           <h3>Election Scraper</h3>
-          <p>Scraping + analýza volebních dat</p>
-          <a href="#" class="project-btn">GitHub</a>
-        </div>
-        <div class="project-card card-wood-light">
+          <p>Web scraping nástroj pro sběr a analýzu volebních dat.</p>
+          <a href="#" class="btn-primary small-btn">GitHub</a>
+          <a href="#" class="btn-primary small-btn">Demo</a>
+        </article>
+
+        <article class="project-card wood-light">
           <h3>Analýza HDP vs mzdy</h3>
-          <p>SQL analýza ekonomických dat</p>
-          <a href="#" class="project-btn">GitHub</a>
-        </div>
-        <div class="project-card card-wood">
+          <p>Komplexní SQL analýza ekonomických dat za období 2006-2018.</p>
+          <a href="#" class="btn-primary small-btn">GitHub</a>
+          <a href="#" class="btn-primary small-btn">Demo</a>
+        </article>
+
+        <article class="project-card wood">
           <h3>PowerBI pro Engeto</h3>
-          <p>Dashboard & vizualizace v Power BI</p>
-          <a href="#" class="project-btn">GitHub</a>
-        </div>
+          <p>Interaktivní dashboard a vizualizace dat v Power BI.</p>
+          <a href="#" class="btn-primary small-btn">GitHub</a>
+          <a href="#" class="btn-primary small-btn">Demo</a>
+        </article>
       </div>
     </div>
   </section>
 
-  <!-- Dovednosti: grid, card boxy -->
-  <section class="skills-section">
+  <!-- Skills section -->
+  <section id="skills" class="skills-section">
     <div class="container">
-      <h2 class="section-title">Dovednosti</h2>
+      <h2>Dovednosti</h2>
       <div class="skills-grid">
         <div class="skill-card">
-          <h4>Programování</h4>
+          <h3>Programování</h3>
           <ul>
             <li>Python</li>
             <li>SQL</li>
@@ -88,8 +109,9 @@
             <li>Web scraping</li>
           </ul>
         </div>
+
         <div class="skill-card">
-          <h4>Vizualizace</h4>
+          <h3>Vizualizace</h3>
           <ul>
             <li>Power BI</li>
             <li>DAX</li>
@@ -97,8 +119,9 @@
             <li>Reporting</li>
           </ul>
         </div>
+
         <div class="skill-card">
-          <h4>Systémy</h4>
+          <h3>Systémy</h3>
           <ul>
             <li>SharePoint</li>
             <li>Power Automate</li>
@@ -110,24 +133,24 @@
     </div>
   </section>
 
-  <!-- Kontakt: boxy s velkými obrázky -->
-  <section class="contact-section">
+  <!-- Contact Section -->
+  <section id="contact" class="contact-section">
     <div class="container">
-      <h2 class="section-title">Kontakt</h2>
+      <h2>Kontakt</h2>
       <div class="contact-grid">
         <div class="contact-card">
-          <img src="images/github.png" alt="GitHub" class="contact-photo">
-          <h5>GitHub</h5>
+          <img src="images/github.png" alt="GitHub" class="contact-img" />
+          <h3>GitHub</h3>
           <p>IvanekLumberjack888</p>
         </div>
         <div class="contact-card">
-          <img src="images/linkedin.png" alt="LinkedIn" class="contact-photo">
-          <h5>LinkedIn</h5>
+          <img src="images/linkedin.png" alt="LinkedIn" class="contact-img" />
+          <h3>LinkedIn</h3>
           <p>Ivo Doležal</p>
         </div>
         <div class="contact-card">
-          <img src="images/mail_me.png" alt="Email" class="contact-photo">
-          <h5>Email</h5>
+          <img src="images/mail_me.png" alt="Email" class="contact-img" />
+          <h3>Email</h3>
           <p>ivousd@gmail.com</p>
         </div>
       </div>
