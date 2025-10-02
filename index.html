@@ -5,11 +5,11 @@
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
   <title>Ivo Doležal | Data Engineer & Systémový Inovátor</title>
   <meta name="description" content="Portfolio Iva Doležala - Data Engineer a Systémový Inovátor. Od dřeva k datům.">
-  
+
   <!-- Favicon -->
   <link rel="icon" href="images/favicon.ico">
 
-  <!-- Fonts -->
+  <!-- Google Fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com">
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
   <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500;600&display=swap" rel="stylesheet">
@@ -20,44 +20,71 @@
   <!-- Typed.js -->
   <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 
-  <!-- Styles -->
   <link rel="stylesheet" href="style.css">
 </head>
 <body>
   <!-- Navigation -->
   <nav class="navbar">
-    <!-- ... tvoje navigace ... -->
+    <div class="container nav-container">
+      <div class="nav-brand">Ivo Doležal</div>
+      <div class="nav-links">
+        <a href="#about">O mně</a>
+        <a href="#projects">Projekty</a>
+        <a href="#skills">Dovednosti</a>
+        <a href="#contact">Kontakt</a>
+      </div>
+      <button class="nav-toggle" aria-label="Toggle nav">
+        <i data-lucide="menu"></i>
+      </button>
+    </div>
   </nav>
 
   <!-- Hero Section -->
-  <section class="hero-section">
+  <section class="hero-section" id="hero">
     <div class="hero-background"></div>
     <div class="hero-overlay"></div>
     <div class="hero-content">
-      <h1 class="hero-title">
-        <span id="typed-name"></span>
-      </h1>
+      <h1 class="hero-title"><span id="typed-name"></span></h1>
       <p class="hero-subtitle">Data Engineer | Systémový Inovátor</p>
       <p class="hero-description">
         <span class="highlight">Od dřeva k datům</span> – stavím systémy, které vydrží.
       </p>
       <div class="hero-buttons">
         <a href="#projects" class="btn btn-primary">
-          <i data-lucide="external-link"></i>
-          Moje projekty
+          <i data-lucide="external-link"></i> Moje projekty
         </a>
         <a href="#contact" class="btn btn-outline">
-          <i data-lucide="mail"></i>
-          Kontakt
+          <i data-lucide="mail"></i> Kontakt
         </a>
       </div>
     </div>
   </section>
 
-  <!-- Zbytek sekcí (About, Projects, Skills, Contact, Footer) -->
-  <!-- ... -->
+  <!-- About Section -->
+  <section id="about" class="about-section">
+    <!-- ... obsah o mně ... -->
+  </section>
 
-  <!-- Scripts -->
+  <!-- Projects Section -->
+  <section id="projects" class="projects-section">
+    <!-- ... projekty ... -->
+  </section>
+
+  <!-- Skills Section -->
+  <section id="skills" class="skills-section">
+    <!-- ... dovednosti ... -->
+  </section>
+
+  <!-- Contact Section -->
+  <section id="contact" class="contact-section">
+    <!-- ... kontakt ... -->
+  </section>
+
+  <!-- Footer -->
+  <footer class="footer">
+    © 2024 Ivo Doležal. Od dřeva k datům – stavím systémy, které vydrží.
+  </footer>
+
   <script src="script.js"></script>
 </body>
 </html>
