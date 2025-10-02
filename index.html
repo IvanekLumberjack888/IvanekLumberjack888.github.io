@@ -2,39 +2,35 @@
 <html lang="cs">
 <head>
   <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <meta name="viewport" content="width=device-width,initial-scale=1.0">
   <title>Ivo Doležal | Portfolio</title>
+  <link href="https://fonts.googleapis.com/css2?family=Montserrat:wght@400;600;700;800&display=swap" rel="stylesheet">
   <link rel="stylesheet" href="styles/style.css">
-  <link rel="icon" type="image/x-icon" href="images/favicon.ico">
+  <link rel="icon" href="images/favicon.ico" type="image/x-icon">
 </head>
 <body>
-  <!-- 1. Hero sekce s fotkou -->
-  <section class="hero">
-    <div class="hero-bg"></div>
-    <div class="hero-content">
-      <h1>Ivo Doležal</h1>
+  <!-- Horní hero sekce s background.jpg -->
+  <header class="hero-section">
+    <div class="container hero-content">
+      <h1 class="hero-title">Ivo Doležal</h1>
       <p class="hero-subtitle">Data Engineer | Systémový inovátor</p>
       <p class="hero-desc">Od dřeva k datům – stavím systémy, které vydrží.</p>
-      <div class="hero-btns">
-        <a href="#projekty" class="hero-btn">Moje projekty</a>
-        <a href="#kontakt" class="hero-btn ghost">Kontakt</a>
-      </div>
     </div>
-  </section>
-  
-  <!-- 2. O mně + Aktuální práce sekce (pastelově zelený blok, vpravo tmavě zelená card) -->
-  <section class="about">
-    <div class="container about-wrap">
-      <div class="about-main">
+  </header>
+
+  <!-- O mně + aktuální práce -->
+  <section class="about-section">
+    <div class="container about-layout">
+      <div class="about-info">
         <h2>Od dřeva k datům</h2>
         <p>
-          Proč „od dřeva“? Dříve jsem pracoval rukama se dřevem. Každý materiál má své vlastnosti, každá práce potřebuje správný nástroj.<br>
-          Dnes je mojí doménou práce s daty (Python, SQL, Power BI) – s pečlivostí a analytikou.<br>
-          Mám neobvyklý dar – vidím struktury, kde jiní vidí chaos. Analytické myšlení a zkušenosti „pod kapotou“.
+          Proč „od dřeva"? Dříve jsem pracoval rukama se dřevem. Každý materiál má své vlastnosti, každá práce potřebuje správný nástroj.<br>
+          Dnes je moje doména data – Python, SQL, Power BI, trpělivost a analytika.<br>
+          Vidím struktury tam, kde ostatní vidí chaos. Analytické myšlení a zkušenosti „pod kapotou“.
         </p>
       </div>
-      <div class="about-side-card">
-        <h3>Aktuální pozice</h3>
+      <div class="about-card">
+        <h3 class="about-card-title">Aktuální pozice</h3>
         <div class="about-card-content">
           <strong>Digitalizace vozového parku</strong><br>
           Hedin Automotive CZ
@@ -43,34 +39,33 @@
       </div>
     </div>
   </section>
-  
-  <!-- 3. Projekty v dřevo card boxech, grid layout, vycentrováno -->
-  <section id="projekty" class="projects">
+
+  <!-- Projekty: grid, card boxy -->
+  <section class="projects-section">
     <div class="container">
-      <h2>Moje projekty</h2>
-      <p class="projects-desc">Praktické projekty, které ukazují mé dovednosti v oblasti dat, programování a automatizace</p>
+      <h2 class="section-title">Moje projekty</h2>
       <div class="projects-grid">
-        <div class="project-card wood">
+        <div class="project-card card-wood">
           <h3>Text Analyzer</h3>
           <p>Analýza textových dat v Pythonu</p>
           <a href="#" class="project-btn">GitHub</a>
         </div>
-        <div class="project-card wood-light">
+        <div class="project-card card-wood-light">
           <h3>Bulls & Cows</h3>
-          <p>Interaktivní hra implementovaná v Pythonu s logikou</p>
+          <p>Interaktivní hra v Pythonu</p>
           <a href="#" class="project-btn">GitHub</a>
         </div>
-        <div class="project-card wood">
+        <div class="project-card card-wood">
           <h3>Election Scraper</h3>
           <p>Scraping + analýza volebních dat</p>
           <a href="#" class="project-btn">GitHub</a>
         </div>
-        <div class="project-card wood-light">
+        <div class="project-card card-wood-light">
           <h3>Analýza HDP vs mzdy</h3>
-          <p>Komplexní SQL analýza ekonomických dat</p>
+          <p>SQL analýza ekonomických dat</p>
           <a href="#" class="project-btn">GitHub</a>
         </div>
-        <div class="project-card wood">
+        <div class="project-card card-wood">
           <h3>PowerBI pro Engeto</h3>
           <p>Dashboard & vizualizace v Power BI</p>
           <a href="#" class="project-btn">GitHub</a>
@@ -78,45 +73,60 @@
       </div>
     </div>
   </section>
-  
-  <!-- 4. Dovednosti: tmavě zelené pozadí, card grid -->
-  <section id="dovednosti" class="skills">
+
+  <!-- Dovednosti: grid, card boxy -->
+  <section class="skills-section">
     <div class="container">
-      <h2>Dovednosti</h2>
+      <h2 class="section-title">Dovednosti</h2>
       <div class="skills-grid">
         <div class="skill-card">
           <h4>Programování</h4>
-          <ul><li>Python</li><li>SQL</li><li>PostgreSQL</li><li>Web scraping</li></ul>
+          <ul>
+            <li>Python</li>
+            <li>SQL</li>
+            <li>PostgreSQL</li>
+            <li>Web scraping</li>
+          </ul>
         </div>
         <div class="skill-card">
           <h4>Vizualizace</h4>
-          <ul><li>Power BI</li><li>DAX</li><li>Dashboards</li><li>Reporting</li></ul>
+          <ul>
+            <li>Power BI</li>
+            <li>DAX</li>
+            <li>Dashboards</li>
+            <li>Reporting</li>
+          </ul>
         </div>
         <div class="skill-card">
           <h4>Systémy</h4>
-          <ul><li>SharePoint</li><li>Power Automate</li><li>M365</li><li>Digitalizace</li></ul>
+          <ul>
+            <li>SharePoint</li>
+            <li>Power Automate</li>
+            <li>M365</li>
+            <li>Digitalizace</li>
+          </ul>
         </div>
       </div>
     </div>
   </section>
-  
-  <!-- 5. Kontakt (světlé, centrum, card boxy, velké obrázky) -->
-  <section id="kontakt" class="contact">
+
+  <!-- Kontakt: boxy s velkými obrázky -->
+  <section class="contact-section">
     <div class="container">
-      <h2>Kontakt</h2>
+      <h2 class="section-title">Kontakt</h2>
       <div class="contact-grid">
         <div class="contact-card">
-          <img src="images/github.png" alt="GitHub" class="contact-img">
+          <img src="images/github.png" alt="GitHub" class="contact-photo">
           <h5>GitHub</h5>
           <p>IvanekLumberjack888</p>
         </div>
         <div class="contact-card">
-          <img src="images/linkedin.png" alt="LinkedIn" class="contact-img">
+          <img src="images/linkedin.png" alt="LinkedIn" class="contact-photo">
           <h5>LinkedIn</h5>
           <p>Ivo Doležal</p>
         </div>
         <div class="contact-card">
-          <img src="images/mail_me.png" alt="Email" class="contact-img">
+          <img src="images/mail_me.png" alt="Email" class="contact-photo">
           <h5>Email</h5>
           <p>ivousd@gmail.com</p>
         </div>
