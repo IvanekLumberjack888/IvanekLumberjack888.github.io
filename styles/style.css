@@ -9,11 +9,9 @@
   --radius: 18px;
   --container-max-width: 1100px;
 }
-
 * {
   box-sizing: border-box;
 }
-
 body {
   font-family: 'Montserrat', sans-serif;
   background: var(--background);
@@ -21,18 +19,16 @@ body {
   margin: 0;
   line-height: 1.5;
 }
-
 .container {
   max-width: var(--container-max-width);
   margin: 0 auto;
   padding: 0 22px;
 }
-
 /* Hero Section */
 .hero {
   position: relative;
   height: 500px;
-  background: url('images/background.jpg') center/cover no-repeat;
+  background: url('images/image.jpg') center/cover no-repeat;
   color: #fff;
   display: flex;
   justify-content: center;
@@ -40,7 +36,6 @@ body {
   text-align: center;
   box-shadow: var(--shadow);
 }
-
 .hero::before {
   content: "";
   position: absolute;
@@ -48,20 +43,17 @@ body {
   background: linear-gradient(to right bottom, rgba(24, 51, 33, 0.7), rgba(96, 152, 110, 0.24));
   z-index: 1;
 }
-
 .hero-content {
   position: relative;
   z-index: 2;
   max-width: 850px;
 }
-
 .hero-title {
   font-size: 3.5rem;
   font-weight: 800;
   margin-bottom: 0.3em;
   text-shadow: 0 3px 8px rgb(0 0 0 / 0.3);
 }
-
 .hero-subtitle {
   font-weight: 600;
   font-size: 1.25rem;
@@ -71,14 +63,12 @@ body {
   border-radius: 18px;
   display: inline-block;
 }
-
 .hero-desc {
   font-weight: 700;
   font-size: 1.1rem;
   color: var(--main-green);
   text-shadow: 0 2px 5px rgb(0 0 0 / 0.16);
 }
-
 /* Buttons */
 .hero-buttons {
   margin-top: 24px;
@@ -86,7 +76,6 @@ body {
   gap: 25px;
   justify-content: center;
 }
-
 .btn-primary,
 .btn-secondary {
   cursor: pointer;
@@ -103,46 +92,38 @@ body {
   text-decoration: none;
   box-shadow: var(--shadow);
 }
-
 .btn-primary {
   background-color: var(--main-green);
   color: var(--dark-green);
 }
-
 .btn-primary:hover {
   background-color: var(--dark-green);
   color: var(--white);
 }
-
 .btn-secondary {
   border: 2px solid var(--white);
   background-color: transparent;
   color: var(--white);
 }
-
 .btn-secondary:hover {
   background-color: var(--white);
   color: var(--dark-green);
 }
-
 /* About Section */
 .about-section {
   background-color: var(--main-green);
   padding: 60px 0 70px 0;
 }
-
 .about-wrapper {
   display: flex;
   gap: 42px;
   justify-content: space-between;
   flex-wrap: wrap;
 }
-
 .about-text {
   flex: 2;
   min-width: 240px;
 }
-
 .about-text h2 {
   margin-top: 0;
   margin-bottom: 30px;
@@ -150,13 +131,11 @@ body {
   font-weight: 700;
   font-size: 2rem;
 }
-
 .about-text p {
   font-size: 1rem;
   line-height: 1.6;
   color: var(--dark-green);
 }
-
 .about-card {
   flex: 1 1 320px;
   background-color: var(--dark-green);
@@ -167,37 +146,31 @@ body {
   font-size: 1rem;
   margin-top: 0;
 }
-
 .about-card h3 {
   margin-top: 0;
   margin-bottom: 10px;
   font-weight: 700;
 }
-
 /* Projects Section */
 .projects-section {
   padding: 70px 0 55px;
 }
-
 .section-title {
   font-size: 2em;
   color: var(--dark-green);
   margin-bottom: 35px;
   text-align: left;
 }
-
 .projects-description {
   max-width: 650px;
   margin-bottom: 3rem;
   color: var(--dark-green);
 }
-
 .projects-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px, 1fr));
   gap: 30px;
 }
-
 .project-card {
   border-radius: var(--radius);
   padding: 24px 22px 16px 22px;
@@ -206,18 +179,15 @@ body {
   box-shadow: var(--shadow);
   transition: box-shadow 0.18s, transform 0.13s;
 }
-
 .project-card.card-wood-light {
   background: var(--wood-light);
   color: var(--dark-green);
 }
-
 .project-card h3 {
   margin-top: 0;
   font-size: 1.10rem;
   margin-bottom: 15px;
 }
-
 .project-btn {
   background-color: var(--main-green);
   color: var(--dark-green);
@@ -230,25 +200,21 @@ body {
   margin-top: 12px;
   box-shadow: 0 3px 8px rgba(34, 77, 34, 0.12);
 }
-
 .project-btn:hover {
   background-color: var(--dark-green);
   color: var(--white);
 }
-
 /* Skills Section */
 .skills-section {
   background-color: var(--dark-green);
   padding: 66px 0 50px 0;
 }
-
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
   gap: 32px;
   margin-top: 25px;
 }
-
 .skill-card {
   background-color: var(--wood-light);
   border-radius: var(--radius);
@@ -257,41 +223,34 @@ body {
   text-align: center;
   color: var(--dark-green);
 }
-
 .skill-card h3 {
   font-weight: 700;
   font-size: 1.25rem;
   margin-bottom: 25px;
 }
-
 .skill-card ul {
   list-style: none;
   padding: 0;
   margin: 0;
 }
-
 .skill-card li {
   padding: 8px 0;
   font-weight: 600;
 }
-
 .skill-card li:last-child {
   padding-bottom: 0;
 }
-
 /* Contact Section */
 .contact-section {
   background-color: var(--background);
   padding: 70px 0 40px 0;
 }
-
 .contact-grid {
   display: flex;
   gap: 48px;
   justify-content: center;
   flex-wrap: wrap;
 }
-
 .contact-card {
   background-color: var(--main-green);
   border-radius: var(--radius);
@@ -301,12 +260,10 @@ body {
   max-width: 260px;
   transition: box-shadow 0.3s, transform 0.3s;
 }
-
 .contact-card:hover {
   box-shadow: 0 10px 40px rgba(34, 77, 34, 0.3);
   transform: translateY(-8px);
 }
-
 .contact-img {
   width: 128px;
   height: 128px;
@@ -317,24 +274,20 @@ body {
   box-shadow: 0 8px 40px rgba(34, 77, 34, 0.25);
   transition: transform 0.3s ease;
 }
-
 .contact-card:hover .contact-img {
   transform: scale(1.15);
 }
-
 .contact-card h5 {
   margin-bottom: 10px;
   font-size: 1.23rem;
   font-weight: 700;
   color: var(--dark-green);
 }
-
 .contact-card p {
   font-weight: 600;
   color: var(--dark-green);
   margin-bottom: 0;
 }
-
 /* Footer */
 .footer {
   background-color: var(--dark-green);
@@ -344,53 +297,43 @@ body {
   font-weight: 600;
   margin-top: 18px;
 }
-
 /* Responsive */
 @media (max-width: 950px) {
   .container {
     padding: 0 14px;
   }
-
   .about-wrapper {
     flex-direction: column;
     gap: 42px;
   }
-
   .projects-grid,
   .skills-grid {
     grid-template-columns: 1fr !important;
     gap: 28px !important;
   }
-
   .contact-grid {
     flex-direction: column;
     gap: 28px;
   }
 }
-
 @media (max-width: 700px) {
   .hero-section {
     height: 280px;
   }
-
   .hero-title {
     font-size: 2rem;
   }
-
   .hero-subtitle {
     font-size: 1.2rem;
   }
-
   .about-text h2,
   .section-title {
     font-size: 1.4rem;
   }
-
   .contact-img {
     width: 90px;
     height: 90px;
   }
-
   .project-card,
   .skill-card,
   .about-card,
