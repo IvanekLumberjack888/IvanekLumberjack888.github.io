@@ -1,209 +1,350 @@
 <!DOCTYPE html>
 <html lang="cs">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ivo Doležal | Data Engineer & Systémový Inovátor | Od dřeva k datům</title>
-    <meta name="description" content="Portfolio Iva Doležala - Data Engineer a Systémový Inovátor. Od dřeva k datům - stavím systémy, které vydrží. Python, SQL, Power BI, SharePoint.">
-    
-    <!-- Open Graph -->
-    <meta property="og:title" content="Ivo Doležal | Data Engineer & Systémový Inovátor | Od dřeva k datům">
-    <meta property="og:description" content="Portfolio Iva Doležala - Data Engineer a Systémový Inovátor. Od dřeva k datům - stavím systémy, které vydrží. Python, SQL, Power BI, SharePoint.">
-    <meta property="og:image" content="https://assets.macaly-user-data.dev/cdn-cgi/image/format=webp,width=2000,height=2000,fit=scale-down,quality=90,anim=true/np9y18ao7v6kuhs80vhf1geh/jvl22ova7449jjyhpkobokgf/s6PG9TxsF_Awwgvqx961f/background.jpg">
-    <meta property="og:type" content="website">
-    
-    <!-- Favicon -->
-    <link rel="icon" href="data:image/svg+xml,<svg xmlns='http://www.w3.org/2000/svg' viewBox='0 0 100 100'><text y='.9em' font-size='90'>🪓</text></svg>">
-    
-    <!-- Fonts -->
-    <link rel="preconnect" href="https://fonts.googleapis.com">
-    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;500;600;700&family=Playfair+Display:wght@400;500;600;700&display=swap" rel="stylesheet">
-    
-    <!-- Lucide Icons -->
-    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
-    
-    <!-- Styles -->
-    <link rel="stylesheet" href="style.css">
+  <meta charset="UTF-8">
+  <title>Ivo Doležal | Data Engineer & Systémový Inovátor</title>
+  <meta name="viewport" content="width=900, initial-scale=1.0">
+  <link href="https://fonts.googleapis.com/css?family=Montserrat:700,400|Inter:400,500&display=swap" rel="stylesheet">
+  <link rel="icon" href="images/favicon.ico">
+  <style>
+    body {
+      margin: 0;
+      font-family: Inter, Arial, sans-serif;
+      background: #f7faf7;
+      color: #1a512a;
+    }
+    .hero {
+      width: 100%;
+      height: 410px;
+      background: url('images/background.jpg') center/cover no-repeat;
+      display: flex;
+      align-items: center;
+      justify-content: center;
+      flex-direction: column;
+      position: relative;
+      text-align: center;
+    }
+    .hero-box {
+      background: rgba(20, 60, 30, 0.65);
+      color: #fff;
+      padding: 30px 40px;
+      border-radius: 24px;
+      backdrop-filter: blur(9px);
+      margin-top: 30px;
+      box-shadow: 0 8px 32px rgba(20, 60, 30, 0.12);
+      display: inline-block;
+    }
+    h1 {
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.8rem;
+      margin-bottom: 10px;
+      font-weight: 700;
+    }
+    .subtitle {
+      font-size: 1.4rem;
+      margin-bottom: 5px;
+      font-family: 'Montserrat', sans-serif;
+      letter-spacing: 0.04em;
+    }
+    .motto {
+      font-size: 1.1rem;
+      margin-bottom: 20px;
+      color: #b0f2a7;
+    }
+    .hero-links {
+      display: flex;
+      gap: 17px;
+      justify-content: center;
+      margin-top: 18px;
+    }
+    .hero-links a {
+      background: #1a512a;
+      color: #fff;
+      padding: 9px 24px;
+      border-radius: 20px;
+      text-decoration: none;
+      font-size: 1.05rem;
+      font-weight: 500;
+      border: 1.7px solid #b3e997;
+      transition: background .2s;
+    }
+    .hero-links a:hover {
+      background: #b3e997;
+      color: #1a512a;
+    }
+    main {
+      max-width: 900px;
+      margin: 0 auto;
+      padding: 25px 0;
+    }
+    section {
+      margin-bottom: 54px;
+      background: #e9faee;
+      padding: 34px 30px 34px 30px;
+      border-radius: 28px;
+      box-shadow: 0 8px 40px rgba(70,200,108,0.10);
+    }
+    section h2 {
+      text-align: center;
+      font-family: 'Montserrat', sans-serif;
+      font-size: 2.1rem;
+      margin-bottom: 19px;
+      color: #227b42;
+    }
+    .highlight-box {
+      background: #ffffff;
+      border: 2px solid #1a512a;
+      border-radius: 13px;
+      padding: 22px;
+      color: #157536;
+      font-weight: 500;
+      margin-bottom: 10px;
+      box-shadow: 0 4px 24px #b3e99730;
+    }
+    .dual-columns {
+      display: flex;
+      gap: 30px;
+      flex-wrap: wrap;
+      margin-top: 18px;
+      justify-content: space-between;
+    }
+    .dual-columns > div {
+      flex: 1 0 45%;
+    }
+    .project-card {
+      background: #ebff72;
+      border-radius: 14px;
+      padding: 15px 17px;
+      margin-bottom: 13px;
+      box-shadow: 0 4px 18px #b3e99763;
+      color: #275800;
+    }
+    .project-card-title {
+      font-weight: 700;
+      font-size: 1.15rem;
+      margin-bottom: 4px;
+      font-family: 'Montserrat', sans-serif;
+    }
+    .project-meta, .project-links {
+      margin-bottom: 6px;
+      font-size: 0.98rem;
+    }
+    .project-links a {
+      background: #1a512a;
+      color: #fff;
+      text-decoration: none;
+      border-radius: 15px;
+      padding: 4px 13px;
+      margin-right: 8px;
+      font-size: 0.95rem;
+      border: 1px solid #b3e997;
+      transition: background .2s;
+    }
+    .project-links a:hover {
+      background: #b3e997;
+      color: #1a512a;
+    }
+    .skills-grid {
+      display: flex;
+      gap: 30px;
+      margin-top: 30px;
+      flex-wrap: wrap;
+      justify-content: space-between;
+    }
+    .skills-category {
+      background: #1a512a;
+      color: #fff;
+      border-radius: 16px;
+      padding: 18px 30px;
+      flex: 1 0 30%;
+      font-size: 1.05rem;
+      box-shadow: 0 2px 25px #b3e99723;
+    }
+    .skills-category ul {
+      margin: 8px 0 0 0;
+      padding: 0 0 0 18px;
+      font-size: 0.95rem;
+    }
+    .contact-section {
+      background: #fff;
+      border-radius: 24px;
+      padding: 36px 24px;
+      box-shadow: 0 6px 31px #b3e99733;
+      text-align: center;
+      margin-bottom: 24px;
+    }
+    .contact-cards {
+      display: flex;
+      gap: 35px;
+      justify-content: center;
+      margin-top: 24px;
+      flex-wrap: wrap;
+    }
+    .contact-card {
+      background: #ebff72;
+      border-radius: 12px;
+      padding: 19px 23px 19px 23px;
+      min-width: 200px;
+      box-shadow: 0 2px 24px #b3e9973d;
+      color: #275800;
+      font-size: 1rem;
+      text-align: center;
+    }
+    .contact-card a {
+      color: #154e0f;
+      font-weight: 500;
+      text-decoration: none;
+      word-break: break-all;
+    }
+    footer {
+      background: #1a512a;
+      color: #c6e9c7;
+      text-align: center;
+      font-size: 1rem;
+      padding: 24px 0 14px 0;
+      border-top-left-radius: 24px;
+      border-top-right-radius: 24px;
+      margin-top: 7px;
+      letter-spacing: 0.017em;
+    }
+    @media (max-width: 920px) {
+      main { padding: 7px; }
+      section, .contact-section { padding: 20px 5px; }
+      .skills-grid, .dual-columns, .contact-cards { flex-direction: column; gap: 16px; }
+    }
+  </style>
 </head>
 <body>
-    <div class="min-h-screen smooth-scroll">
-        <!-- Hero Section -->
-        <section class="hero-section">
-            <div class="hero-background"></div>
-            <div class="hero-overlay"></div>
-            
-            <div class="hero-content fade-in-up">
-                <h1 class="hero-title">Ivo Doležal</h1>
-                <p class="hero-subtitle">Data Engineer | Systémový Inovátor</p>
-                <p class="hero-description">
-                    <span class="highlight">Od dřeva k datům</span> - stavím systémy, které vydrží.
-                </p>
-                <div class="hero-buttons">
-                    <a href="#projects" class="btn btn-primary">
-                        <i data-lucide="external-link"></i>
-                        Moje projekty
-                    </a>
-                    <a href="#contact" class="btn btn-outline">
-                        <i data-lucide="mail"></i>
-                        Kontakt
-                    </a>
-                </div>
-            </div>
-        </section>
-
-        <!-- About Section -->
-        <section id="about" class="about-section">
-            <div class="container">
-                <div class="section-header fade-in-up">
-                    <h2 class="section-title">Od dřeva k datům</h2>
-                    <div class="section-divider"></div>
-                </div>
-                
-                <div class="about-grid">
-                    <div class="about-text fade-in-up">
-                        <p class="about-paragraph">
-                            Proč "od dřeva"? Dříve jsem pracoval rukama a docela dost se dřevem. Naučil jsem se, 
-                            že každý materiál má své vlastnosti a každá práce potřebuje správný nástroj a přístup.
-                        </p>
-                        <p class="about-paragraph">
-                            Dnes je můj materiál <span class="text-highlight">data</span> a nástroje 
-                            <span class="text-highlight">Python, SQL a Power BI</span>. 
-                            Ale princip zůstává stejný - preciznost, trpělivost a pochopení toho, s čím pracuji.
-                        </p>
-                        <p class="about-paragraph">
-                            Mám neobvyklý dar - vidím struktury a vzorce tam, kde ostatní vidí jen chaos. 
-                            Není to magie, je to kombinace analytického myšlení a zkušenosti s tím, 
-                            jak věci fungují "pod kapotou".
-                        </p>
-                    </div>
-                    
-                    <div class="about-card fade-in-up">
-                        <div class="card hover-lift">
-                            <div class="card-header card-header-primary">
-                                <div class="card-title-with-icon">
-                                    <i data-lucide="wrench"></i>
-                                    <h3>Aktuální práce</h3>
-                                </div>
-                            </div>
-                            <div class="card-content">
-                                <h4 class="job-title">Digitalizace vozového parku</h4>
-                                <p class="job-company">Hedin Automotive CZ</p>
-                                <p class="job-description">
-                                    Vytvářím komplexní webové řešení pro správu vozového parku na platformě SharePoint. 
-                                    Transformace papírových procesů do digitální podoby.
-                                </p>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-            </div>
-        </section>
-
-        <!-- Projects Section -->
-        <section id="projects" class="projects-section">
-            <div class="container">
-                <div class="section-header fade-in-up">
-                    <h2 class="section-title">Moje projekty</h2>
-                    <div class="section-divider"></div>
-                    <p class="section-description">
-                        Praktické projekty, které ukazují mé dovednosti v oblasti dat, programování a automatizace
-                    </p>
-                </div>
-                
-                <div class="projects-grid" id="projects-grid">
-                    <!-- Projects will be populated by JavaScript -->
-                </div>
-            </div>
-        </section>
-
-        <!-- Skills Section -->
-        <section id="skills" class="skills-section">
-            <div class="container">
-                <div class="section-header fade-in-up">
-                    <h2 class="section-title text-white">Dovednosti</h2>
-                    <div class="section-divider section-divider-light"></div>
-                </div>
-                
-                <div class="skills-grid" id="skills-grid">
-                    <!-- Skills will be populated by JavaScript -->
-                </div>
-            </div>
-        </section>
-
-        <!-- Contact Section -->
-        <section id="contact" class="contact-section">
-            <div class="container">
-                <div class="section-header fade-in-up">
-                    <h2 class="section-title">Kontakt</h2>
-                    <div class="section-divider"></div>
-                    <p class="section-description">
-                        Máte projekt nebo příležitost? Rád si s vámi popovídám o tom, jak můžu pomoci.
-                    </p>
-                </div>
-                
-                <div class="contact-grid">
-                    <div class="contact-card fade-in-up">
-                        <div class="card hover-lift">
-                            <div class="card-content contact-card-content">
-                                <div class="contact-icon">
-                                    <i data-lucide="mail"></i>
-                                </div>
-                                <h3 class="contact-title">Email</h3>
-                                <a href="mailto:ivousd@gmail.com" class="contact-link">
-                                    ivousd@gmail.com
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-card fade-in-up">
-                        <div class="card hover-lift">
-                            <div class="card-content contact-card-content">
-                                <div class="contact-icon">
-                                    <i data-lucide="github"></i>
-                                </div>
-                                <h3 class="contact-title">GitHub</h3>
-                                <a href="https://github.com/IvanekLumberjack888" target="_blank" rel="noopener noreferrer" class="contact-link">
-                                    IvanekLumberjack888
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                    
-                    <div class="contact-card fade-in-up">
-                        <div class="card hover-lift">
-                            <div class="card-content contact-card-content">
-                                <div class="contact-icon">
-                                    <i data-lucide="linkedin"></i>
-                                </div>
-                                <h3 class="contact-title">LinkedIn</h3>
-                                <a href="https://www.linkedin.com/in/ivodolezal888/" target="_blank" rel="noopener noreferrer" class="contact-link">
-                                    Ivo Doležal
-                                </a>
-                            </div>
-                        </div>
-                    </div>
-                </div>
-                
-                <div class="location fade-in-up">
-                    <i data-lucide="map-pin"></i>
-                    <span>Brno, Česká republika</span>
-                </div>
-            </div>
-        </section>
-
-        <!-- Footer -->
-        <footer class="footer">
-            <div class="container">
-                <p class="footer-text">
-                    © 2024 Ivo Doležal. Od dřeva k datům - stavím systémy, které vydrží.
-                </p>
-            </div>
-        </footer>
+  <div class="hero">
+    <div class="hero-box">
+      <h1>Ivo Doležal</h1>
+      <div class="subtitle">Data Engineer | Systémový Inovátor</div>
+      <div class="motto">Od dřeva k datům - stavím systémy, které vydrží.</div>
+      <div class="hero-links">
+        <a href="#projects">Moje projekty</a>
+        <a href="#contact">Kontakt</a>
+      </div>
     </div>
+  </div>
+  <main>
+    <section>
+      <h2>Od dřeva k datům</h2>
+      <div>Proč "od dřeva"? Dříve jsem pracoval rukama a docela dost se dřevem. Naučil jsem se, že každý materiál má své vlastnosti a každá práce potřebuje správný nástroj a přístup.</div>
+      <div style="margin-top: 10px;">Dnes je můj materiál <strong>data</strong> a nástroje <strong>Python, SQL a Power BI.</strong> Ale princip zůstává stejný – preciznost, trpělivost a pochopení toho, s čím pracuji.</div>
+      <div style="margin-top: 7px;">Mám neobvyklý dar – vidím struktury a vzorce tam, kde ostatní vidí jen chaos. Není to magie, je to kombinace analytického myšlení a zkušenosti s tím, jak věci fungují "pod kapotou".</div>
+      <div class="highlight-box" style="margin-top: 24px;">
+        <strong>Aktuální práce</strong><br>
+        <span style="font-weight:600;">Digitalizace vozového parku<br>Hedin Automotive CZ</span><br>
+        <small>Vytvářím komplexní webové řešení pro správu vozového parku na platformě SharePoint. Transformace papírových procesů do digitální podoby.</small>
+      </div>
+    </section>
 
-    <!-- JavaScript -->
-    <script src="script.js"></script>
+    <section id="projects">
+      <h2>Moje projekty</h2>
+      <div style="text-align:center;">Praktické projekty, které ukazují mé dovednosti v oblasti dat, programování a automatizace</div>
+      <div class="dual-columns">
+        <div>
+          <div class="project-card">
+            <div class="project-card-title">Text Analyzer</div>
+            <div class="project-meta">Pokročilý nástroj pro analýzu dat s využitím Python knihoven</div>
+            <div class="project-links">
+              <a href="#">GitHub</a>
+              <a href="#">Demo</a>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="project-card-title">Election Scraper</div>
+            <div class="project-meta">Web scraping nástroj pro sběr a analýzu volebních dat</div>
+            <div class="project-links">
+              <a href="#">GitHub</a>
+              <a href="#">Demo</a>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="project-card-title">PowerBI pro Engeto</div>
+            <div class="project-meta">Interaktivní dashboard a vizualizace dat v Power BI</div>
+            <div class="project-links">
+              <a href="#">GitHub</a>
+              <a href="#">Demo</a>
+            </div>
+          </div>
+        </div>
+        <div>
+          <div class="project-card">
+            <div class="project-card-title">Bulls & Cows</div>
+            <div class="project-meta">Interaktivní algoritmická hra v Pythonu s logickým algoritmem</div>
+            <div class="project-links">
+              <a href="#">GitHub</a>
+              <a href="#">Demo</a>
+            </div>
+          </div>
+          <div class="project-card">
+            <div class="project-card-title">Analýza HDP vs mzdy</div>
+            <div class="project-meta">Kombinovaná SQL analýza ekonomických dat za období 2006–2018</div>
+            <div class="project-links">
+              <a href="#">GitHub</a>
+              <a href="#">Demo</a>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section>
+      <h2>Dovednosti</h2>
+      <div class="skills-grid">
+        <div class="skills-category">
+          Programování
+          <ul>
+            <li>Python</li>
+            <li>SQL</li>
+            <li>PostgreSQL</li>
+            <li>Web Scraping</li>
+          </ul>
+        </div>
+        <div class="skills-category">
+          Vizualizace
+          <ul>
+            <li>Power BI</li>
+            <li>DAX</li>
+            <li>Dashboards</li>
+            <li>Reporting</li>
+          </ul>
+        </div>
+        <div class="skills-category">
+          Systémy
+          <ul>
+            <li>SharePoint</li>
+            <li>Power Automate</li>
+            <li>M365</li>
+            <li>Digitalizace</li>
+          </ul>
+        </div>
+      </div>
+    </section>
+
+    <div class="contact-section" id="contact">
+      <h2>Kontakt</h2>
+      <div>Máte projekt nebo příležitost? Rád si s vámi popovídám o tom, jak můžu pomoci.</div>
+      <div class="contact-cards">
+        <div class="contact-card">
+          <div style="font-weight:600;margin-bottom:7px;">Email</div>
+          <a href="mailto:ivousd@gmail.com">ivousd@gmail.com</a>
+        </div>
+        <div class="contact-card">
+          <div style="font-weight:600;margin-bottom:7px;">GitHub</div>
+          <a href="https://github.com/IvanekLumberjack888" target="_blank">IvanekLumberjack888</a>
+        </div>
+        <div class="contact-card">
+          <div style="font-weight:600;margin-bottom:7px;">LinkedIn</div>
+          <a href="https://www.linkedin.com/in/ivodolezal888/" target="_blank">Ivo Doležal</a>
+        </div>
+      </div>
+      <div style="margin-top:12px;color:#4b685c;font-size:0.97em;">Brno, Česká republika</div>
+    </div>
+  </main>
+  <footer>
+    © 2024 Ivo Doležal. Od dřeva k datům - stavím systémy, které vydrží.
+  </footer>
 </body>
 </html>
