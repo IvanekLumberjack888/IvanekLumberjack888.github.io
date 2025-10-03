@@ -1,90 +1,234 @@
 <!DOCTYPE html>
 <html lang="cs">
 <head>
-  <meta charset="UTF-8">
-  <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ivo Doležal | Data Engineer & Systémový Inovátor</title>
-  <meta name="description" content="Portfolio Iva Doležala - Data Engineer a Systémový Inovátor. Od dřeva k datům.">
-
-  <!-- Favicon -->
-  <link rel="icon" href="images/favicon.ico">
-
-  <!-- Google Fonts -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500;600&display=swap" rel="stylesheet">
-
-  <!-- Lucide Icons -->
-  <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
-
-  <!-- Typed.js -->
-  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
-
-  <link rel="stylesheet" href="style.css">
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ivo Doležal | Data Engineer & Systémový Inovátor</title>
+    <meta name="description" content="Portfolio Iva Doležala - Data Engineer a Systémový Inovátor. Od dřeva k datům - stavím systémy, které vydrží.">
+    
+    <!-- Favicon -->
+    <link rel="icon" href="https://raw.githubusercontent.com/IvanekLumberjack888/IvanekLumberjack888.github.io/moje/images/favicon.ico">
+    
+    <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Roboto:wght@300;400;500;600;700&family=Roboto+Mono:wght@400;500;600&display=swap" rel="stylesheet">
+    
+    <!-- Lucide Icons -->
+    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
+    
+    <link rel="stylesheet" href="style.css">
 </head>
 <body>
-  <!-- Navigation -->
-  <nav class="navbar">
-    <div class="container nav-container">
-      <div class="nav-brand">Ivo Doležal</div>
-      <div class="nav-links">
-        <a href="#about">O mně</a>
-        <a href="#projects">Projekty</a>
-        <a href="#skills">Dovednosti</a>
-        <a href="#contact">Kontakt</a>
-      </div>
-      <button class="nav-toggle" aria-label="Toggle nav">
-        <i data-lucide="menu"></i>
-      </button>
-    </div>
-  </nav>
+    <!-- Navigation -->
+    <nav class="navbar">
+        <div class="container">
+            <div class="nav-content">
+                <div class="nav-brand">
+                    <span class="brand-text">Ivo Doležal</span>
+                </div>
+                <div class="nav-links">
+                    <a href="#about" class="nav-link">O mně</a>
+                    <a href="#projects" class="nav-link">Projekty</a>
+                    <a href="#skills" class="nav-link">Dovednosti</a>
+                    <a href="#contact" class="nav-link">Kontakt</a>
+                </div>
+                <button class="nav-toggle" aria-label="Toggle navigation">
+                    <i data-lucide="menu"></i>
+                </button>
+            </div>
+        </div>
+    </nav>
 
-  <!-- Hero Section -->
-  <section class="hero-section" id="hero">
-    <div class="hero-background"></div>
-    <div class="hero-overlay"></div>
-    <div class="hero-content">
-      <h1 class="hero-title"><span id="typed-name"></span></h1>
-      <p class="hero-subtitle">Data Engineer | Systémový Inovátor</p>
-      <p class="hero-description">
-        <span class="highlight">Od dřeva k datům</span> – stavím systémy, které vydrží.
-      </p>
-      <div class="hero-buttons">
-        <a href="#projects" class="btn btn-primary">
-          <i data-lucide="external-link"></i> Moje projekty
-        </a>
-        <a href="#contact" class="btn btn-outline">
-          <i data-lucide="mail"></i> Kontakt
-        </a>
-      </div>
-    </div>
-  </section>
+    <!-- Hero Section -->
+    <section class="hero-section">
+        <div class="hero-background"></div>
+        <div class="hero-overlay"></div>
+        <div class="container">
+            <div class="hero-content">
+                <h1 class="hero-title">Ivo Doležal</h1>
+                <p class="hero-subtitle">Data Engineer & Systémový Inovátor</p>
+                <p class="hero-description">
+                    <span class="highlight">Od dřeva k datům</span> - stavím systémy, které vydrží
+                </p>
+                <div class="hero-actions">
+                    <a href="#projects" class="btn btn--primary">
+                        <i data-lucide="folder"></i>
+                        Moje projekty
+                    </a>
+                    <a href="#contact" class="btn btn--outline hero-btn-outline">
+                        <i data-lucide="mail"></i>
+                        Kontakt
+                    </a>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <!-- About Section -->
-  <section id="about" class="about-section">
-    <!-- ... obsah o mně ... -->
-  </section>
+    <!-- About Section -->
+    <section id="about" class="about-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Od dřeva k datům</h2>
+                <div class="section-divider"></div>
+            </div>
+            
+            <div class="about-content">
+                <div class="about-text">
+                    <div class="text-block">
+                        <p>
+                            Proč "od dřeva"? Dříve jsem pracoval rukama a docela dost se dřevem. 
+                            Naučil jsem se, že každý materiál má své vlastnosti a každá práce 
+                            potřebuje správný nástroj a přístup.
+                        </p>
+                    </div>
+                    <div class="text-block">
+                        <p>
+                            Dnes je můj materiál <strong>data</strong> a nástroje 
+                            <strong>Python, SQL a Power BI</strong>. Ale princip zůstává stejný - 
+                            preciznost, trpělivost a pochopení toho, s čím pracuji.
+                        </p>
+                    </div>
+                    <div class="text-block">
+                        <p>
+                            Mám neobvyklý dar - vidím struktury a vzorce tam, kde ostatní vidí jen chaos. 
+                            Není to magie, je to kombinace analytického myšlení a zkušenosti s tím, 
+                            jak věci fungují "pod kapotou".
+                        </p>
+                    </div>
+                </div>
+                
+                <div class="current-work">
+                    <div class="card">
+                        <div class="card__header">
+                            <div class="work-title-icon">
+                                <i data-lucide="briefcase"></i>
+                                <h3>Aktuální práce</h3>
+                            </div>
+                        </div>
+                        <div class="card__body">
+                            <h4 class="work-position">Digitalizace vozového parku</h4>
+                            <p class="work-company">Hedin Automotive CZ</p>
+                            <p class="work-description">
+                                Vytvářím komplexní webové řešení pro správu vozového parku na platformě SharePoint. 
+                                Transformace papírových procesů do digitální podoby.
+                            </p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </section>
 
-  <!-- Projects Section -->
-  <section id="projects" class="projects-section">
-    <!-- ... projekty ... -->
-  </section>
+    <!-- Projects Section -->
+    <section id="projects" class="projects-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Moje projekty</h2>
+                <div class="section-divider"></div>
+                <p class="section-description">
+                    Praktické projekty, které ukazují mé dovednosti v oblasti dat, programování a automatizace
+                </p>
+            </div>
+            
+            <div class="projects-grid" id="projects-grid">
+                <!-- Projects populated by JavaScript -->
+            </div>
+        </div>
+    </section>
 
-  <!-- Skills Section -->
-  <section id="skills" class="skills-section">
-    <!-- ... dovednosti ... -->
-  </section>
+    <!-- Skills Section -->
+    <section id="skills" class="skills-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Dovednosti</h2>
+                <div class="section-divider section-divider--light"></div>
+                <p class="section-description skills-description">
+                    Technologie a nástroje, se kterými denně pracuji
+                </p>
+            </div>
+            
+            <div class="skills-grid" id="skills-grid">
+                <!-- Skills populated by JavaScript -->
+            </div>
+        </div>
+    </section>
 
-  <!-- Contact Section -->
-  <section id="contact" class="contact-section">
-    <!-- ... kontakt ... -->
-  </section>
+    <!-- Contact Section -->
+    <section id="contact" class="contact-section">
+        <div class="container">
+            <div class="section-header">
+                <h2 class="section-title">Kontakt</h2>
+                <div class="section-divider"></div>
+                <p class="section-description">
+                    Máte projekt nebo příležitost? Rád si s vámi popovídám o tom, jak můžu pomoci.
+                </p>
+            </div>
+            
+            <div class="contact-grid">
+                <div class="contact-item">
+                    <div class="card">
+                        <div class="card__body contact-card-body">
+                            <div class="contact-icon">
+                                <i data-lucide="mail"></i>
+                            </div>
+                            <h3>Email</h3>
+                            <a href="mailto:ivousd@gmail.com" class="contact-link">
+                                ivousd@gmail.com
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="card">
+                        <div class="card__body contact-card-body">
+                            <div class="contact-icon">
+                                <i data-lucide="github"></i>
+                            </div>
+                            <h3>GitHub</h3>
+                            <a href="https://github.com/IvanekLumberjack888" target="_blank" rel="noopener noreferrer" class="contact-link">
+                                IvanekLumberjack888
+                            </a>
+                        </div>
+                    </div>
+                </div>
+                
+                <div class="contact-item">
+                    <div class="card">
+                        <div class="card__body contact-card-body">
+                            <div class="contact-icon">
+                                <i data-lucide="linkedin"></i>
+                            </div>
+                            <h3>LinkedIn</h3>
+                            <a href="https://www.linkedin.com/in/ivodolezal888/" target="_blank" rel="noopener noreferrer" class="contact-link">
+                                Ivo Doležal
+                            </a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+            
+            <div class="location-info">
+                <div class="location-icon">
+                    <i data-lucide="map-pin"></i>
+                </div>
+                <span>Brno, Česká republika</span>
+            </div>
+        </div>
+    </section>
 
-  <!-- Footer -->
-  <footer class="footer">
-    © 2024 Ivo Doležal. Od dřeva k datům – stavím systémy, které vydrží.
-  </footer>
+    <!-- Footer -->
+    <footer class="footer">
+        <div class="container">
+            <div class="footer-content">
+                <p class="footer-text">
+                    © 2024 Ivo Doležal. Od dřeva k datům - stavím systémy, které vydrží.
+                </p>
+            </div>
+        </div>
+    </footer>
 
-  <script src="script.js"></script>
+    <script src="app.js"></script>
 </body>
 </html>
