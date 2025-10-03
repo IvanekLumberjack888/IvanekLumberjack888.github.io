@@ -1,5 +1,7 @@
 document.addEventListener('DOMContentLoaded', function() {
+  // Lucide icons pro SVG
   if(window.lucide) lucide.createIcons();
+  // Typing animace jména
   new Typed('#typed-name', {
     strings: ['Ivo Doležal'],
     typeSpeed: 130,
@@ -11,7 +13,10 @@ document.addEventListener('DOMContentLoaded', function() {
   });
   populateProjects();
   populateSkills();
+  animateSkillBars();
 });
+
+// ---- PROJEKTY ----
 const projects = [
   {
     title: "Text Analyzer",
@@ -54,6 +59,7 @@ const projects = [
     icon: "bar-chart-3"
   }
 ];
+
 function populateProjects() {
   const grid = document.getElementById('projects-grid');
   if (!grid) return;
@@ -72,6 +78,8 @@ function populateProjects() {
   `).join('');
   lucide.createIcons();
 }
+
+// ---- DOVEDNOSTI ----
 const skills = [
   {
     category: "Programování",
@@ -92,21 +100,33 @@ const skills = [
     levels: [85, 75, 85, 80]
   }
 ];
+
 function populateSkills() {
   const grid = document.getElementById('skills-grid');
   if (!grid) return;
   grid.innerHTML = skills.map(s => `
     <div class="skill-card glass-card">
-      <div style="font-size:1.22rem;font-weight:700;margin-bottom:0.7rem;">
+      <div style="font-size:1.22rem;font-weight:700;margin-bottom:0.8rem;">
         <i data-lucide="${s.icon}"></i> ${s.category}
       </div>
       ${s.items.map((item, idx) => `
-        <div style="margin:0.7rem 0; display:flex; align-items:center; justify-content:space-between;">
-          <span style="font-weight:500;">${item}</span>
-          <div class="progress-bar"><div class="progress-bar-fill" style="width:${s.levels[idx]}%"></div></div>
+        <div style="margin:0.9rem 0; display:flex; align-items:center; justify-content:space-between;">
+          <span class="skill-label">${item}</span>
+          <div class="progress-bar"><div class="progress-bar-fill" style="width:0%" data-skill="${s.levels[idx]}"></div></div>
         </div>
       `).join('')}
     </div>
   `).join('');
   lucide.createIcons();
+}
+
+// ---- ANIMACE PROGRESS BARU ----
+function animateSkillBars() {
+  setTimeout(() => {
+    document.querySelectorAll('.progress-bar-fill').forEach(bar => {
+      let target = bar.getAttribute('data-skill');
+      bar.style.width = "0";
+      setTimeout(() => { bar.style.width = target + '%'; }, 180);
+    });
+  }, 100);
 }
