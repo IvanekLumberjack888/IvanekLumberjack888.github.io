@@ -1,19 +1,6 @@
-document.addEventListener('DOMContentLoaded', function() {
-  if(window.lucide) lucide.createIcons();
-  new Typed('#typed-name', {
-    strings: ['Ivo Doležal'],
-    typeSpeed: 130,
-    startDelay: 400,
-    showCursor: true,
-    cursorChar: '|',
-    backSpeed: 50,
-    loop: false
-  });
-  populateProjects();
-  populateSkills();
-  animateSkillBars();
-});
+// Professional Portfolio App - Ivo Doležal // Data Engineer & System Innovator
 
+// Projects data
 const projects = [
   {
     title: "Text Analyzer",
@@ -29,7 +16,7 @@ const projects = [
     tech: ["Python", "Algoritmy", "Game Logic"],
     github: "https://github.com/IvanekLumberjack888/Bulls-and-Cows",
     demo: "https://ivaneklumberjack888.github.io/Bulls-and-Cows/",
-    icon: "gamepad"
+    icon: "gamepad-2"
   },
   {
     title: "Election Scraper",
@@ -57,13 +44,64 @@ const projects = [
   }
 ];
 
+// Skills data (for charts)
+const skillsTiles = [
+  {
+    icon: "code",
+    title: "Programování",
+    list: [
+      {name: "Python", value: 90},
+      {name: "SQL", value: 85},
+      {name: "PostgreSQL", value: 80},
+      {name: "Web Scraping", value: 78},
+    ]
+  },
+  {
+    icon: "bar-chart-3",
+    title: "Vizualizace",
+    list: [
+      {name:"Power BI", value: 92},
+      {name:"DAX", value: 85},
+      {name:"Dashboards", value: 88},
+      {name:"Reporting", value: 80}
+    ]
+  },
+  {
+    icon: "settings",
+    title: "Systémy",
+    list: [
+      {name:"SharePoint", value: 80},
+      {name:"Power Automate", value: 75},
+      {name:"M365", value: 80},
+      {name:"Digitalizace", value: 87}
+    ]
+  }
+];
+
+// Init functions and dynamic rendering
+document.addEventListener('DOMContentLoaded', function() {
+  if(window.lucide) lucide.createIcons();
+  new Typed('#typed-name', {
+    strings: ['Ivo Doležal'],
+    typeSpeed: 130,
+    startDelay: 400,
+    showCursor: true,
+    cursorChar: '|',
+    backSpeed: 50,
+    loop: false
+  });
+  populateProjects();
+  populateSkillsTiles();
+  animateSkillTiles();
+});
+
 function populateProjects() {
   const grid = document.getElementById('projects-grid');
   if (!grid) return;
   grid.innerHTML = projects.map(p => `
     <div class="project-card glass-card">
       <div class="project-title"><i data-lucide="${p.icon}"></i> ${p.title}</div>
-      <div style="margin:0.7rem 0 1rem 0; color:inherit;">${p.description}</div>
+      <div style="margin:0.7rem 0 1rem 0; color:inherit">${p.description}</div>
       <div class="tech-badges">
         ${p.tech.map(tech => `<span class="badge">${tech}</span>`).join('')}
       </div>
@@ -76,52 +114,32 @@ function populateProjects() {
   lucide.createIcons();
 }
 
-const skills = [
-  {
-    category: "Programming",
-    items: ["Python", "SQL", "PostgreSQL", "Web Scraping"],
-    icon: "code",
-    levels: [95, 85, 90, 80]
-  },
-  {
-    category: "Visualization",
-    items: ["Power BI", "DAX", "Dashboards", "Reporting"],
-    icon: "bar-chart-3",
-    levels: [90, 80, 95, 90]
-  },
-  {
-    category: "Systems",
-    items: ["SharePoint", "Power Automate", "M365", "Digitalization"],
-    icon: "wrench",
-    levels: [85, 75, 85, 80]
-  }
-];
-
-function populateSkills() {
-  const grid = document.getElementById('skills-grid');
+function populateSkillsTiles() {
+  const grid = document.getElementById('skills-tiles');
   if (!grid) return;
-  grid.innerHTML = skills.map(s => `
-    <div class="skill-card glass-card">
-      <div style="font-size:1.15rem;font-weight:700;margin-bottom:0.5rem;">
-        <i data-lucide="${s.icon}"></i> ${s.category}
-      </div>
-      ${s.items.map((item, idx) => `
-        <div style="margin:0.7rem 0; display:flex; align-items:center; justify-content:space-between;">
-          <span class="skill-label">${item}</span>
-          <div class="progress-bar"><div class="progress-bar-fill" style="width:0%" data-skill="${s.levels[idx]}"></div></div>
-        </div>
-      `).join('')}
+  grid.innerHTML = skillsTiles.map(tile => `
+    <div class="skill-tile glass-card">
+      <div class="skill-icon-main"><i data-lucide="${tile.icon}"></i></div>
+      <h3>${tile.title}</h3>
+      <ul>
+        ${tile.list.map(skill => `
+          <li>
+            <span class="skill-label">${skill.name}</span>
+            <span class="skill-bar"><span class="skill-bar-fill" data-value="${skill.value}"></span></span>
+          </li>
+        `).join("")}
+      </ul>
     </div>
   `).join('');
   lucide.createIcons();
 }
 
-function animateSkillBars() {
+function animateSkillTiles() {
   setTimeout(() => {
-    document.querySelectorAll('.progress-bar-fill').forEach(bar => {
-      let target = bar.getAttribute('data-skill');
+    document.querySelectorAll('.skill-bar-fill').forEach(bar => {
+      let val = bar.getAttribute('data-value');
       bar.style.width = "0";
-      setTimeout(() => { bar.style.width = target + '%'; }, 170);
+      setTimeout(() => { bar.style.width = val+"%"; },100);
     });
-  }, 100);
+  }, 240);
 }
