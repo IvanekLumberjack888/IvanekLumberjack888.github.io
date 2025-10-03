@@ -8,8 +8,7 @@
   --white: #fff;
 }
 
-html, body {
-  height: 100%;
+body {
   font-family: 'Roboto', sans-serif;
   color: var(--slate-800);
   background: var(--emerald-50);
@@ -23,18 +22,19 @@ html, body {
     background: rgba(30,41,59,0.97) !important;
     color: var(--white) !important;
   }
-  .hero-section {
-    background: linear-gradient(to bottom right, #171e2c 60%, #202e46 100%);
-  }
-  .hero-gradient, .hero-overlay {
-    background: linear-gradient(90deg,rgba(17,21,50,0.85) 70%,transparent 100%),rgba(30,41,59,0.3) !important;
-  }
+  .hero-content { background: rgba(0,0,0,0.0) !important; } /* Hero úplně průhledný! */
+  .project-card, .skill-card { background: #181f2a !important; color: #fff !important; }
+  .project-card .project-title, .project-card div, .skill-card { color: #fff !important; }
+  .contact-card { background: #212944 !important; color: #fff !important; }
+  .contact-link { color: #10b981 !important; }
+  .contact-link:hover { color: #fff !important; }
   .highlight, .section-title, .nav-links a, .contact-link { color: #6ee7b7 !important; }
-  .project-card, .skill-card { background-color: #212944 !important; color: #e5e5e5 !important; }
   .badge { background: #10b981; color: #fff; }
   .btn-outline { border-color: #10b981; color: #10b981; }
   .btn-outline:hover { background: #10b981; color: #fff;}
   .btn-primary { background: #10b981; color: #fff;}
+  .location-gap { margin-bottom: 2.1em; }
+  .footer { border-top: 4px solid #10b981; }
 }
 
 .navbar {
@@ -58,7 +58,6 @@ html, body {
   color: var(--emerald-500);
 }
 
-/* Hero section */
 .hero-section {
   height: 100vh; min-height: 550px; position: relative;
   background: var(--emerald-700);
@@ -70,10 +69,9 @@ html, body {
   background: url('../images/background.jpg') center/cover no-repeat;
   position: absolute; inset: 0; z-index: 0;
 }
-.hero-gradient {
+.hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(90deg,rgba(236,253,245,0.85) 70%,transparent 100%);
   z-index: 1;
 }
 .hero-content {
@@ -141,20 +139,10 @@ html, body {
   background: var(--emerald-500);
   color: var(--white);
 }
-.btn-primary:hover {
-  background: var(--emerald-700);
-}
-.btn-outline {
-  border: 2px solid var(--emerald-500);
-  background: transparent;
-  color: var(--emerald-500);
-}
-.btn-outline:hover {
-  background: var(--emerald-500);
-  color: var(--white);
-}
+.btn-primary:hover { background: var(--emerald-700); }
+.btn-outline { border: 2px solid var(--emerald-500); background: transparent; color: var(--emerald-500); }
+.btn-outline:hover { background: var(--emerald-500); color: var(--white); }
 
-/* O mně */
 .section-title {
   text-align: center;
   font-size: 2.2rem;
@@ -185,7 +173,6 @@ html, body {
   max-width: 370px;
   backdrop-filter: blur(8px);
 }
-
 /* Projekty */
 .projects-grid {
   display: grid;
@@ -232,7 +219,6 @@ html, body {
   font-weight: 500;
   margin-bottom: 0.3rem;
 }
-/* Karty dovedností */
 .skills-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit,minmax(320px,1fr));
@@ -260,7 +246,6 @@ html, body {
   background: var(--emerald-500);
   transition: width 0.8s;
 }
-/* Kontakt */
 .contact-section .contact-grid {
   display: grid;
   grid-template-columns: repeat(auto-fit, minmax(240px,1fr));
@@ -301,6 +286,9 @@ html, body {
   font-size: 1rem;
   color: var(--emerald-700);
 }
+.location-gap {
+  margin-bottom: 2em;
+}
 .footer {
   background: var(--emerald-700);
   color: var(--white);
@@ -308,6 +296,7 @@ html, body {
   text-align: center;
   margin-top:2rem;
   font-size:1.05rem;
+  border-top: 4px solid var(--emerald-500);
 }
 
 /* Mobil/tablet */
