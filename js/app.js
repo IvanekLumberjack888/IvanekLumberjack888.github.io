@@ -236,16 +236,7 @@ function initializeScrollEffects() {
         });
     });
 
-    // Parallax efekt pro hero pozadí
-    window.addEventListener('scroll', () => {
-        const scrolled = window.pageYOffset;
-        const heroBackground = document.querySelector('.hero-bg');
-        
-        if (heroBackground) {
-            const parallaxSpeed = 0.5;
-            heroBackground.style.transform = `translateY(${scrolled * parallaxSpeed}px)`;
-        }
-    });
+    // PARALLAX EFEKT ODSTRANĚN - pozadí je nyní fixní
 
     // Aktivní navigace při scrollování
     const sections = document.querySelectorAll('section[id]');
