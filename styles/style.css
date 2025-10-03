@@ -94,7 +94,7 @@ body {
   color: var(--teal-500);
 }
 
-/* Hero Section - fixní pozadí */
+/* Hero Section - opravené pozadí */
 .hero {
   min-height: 100vh;
   display: flex;
@@ -106,10 +106,9 @@ body {
 }
 
 .hero-bg {
-  position: fixed;
+  position: absolute;
   inset: 0;
   background: url('../images/background.jpg') center/cover no-repeat;
-  background-attachment: fixed;
   z-index: -2;
 }
 
