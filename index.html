@@ -23,7 +23,6 @@
   </nav>
   <section class="hero-section" id="hero">
     <div class="hero-background"></div>
-    <div class="hero-overlay"></div>
     <div class="hero-content">
       <h1 class="hero-title"><span id="typed-name"></span></h1>
       <p class="hero-subtitle">Data Engineer <span style="color:#10b981;">|</span> Systémový Inovátor</p>
@@ -41,26 +40,21 @@
       <h2 class="section-title">O mně</h2>
       <div class="section-divider"></div>
       <div class="about-grid">
-        <div class="about-left about-text">
+        <div class="about-left about-text about-block">
           <p>
             Proč "od dřeva"? Dříve jsem pracoval rukama a <strong>docela dost se dřevem</strong>. Naučil jsem se, že každý materiál má své vlastnosti a každá práce potřebuje <strong>správný nástroj a přístup</strong>.<br><br>
             Dnes je můj materiál <strong>data</strong> a nástroje <strong>Python, SQL a Power BI</strong>. Ale princip zůstává stejný – <strong>preciznost, trpělivost a pochopení</strong> toho, s čím pracuji.<br><br>
             Mám <strong>neobvyklý dar</strong> – vidím <strong>struktury a vzorce</strong> tam, kde ostatní vidí jen chaos. Není to magie, je to kombinace <strong>analytického myšlení</strong> a zkušenosti s tím, jak věci fungují <strong>"pod kapotou"</strong>.
           </p>
         </div>
-        <div class="about-right glass-card about-text">
-          <h3>Aktuální práce</h3>
-          <p><strong>Digitalizace vozového parku<br>Hedin Automotive CZ</strong></p>
-          <p>Vytvářím webové řešení na SharePointu, transformace papírových procesů do digitální podoby.</p>
+        <div class="about-right glass-card about-block">
+          <h3 class="about-card-title">Aktuální práce</h3>
+          <div class="about-card-firm">
+            <strong>Digitalizace vozového parku<br>Hedin Automotive CZ</strong>
+          </div>
+          <p class="about-card-desc">Vytvářím webové řešení na SharePointu, transformace papírových procesů do digitální podoby.</p>
         </div>
       </div>
-    </div>
-  </section>
-  <section id="projects" class="projects-section">
-    <div class="container wide-container">
-      <h2 class="section-title">Moje projekty</h2>
-      <div class="section-divider"></div>
-      <div class="projects-grid" id="projects-grid"></div>
     </div>
   </section>
   <section id="skills" class="skills-section">
@@ -71,10 +65,10 @@
     </div>
   </section>
   <section id="contact" class="contact-section">
-    <div class="container">
+    <div class="container wide-container">
       <h2 class="section-title">Kontakt</h2>
       <div class="section-divider"></div>
-      <div class="contact-grid wider-contact">
+      <div class="contact-grid" id="contact-grid">
         <div class="contact-card glass-card">
           <div class="contact-icon-bg"><i data-lucide="mail"></i></div>
           <h3>Email</h3>
@@ -94,6 +88,13 @@
       <div class="location location-gap">
         <span>Brno, Česká republika</span>
       </div>
+    </div>
+  </section>
+  <section id="projects" class="projects-section">
+    <div class="container wide-container">
+      <h2 class="section-title">Moje projekty</h2>
+      <div class="section-divider"></div>
+      <div class="projects-grid" id="projects-grid"></div>
     </div>
   </section>
   <footer class="footer">
