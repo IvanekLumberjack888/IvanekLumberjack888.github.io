@@ -94,20 +94,24 @@ body {
   color: var(--teal-500);
 }
 
-/* Hero Section - opravené pozadí */
+/* Hero Section - fixní pozadí s omezenou výškou */
 .hero {
-  min-height: 100vh;
+  height: 80vh;
   display: flex;
   align-items: center;
   justify-content: center;
   position: relative;
   text-align: center;
   color: var(--white);
+  overflow: hidden;
 }
 
 .hero-bg {
-  position: absolute;
-  inset: 0;
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100vh;
   background: url('../images/background.jpg') center/cover no-repeat;
   z-index: -2;
 }
@@ -229,6 +233,9 @@ body {
 .projects-section,
 .contact-section {
   padding: 5rem 0;
+  position: relative;
+  z-index: 1;
+  background: var(--cream-50);
 }
 
 .skills-section {
@@ -486,12 +493,18 @@ body {
   color: var(--white);
   padding: 2rem 0;
   text-align: center;
+  position: relative;
+  z-index: 1;
 }
 
 /* Responsive */
 @media (max-width: 768px) {
   .nav-links {
     display: none;
+  }
+  
+  .hero {
+    height: 70vh;
   }
   
   .hero-actions {
@@ -534,6 +547,10 @@ body {
 @media (max-width: 480px) {
   .container {
     padding: 0 1rem;
+  }
+  
+  .hero {
+    height: 60vh;
   }
   
   .hero-content {
