@@ -12,7 +12,6 @@ document.addEventListener('DOMContentLoaded', function() {
   populateProjects();
   populateSkills();
 });
-
 const projects = [
   {
     title: "Text Analyzer",
@@ -55,14 +54,13 @@ const projects = [
     icon: "bar-chart-3"
   }
 ];
-
 function populateProjects() {
   const grid = document.getElementById('projects-grid');
   if (!grid) return;
   grid.innerHTML = projects.map(p => `
     <div class="project-card glass-card">
       <div class="project-title"><i data-lucide="${p.icon}"></i> ${p.title}</div>
-      <div style="margin:1rem 0; color:#444;">${p.description}</div>
+      <div style="margin:1rem 0; color:inherit;">${p.description}</div>
       <div class="tech-badges">
         ${p.tech.map(tech => `<span class="badge">${tech}</span>`).join('')}
       </div>
@@ -74,7 +72,6 @@ function populateProjects() {
   `).join('');
   lucide.createIcons();
 }
-
 const skills = [
   {
     category: "Programování",
@@ -95,13 +92,12 @@ const skills = [
     levels: [85, 75, 85, 80]
   }
 ];
-
 function populateSkills() {
   const grid = document.getElementById('skills-grid');
   if (!grid) return;
   grid.innerHTML = skills.map(s => `
     <div class="skill-card glass-card">
-      <div style="font-size:1.2rem;font-weight:700;margin-bottom:0.7rem;">
+      <div style="font-size:1.22rem;font-weight:700;margin-bottom:0.7rem;">
         <i data-lucide="${s.icon}"></i> ${s.category}
       </div>
       ${s.items.map((item, idx) => `
