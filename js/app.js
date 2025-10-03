@@ -14,7 +14,7 @@ function initializeIcons() {
     }
 }
 
-// Typing efekt pro jméno
+// Typing efekt pro jméno - kurzor zůstane blikat
 function initializeTyping() {
     if (window.Typed) {
         new Typed('#typed-name', {
@@ -23,7 +23,15 @@ function initializeTyping() {
             startDelay: 500,
             showCursor: true,
             cursorChar: '|',
-            loop: false
+            loop: false,
+            fadeOut: false,
+            fadeOutClass: 'typed-fade-out',
+            fadeOutDelay: 0,
+            onComplete: function(self) {
+                // Zajistí, že kurzor zůstane blikat navždy
+                self.cursor.style.display = 'inline-block';
+                self.cursor.style.animation = 'typedjsBlink 0.7s infinite';
+            }
         });
     }
 }
@@ -223,4 +231,96 @@ function initializeScrollEffects() {
             }
         });
     });
+
+    // Parallax efekt pro hero pozadí
+    window.addEventListener('scroll', () => {
+        const scrolled = window.pageYOffset;
+        const heroBackground = document.querySelector('.hero-bg');
+        
+        if (heroBackground) {
+            const parallaxSpeed = 0.5;
+            heroBackground.style.transform = `translateY(${scrolled * parallaxSpeed}px)`;
+        }
+    });
+
+    // Aktivní navigace při scrollování
+    const sections = document.querySelectorAll('section[id]');
+    const navLinksForActive = document.querySelectorAll('.nav-links a');
+
+    const observerOptions = {
+        threshold: 0.3,
+        rootMargin: '-80px 0px -80px 0px'
+    };
+
+    const sectionObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const id = entry.target.getAttribute('id');
+                
+                navLinksForActive.forEach(link => {
+                    link.classList.remove('active');
+                    if (link.getAttribute('href') === `#${id}`) {
+                        link.classList.add('active');
+                    }
+                });
+            }
+        });
+    }, observerOptions);
+
+    sections.forEach(section => {
+        sectionObserver.observe(section);
+    });
+}
+
+// Utility funkce pro debounce
+function debounce(func, wait) {
+    let timeout;
+    return function executedFunction(...args) {
+        const later = () => {
+            clearTimeout(timeout);
+            func(...args);
+        };
+        clearTimeout(timeout);
+        timeout = setTimeout(later, wait);
+    };
+}
+
+// Performance optimalizace - debounced scroll handler
+const debouncedScrollHandler = debounce(() => {
+    // Scroll efekty zde
+}, 16);
+
+window.addEventListener('scroll', debouncedScrollHandler);
+
+// Lazy loading pro obrázky (pokud budou přidány později)
+function initializeLazyLoading() {
+    const images = document.querySelectorAll('img[data-src]');
+    const imageObserver = new IntersectionObserver((entries) => {
+        entries.forEach(entry => {
+            if (entry.isIntersecting) {
+                const img = entry.target;
+                img.src = img.dataset.src;
+                img.classList.remove('lazy');
+                imageObserver.unobserve(img);
+            }
+        });
+    });
+
+    images.forEach(img => imageObserver.observe(img));
+}
+
+// Error handling
+window.addEventListener('error', (e) => {
+    console.error('Chyba na stránce:', e.error);
+});
+
+// Export pro možné budoucí použití
+if (typeof module !== 'undefined' && module.exports) {
+    module.exports = {
+        skillsData,
+        projectsData,
+        renderSkills,
+        renderProjects,
+        initializeScrollEffects
+    };
 }
