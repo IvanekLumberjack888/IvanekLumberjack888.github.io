@@ -14,7 +14,7 @@ function initializeIcons() {
     }
 }
 
-// Typing efekt pro jméno - kurzor zůstane blikat
+// Typing efekt pro jméno - kurzor zůstane přímo za textem
 function initializeTyping() {
     if (window.Typed) {
         new Typed('#typed-name', {
@@ -24,13 +24,17 @@ function initializeTyping() {
             showCursor: true,
             cursorChar: '|',
             loop: false,
-            fadeOut: false,
-            fadeOutClass: 'typed-fade-out',
-            fadeOutDelay: 0,
             onComplete: function(self) {
-                // Zajistí, že kurzor zůstane blikat navždy
-                self.cursor.style.display = 'inline-block';
-                self.cursor.style.animation = 'typedjsBlink 0.7s infinite';
+                // Zajistí, že kurzor bude přímo za posledním písmenem
+                const cursor = self.cursor;
+                if (cursor) {
+                    cursor.style.display = 'inline-block';
+                    cursor.style.position = 'relative';
+                    cursor.style.top = '0';
+                    cursor.style.left = '0';
+                    cursor.style.marginLeft = '0';
+                    cursor.style.verticalAlign = 'baseline';
+                }
             }
         });
     }
