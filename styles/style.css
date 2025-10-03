@@ -50,12 +50,12 @@ body {
   box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
 }
 
-/* Navigation */
+/* Navigation - opravené barvy */
 .navbar {
   position: fixed;
   top: 0;
   width: 100%;
-  background: var(--glass);
+  background: rgba(26, 26, 26, 0.95);
   backdrop-filter: blur(20px);
   border-bottom: 1px solid var(--glass-border);
   z-index: 1000;
@@ -75,7 +75,7 @@ body {
   font-family: 'JetBrains Mono', monospace;
   font-size: 1.25rem;
   font-weight: 700;
-  color: var(--teal-600);
+  color: var(--teal-500);
 }
 
 .nav-links {
@@ -84,7 +84,7 @@ body {
 }
 
 .nav-links a {
-  color: var(--gray-500);
+  color: #ffffff;
   text-decoration: none;
   font-weight: 500;
   transition: color 0.3s ease;
@@ -94,7 +94,7 @@ body {
   color: var(--teal-500);
 }
 
-/* Hero Section */
+/* Hero Section - fixní pozadí */
 .hero {
   min-height: 100vh;
   display: flex;
@@ -106,9 +106,10 @@ body {
 }
 
 .hero-bg {
-  position: absolute;
+  position: fixed;
   inset: 0;
   background: url('../images/background.jpg') center/cover no-repeat;
+  background-attachment: fixed;
   z-index: -2;
 }
 
