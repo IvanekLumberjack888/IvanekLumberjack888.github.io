@@ -1,22 +1,20 @@
-// Lucide icons
-document.addEventListener('DOMContentLoaded', () => {
-  lucide.createIcons();
-});
-
-// Typed.js animace pro jméno
-document.addEventListener('DOMContentLoaded', () => {
+document.addEventListener('DOMContentLoaded', function() {
+  if (window.lucide) lucide.createIcons();
+  // Typed.js animace pouze na jméno:
   new Typed('#typed-name', {
     strings: ['Ivo Doležal'],
-    typeSpeed: 110,
+    typeSpeed: 120,
     startDelay: 400,
     showCursor: true,
     cursorChar: '|',
-    backSpeed: 40,
+    backSpeed: 50,
     loop: false
   });
+  populateProjects();
+  populateSkills();
 });
 
-// Dynamické sekce: projekty, dovednosti
+// Dynamický seznam projektů (doplň si popisy a adresy dle sebe)
 const projects = [
   {
     title: "Text Analyzer",
@@ -59,6 +57,24 @@ const projects = [
     icon: "bar-chart-3"
   }
 ];
+function populateProjects() {
+  const grid = document.getElementById('projects-grid');
+  if(!grid) return;
+  grid.innerHTML = projects.map(p => `
+    <div class="project-card glass-card">
+      <div class="project-title" style="font-weight:700;font-size:1.2rem;"><i data-lucide="${p.icon}"></i> ${p.title}</div>
+      <div style="margin:1rem 0;color:#444">${p.description}</div>
+      <div class="tech-badges">
+        ${p.tech.map(tech => `<span class="badge">${tech}</span>`).join('')}
+      </div>
+      <div style="margin-top:1rem;">
+        <a href="${p.github}" target="_blank" class="btn btn-outline" style="margin-right:0.5rem;"><i data-lucide="github"></i> GitHub</a>
+        <a href="${p.demo}" target="_blank" class="btn btn-primary"><i data-lucide="external-link"></i> Demo</a>
+      </div>
+    </div>
+  `).join('');
+  lucide.createIcons();
+}
 
 const skills = [
   { 
@@ -80,28 +96,6 @@ const skills = [
     levels: [85, 75, 85, 80]
   }
 ];
-
-// Projekty
-function populateProjects() {
-  const grid = document.getElementById('projects-grid');
-  if(!grid) return;
-  grid.innerHTML = projects.map(p => `
-    <div class="project-card glass-card">
-      <div class="project-title" style="font-weight:700;font-size:1.2rem;"><i data-lucide="${p.icon}"></i> ${p.title}</div>
-      <div style="margin:1rem 0;color:#444">${p.description}</div>
-      <div class="tech-badges">
-        ${p.tech.map(tech => `<span class="badge">${tech}</span>`).join('')}
-      </div>
-      <div style="margin-top:1rem;">
-        <a href="${p.github}" target="_blank" class="btn btn-outline" style="margin-right:0.5rem;"><i data-lucide="github"></i> GitHub</a>
-        <a href="${p.demo}" target="_blank" class="btn btn-primary"><i data-lucide="external-link"></i> Demo</a>
-      </div>
-    </div>
-  `).join('');
-  lucide.createIcons();
-}
-
-// Dovednosti
 function populateSkills() {
   const grid = document.getElementById('skills-grid');
   if(!grid) return;
@@ -118,9 +112,3 @@ function populateSkills() {
   `).join('');
   lucide.createIcons();
 }
-
-// Inicializace
-document.addEventListener('DOMContentLoaded', () => {
-  populateProjects();
-  populateSkills();
-});
