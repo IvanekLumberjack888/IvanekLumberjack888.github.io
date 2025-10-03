@@ -23,11 +23,13 @@
   </nav>
   <section class="hero-section" id="hero">
     <div class="hero-background"></div>
-    <div class="hero-overlay"></div>
+    <div class="hero-gradient"></div>
     <div class="hero-content">
       <h1 class="hero-title"><span id="typed-name"></span></h1>
-      <p class="hero-subtitle">Data Engineer | Systémový Inovátor</p>
-      <p class="hero-description"><span class="highlight">Od dřeva k datům</span> – stavím systémy, které vydrží.</p>
+      <p class="hero-subtitle">Data Engineer <span style="color:#10b981;">|</span> Systémový Inovátor</p>
+      <p class="hero-description">
+        <span class="highlight">Od dřeva k datům</span> – stavím systémy, které vydrží.
+      </p>
       <div class="hero-buttons">
         <a href="#projects" class="btn btn-primary">Moje projekty</a>
         <a href="#contact" class="btn btn-outline">Kontakt</a>
@@ -54,8 +56,6 @@
       </div>
     </div>
   </section>
-  <!-- Projekty, Dovednosti, Kontakt - zůstává beze změn ... -->
-  <!-- Příklad: -->
   <section id="projects" class="projects-section">
     <div class="container">
       <h2 class="section-title">Moje projekty</h2>
@@ -76,18 +76,19 @@
       <div class="section-divider"></div>
       <div class="contact-grid">
         <div class="contact-card glass-card">
+          <div class="contact-icon-bg"><i data-lucide="mail"></i></div>
           <h3>Email</h3>
-          <a href="mailto:ivousd@gmail.com">ivousd@gmail.com</a>
+          <a class="contact-link" href="mailto:ivousd@gmail.com">ivousd@gmail.com</a>
         </div>
         <div class="contact-card glass-card">
+          <div class="contact-icon-bg"><i data-lucide="github"></i></div>
           <h3>GitHub</h3>
-          <a href="https://github.com/IvanekLumberjack888">
-            <img src="images/github.png" alt="GitHub" class="contact-icon"> IvanekLumberjack888
-          </a>
+          <a class="contact-link" href="https://github.com/IvanekLumberjack888" target="_blank">IvanekLumberjack888</a>
         </div>
         <div class="contact-card glass-card">
+          <div class="contact-icon-bg"><i data-lucide="linkedin"></i></div>
           <h3>LinkedIn</h3>
-          <a href="https://www.linkedin.com/in/ivodolezal888/">Ivo Doležal</a>
+          <a class="contact-link" href="https://www.linkedin.com/in/ivodolezal888/" target="_blank">Ivo Doležal</a>
         </div>
       </div>
       <div class="location">
@@ -97,6 +98,7 @@
   </section>
   <footer class="footer">
     <div class="container">
+      <div style="margin-bottom:0.7rem;">Brno, Česká republika</div>
       © 2024 Ivo Doležal. Od dřeva k datům – stavím systémy, které vydrží.
     </div>
   </footer>
