@@ -1,321 +1,179 @@
-// Inicializace po načtení stránky
+// ========== TYPED.JS - NAME TYPING ANIMATION ==========
 document.addEventListener('DOMContentLoaded', function() {
-    initializeIcons();
-    initializeTyping();
-    renderSkills();
-    renderProjects();
-    initializeScrollEffects();
+  const typed = new Typed('#typed-name', {
+    strings: ['Ivo Doležal'],
+    typeSpeed: 80,
+    showCursor: true,
+    cursorChar: '|',
+    loop: false,
+    backSpeed: 0
+  });
 });
 
-// Inicializace ikon
-function initializeIcons() {
-    if (window.lucide) {
-        lucide.createIcons();
-    }
-}
+// ========== LUCIDE ICONS INITIALIZATION ==========
+lucide.createIcons();
 
-// Typing efekt pro jméno - kurzor zůstane přímo za textem
-function initializeTyping() {
-    if (window.Typed) {
-        new Typed('#typed-name', {
-            strings: ['Ivo Doležal'],
-            typeSpeed: 100,
-            startDelay: 500,
-            showCursor: true,
-            cursorChar: '|',
-            loop: false,
-            onComplete: function(self) {
-                // Zajistí, že kurzor bude přímo za posledním písmenem
-                const cursor = self.cursor;
-                if (cursor) {
-                    cursor.style.display = 'inline-block';
-                    cursor.style.position = 'relative';
-                    cursor.style.top = '0';
-                    cursor.style.left = '0';
-                    cursor.style.marginLeft = '0';
-                    cursor.style.verticalAlign = 'baseline';
-                }
-            }
-        });
-    }
-}
-
-// Data pro dovednosti
+// ========== SKILL PROGRESS BARS ANIMATION ==========
 const skillsData = [
-    {
-        icon: 'code',
-        title: 'Programování',
-        skills: [
-            { name: 'Python', level: 95 },
-            { name: 'SQL', level: 90 },
-            { name: 'PostgreSQL', level: 85 },
-            { name: 'Web Scraping', level: 88 }
-        ]
-    },
-    {
-        icon: 'bar-chart-3',
-        title: 'Vizualizace dat',
-        skills: [
-            { name: 'Power BI', level: 92 },
-            { name: 'DAX', level: 87 },
-            { name: 'Dashboards', level: 90 },
-            { name: 'Reporting', level: 85 }
-        ]
-    },
-    {
-        icon: 'settings',
-        title: 'Systémy',
-        skills: [
-            { name: 'SharePoint', level: 88 },
-            { name: 'Power Automate', level: 82 },
-            { name: 'M365', level: 85 },
-            { name: 'Digitalizace', level: 90 }
-        ]
-    }
+  {
+    category: 'Languages',
+    skills: [
+      { name: 'Python', level: 75 },
+      { name: 'SQL', level: 70 },
+      { name: 'PySpark', level: 55 }
+    ]
+  },
+  {
+    category: 'Platforms',
+    skills: [
+      { name: 'Microsoft Fabric', level: 70 },
+      { name: 'Azure', level: 60 },
+      { name: 'Notebooks', level: 75 }
+    ]
+  },
+  {
+    category: 'Tools',
+    skills: [
+      { name: 'VS Code', level: 85 },
+      { name: 'Git', level: 80 },
+      { name: 'Jupyter', level: 80 }
+    ]
+  }
 ];
 
-// Data pro projekty
-const projectsData = [
-    {
-        title: 'Text Analyzer',
-        description: 'Pokročilý nástroj pro analýzu textových dat s využitím Python knihoven a NLP algoritmů.',
-        icon: 'file-text',
-        tech: ['Python', 'Pandas', 'NLP'],
-        github: 'https://github.com/IvanekLumberjack888/text_analyzer',
-        demo: 'https://ivaneklumberjack888.github.io/text_analyzer/'
-    },
-    {
-        title: 'Bulls & Cows Game',
-        description: 'Interaktivní logická hra implementovaná v Pythonu s elegantním algoritmem.',
-        icon: 'gamepad-2',
-        tech: ['Python', 'Algoritmy', 'Game Logic'],
-        github: 'https://github.com/IvanekLumberjack888/Bulls-and-Cows',
-        demo: 'https://ivaneklumberjack888.github.io/Bulls-and-Cows/'
-    },
-    {
-        title: 'Election Scraper',
-        description: 'Robustní web scraping nástroj pro sběr a analýzu volebních dat.',
-        icon: 'globe',
-        tech: ['Python', 'Web Scraping', 'Data Analysis'],
-        github: 'https://github.com/IvanekLumberjack888/Elections-Scraper',
-        demo: 'https://ivaneklumberjack888.github.io/Elections-Scraper/'
-    },
-    {
-        title: 'HDP vs Mzdy Analýza',
-        description: 'Komplexní SQL analýza vztahu mezi HDP a průměrnými mzdami v ČR.',
-        icon: 'trending-up',
-        tech: ['SQL', 'PostgreSQL', 'Data Analysis'],
-        github: 'https://github.com/IvanekLumberjack888/sql-projekt-engeto',
-        demo: 'https://ivaneklumberjack888.github.io/sql-projekt-engeto/'
-    },
-    {
-        title: 'Power BI Dashboard',
-        description: 'Interaktivní business intelligence dashboard s pokročilými DAX formulemi.',
-        icon: 'bar-chart',
-        tech: ['Power BI', 'DAX', 'Data Modeling'],
-        github: 'https://github.com/IvanekLumberjack888/PowerBI-for-Engeto',
-        demo: 'https://ivaneklumberjack888.github.io/PowerBI-for-Engeto/'
-    }
-];
-
-// Renderování dovedností
 function renderSkills() {
-    const container = document.getElementById('skills-container');
-    if (!container) return;
+  const container = document.getElementById('skills-container');
+  if (!container) return;
 
-    const skillsHTML = skillsData.map(category => `
-        <div class="skill-card glass-card">
-            <div class="skill-header">
-                <div class="skill-icon">
-                    <i data-lucide="${category.icon}"></i>
-                </div>
-                <h3 class="skill-title">${category.title}</h3>
-            </div>
-            <div class="skills-list">
-                ${category.skills.map(skill => `
-                    <div class="skill-item">
-                        <span class="skill-name">${skill.name}</span>
-                        <div class="skill-bar">
-                            <div class="skill-progress" data-level="${skill.level}"></div>
-                        </div>
-                        <span class="skill-level">${skill.level}%</span>
-                    </div>
-                `).join('')}
-            </div>
-        </div>
-    `).join('');
-
-    container.innerHTML = skillsHTML;
-    lucide.createIcons();
-}
-
-// Renderování projektů
-function renderProjects() {
-    const container = document.getElementById('projects-container');
-    if (!container) return;
-
-    const projectsHTML = projectsData.map(project => `
-        <div class="project-card glass-card">
-            <div class="project-header">
-                <div class="project-icon">
-                    <i data-lucide="${project.icon}"></i>
-                </div>
-                <div>
-                    <h3 class="project-title">${project.title}</h3>
-                </div>
-            </div>
-            <p class="project-description">${project.description}</p>
-            <div class="project-tech">
-                ${project.tech.map(tech => `<span class="tech-badge">${tech}</span>`).join('')}
-            </div>
-            <div class="project-links">
-                <a href="${project.github}" target="_blank" class="project-link">
-                    <i data-lucide="github"></i>
-                    GitHub
-                </a>
-                <a href="${project.demo}" target="_blank" class="project-link">
-                    <i data-lucide="external-link"></i>
-                    Demo
-                </a>
-            </div>
-        </div>
-    `).join('');
-
-    container.innerHTML = projectsHTML;
-    lucide.createIcons();
-}
-
-// Animace scroll efektů
-function initializeScrollEffects() {
-    // Animace skill barů
-    const skillBars = document.querySelectorAll('.skill-progress');
+  skillsData.forEach(skillGroup => {
+    const skillCard = document.createElement('div');
+    skillCard.className = 'skill-card';
     
-    const animateSkillBars = () => {
-        skillBars.forEach(bar => {
-            const rect = bar.getBoundingClientRect();
-            const windowHeight = window.innerHeight;
-            
-            if (rect.top < windowHeight && rect.bottom > 0) {
-                const level = bar.getAttribute('data-level');
-                setTimeout(() => {
-                    bar.style.width = level + '%';
-                }, Math.random() * 500);
-            }
-        });
-    };
+    let skillsHTML = `
+      <div class="skill-header">
+        <div class="skill-icon">📊</div>
+        <h3 class="skill-title">${skillGroup.category}</h3>
+      </div>
+    `;
+    
+    skillGroup.skills.forEach(skill => {
+      skillsHTML += `
+        <div class="skill-item">
+          <span class="skill-name">${skill.name}</span>
+          <div class="skill-bar">
+            <div class="skill-progress" style="width: ${skill.level}%"></div>
+          </div>
+          <span class="skill-level">${skill.level}%</span>
+        </div>
+      `;
+    });
+    
+    skillCard.innerHTML = skillsHTML;
+    container.appendChild(skillCard);
+  });
+  
+  // Trigger animation on scroll
+  animateProgressBars();
+}
 
-    // Observer pro skills sekci
-    const skillsSection = document.getElementById('skills');
-    if (skillsSection) {
-        const observer = new IntersectionObserver((entries) => {
-            entries.forEach(entry => {
-                if (entry.isIntersecting) {
-                    setTimeout(animateSkillBars, 500);
-                }
-            });
-        }, { threshold: 0.3 });
+function animateProgressBars() {
+  const progressBars = document.querySelectorAll('.skill-progress');
+  progressBars.forEach(bar => {
+    const width = bar.style.width;
+    bar.style.width = '0%';
+    setTimeout(() => {
+      bar.style.width = width;
+    }, 100);
+  });
+}
 
-        observer.observe(skillsSection);
+// ========== PROJECTS DATA ==========
+const projectsData = [
+  {
+    title: 'Data Pipeline Automation',
+    description: 'Built an automated ETL pipeline using Python and SQL to extract, transform, and load data from multiple sources.',
+    tech: ['Python', 'SQL', 'Pandas'],
+    github: 'https://github.com/IvanekLumberjack888',
+    demo: '#'
+  },
+  {
+    title: 'Microsoft Fabric Learning Project',
+    description: 'Hands-on project exploring Microsoft Fabric capabilities, building notebooks and data workflows.',
+    tech: ['Fabric', 'Notebooks', 'DAX'],
+    github: 'https://github.com/IvanekLumberjack888',
+    demo: '#'
+  },
+  {
+    title: 'Web Scraping & Data Analysis',
+    description: 'Scrape web data using BeautifulSoup, clean with Pandas, and visualize insights.',
+    tech: ['Python', 'BeautifulSoup', 'Pandas'],
+    github: 'https://github.com/IvanekLumberjack888',
+    demo: '#'
+  }
+];
+
+function renderProjects() {
+  const container = document.getElementById('projects-container');
+  if (!container) return;
+
+  projectsData.forEach(project => {
+    const projectCard = document.createElement('div');
+    projectCard.className = 'project-card';
+    
+    const techBadges = project.tech
+      .map(t => `<span class="tech-badge">${t}</span>`)
+      .join('');
+    
+    projectCard.innerHTML = `
+      <h3 class="project-title">${project.title}</h3>
+      <p class="project-description">${project.description}</p>
+      <div class="project-tech">${techBadges}</div>
+      <div class="project-links">
+        <a href="${project.github}" target="_blank" class="project-link">GitHub</a>
+        ${project.demo !== '#' ? `<a href="${project.demo}" target="_blank" class="project-link">Demo</a>` : ''}
+      </div>
+    `;
+    
+    container.appendChild(projectCard);
+  });
+}
+
+// ========== SMOOTH SCROLL FOR NAVIGATION ==========
+document.querySelectorAll('a[href^="#"]').forEach(anchor => {
+  anchor.addEventListener('click', function(e) {
+    e.preventDefault();
+    const target = document.querySelector(this.getAttribute('href'));
+    if (target) {
+      target.scrollIntoView({
+        behavior: 'smooth',
+        block: 'start'
+      });
     }
-
-    // Smooth scrolling pro navigaci
-    const navLinks = document.querySelectorAll('.nav-links a');
-    navLinks.forEach(link => {
-        link.addEventListener('click', (e) => {
-            e.preventDefault();
-            const targetId = link.getAttribute('href').substring(1);
-            const targetElement = document.getElementById(targetId);
-            
-            if (targetElement) {
-                const offsetTop = targetElement.offsetTop - 80;
-                window.scrollTo({
-                    top: offsetTop,
-                    behavior: 'smooth'
-                });
-            }
-        });
-    });
-
-    // PARALLAX EFEKT ODSTRANĚN - pozadí je nyní fixní
-
-    // Aktivní navigace při scrollování
-    const sections = document.querySelectorAll('section[id]');
-    const navLinksForActive = document.querySelectorAll('.nav-links a');
-
-    const observerOptions = {
-        threshold: 0.3,
-        rootMargin: '-80px 0px -80px 0px'
-    };
-
-    const sectionObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const id = entry.target.getAttribute('id');
-                
-                navLinksForActive.forEach(link => {
-                    link.classList.remove('active');
-                    if (link.getAttribute('href') === `#${id}`) {
-                        link.classList.add('active');
-                    }
-                });
-            }
-        });
-    }, observerOptions);
-
-    sections.forEach(section => {
-        sectionObserver.observe(section);
-    });
-}
-
-// Utility funkce pro debounce
-function debounce(func, wait) {
-    let timeout;
-    return function executedFunction(...args) {
-        const later = () => {
-            clearTimeout(timeout);
-            func(...args);
-        };
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-    };
-}
-
-// Performance optimalizace - debounced scroll handler
-const debouncedScrollHandler = debounce(() => {
-    // Scroll efekty zde
-}, 16);
-
-window.addEventListener('scroll', debouncedScrollHandler);
-
-// Lazy loading pro obrázky (pokud budou přidány později)
-function initializeLazyLoading() {
-    const images = document.querySelectorAll('img[data-src]');
-    const imageObserver = new IntersectionObserver((entries) => {
-        entries.forEach(entry => {
-            if (entry.isIntersecting) {
-                const img = entry.target;
-                img.src = img.dataset.src;
-                img.classList.remove('lazy');
-                imageObserver.unobserve(img);
-            }
-        });
-    });
-
-    images.forEach(img => imageObserver.observe(img));
-}
-
-// Error handling
-window.addEventListener('error', (e) => {
-    console.error('Chyba na stránce:', e.error);
+  });
 });
 
-// Export pro možné budoucí použití
-if (typeof module !== 'undefined' && module.exports) {
-    module.exports = {
-        skillsData,
-        projectsData,
-        renderSkills,
-        renderProjects,
-        initializeScrollEffects
-    };
-}
+// ========== INTERSECTION OBSERVER FOR ANIMATIONS ==========
+const observerOptions = {
+  threshold: 0.1,
+  rootMargin: '0px 0px -100px 0px'
+};
+
+const observer = new IntersectionObserver(function(entries) {
+  entries.forEach(entry => {
+    if (entry.isIntersecting) {
+      entry.target.style.animation = 'fadeInUp 0.6s ease forwards';
+      observer.unobserve(entry.target);
+    }
+  });
+}, observerOptions);
+
+document.querySelectorAll('.project-card, .skill-card, .contact-card').forEach(el => {
+  observer.observe(el);
+});
+
+// ========== INITIALIZE ON PAGE LOAD ==========
+window.addEventListener('load', function() {
+  renderSkills();
+  renderProjects();
+  lucide.createIcons();
+});
