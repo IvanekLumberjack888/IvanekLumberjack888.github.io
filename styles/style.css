@@ -7,41 +7,32 @@
   --white: #ffffff;
   --gray-200: #f5f5f5;
   --gray-500: #6b7280;
-  --glass: rgba(255, 255, 255, 0.25);
-  --glass-border: rgba(255, 255, 255, 0.18);
-  --link-light: #1a73e8;
-  --link-dark: #86befe;
+  --glass: rgba(255,255,255,0.25);
+  --glass-border: rgba(255,255,255,0.18);
 }
 
-/* DARK MODE MEDIA QUERY */
 @media (prefers-color-scheme: dark) {
   :root {
-    --cream-50: #111216;
-    --white: #dde3ee;
-    --glass: rgba(40, 42, 54, 0.25);
-    --glass-border: rgba(120, 120, 120, 0.15);
-    --charcoal-800: #e1e1e1;
-    --gray-200: #222329;
-    --gray-500: #9799A3;
-    --link-light: #7ca5f7;
-    --link-dark: #6ec1ff;
+    --cream-50: #1a1a1a;
+    --white: #f5f5f5;
+    --glass: rgba(255,255,255,0.1);
+    --glass-border: rgba(255,255,255,0.2);
+    --charcoal-800: #0a0a0a;
   }
 }
 
-/* RESET */
 * {
   margin: 0;
   padding: 0;
   box-sizing: border-box;
 }
 
-/* === ZÁKLAD === */
 body {
   font-family: 'Inter', sans-serif;
   background: var(--cream-50);
   color: var(--charcoal-800);
   line-height: 1.6;
-  transition: background 0.3s, color 0.3s;
+  transition: all 0.3s ease;
 }
 
 .container {
@@ -50,41 +41,53 @@ body {
   padding: 0 1.5rem;
 }
 
-a {
-  color: var(--link-light);
-  text-decoration: underline;
-  font-weight: 500;
-  transition: color 0.3s;
-}
-a:hover, a:focus {
-  color: var(--teal-500);
-  background: transparent;
-  text-decoration: underline wavy;
-  filter: brightness(1.2);
-}
-
-/* DARK MODE ODKAZY */
-@media (prefers-color-scheme: dark) {
-  body {
-    color: var(--white);
-    background: var(--cream-50);
-  }
-  a {
-    color: var(--link-dark);
-  }
-}
-
-/* GLASS CARD */
 .glass-card {
   background: var(--glass);
   backdrop-filter: blur(20px);
   border: 1px solid var(--glass-border);
   border-radius: 1rem;
   padding: 2rem;
-  box-shadow: 0 8px 32px rgba(0, 0, 0, 0.1);
+  box-shadow: 0 8px 32px rgba(0,0,0,0.1);
 }
 
-/* HERO (HLAVNÍ SEKCION) */
+.navbar {
+  position: fixed;
+  top: 0;
+  width: 100%;
+  background: rgba(26,26,26,0.95);
+  backdrop-filter: blur(20px);
+  border-bottom: 1px solid var(--glass-border);
+  z-index: 1000;
+  padding: 1rem 0;
+}
+.nav-container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 0 1.5rem;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+.nav-brand {
+  font-family: 'JetBrains Mono', monospace;
+  font-size: 1.25rem;
+  font-weight: 700;
+  color: var(--teal-500);
+}
+.nav-links {
+  display: flex;
+  gap: 2rem;
+}
+.nav-links a {
+  color: #ffffff;
+  text-decoration: none;
+  font-weight: 500;
+  transition: color 0.3s ease;
+}
+.nav-links a:hover {
+  color: var(--teal-500);
+}
+
 .hero {
   height: 80vh;
   display: flex;
@@ -107,10 +110,10 @@ a:hover, a:focus {
 .hero-overlay {
   position: absolute;
   inset: 0;
-  background: linear-gradient(135deg, 
-    rgba(26, 26, 26, 0.8) 0%, 
-    rgba(16, 185, 129, 0.2) 50%,
-    rgba(26, 26, 26, 0.9) 100%
+  background: linear-gradient(135deg,
+    rgba(26,26,26,0.8) 0%,
+    rgba(16,185,129,0.2) 50%,
+    rgba(26,26,26,0.9) 100%
   );
   z-index: -1;
 }
@@ -118,6 +121,8 @@ a:hover, a:focus {
   max-width: 800px;
   padding: 0 1rem;
   z-index: 1;
+  color: var(--white); /* force contrast */
+  text-shadow: 0 2px 8px rgba(20,20,20,0.7);
 }
 .hero-title {
   font-size: clamp(2.5rem, 5vw, 4rem);
@@ -153,28 +158,346 @@ a:hover, a:focus {
   justify-content: center;
   flex-wrap: wrap;
 }
-/* ... DOPLŇ DALŠÍ TVÉ SEKCE NEBO NECH PŮVODNÍ ... */
 
-/* NAVIGACE */
-.navbar {
-  position: fixed;
-  top: 0;
-  width: 100%;
-  background: rgba(26, 26, 26, 0.95);
-  backdrop-filter: blur(20px);
-  border-bottom: 1px solid var(--glass-border);
-  z-index: 1000;
-  padding: 1rem 0;
+.typed-cursor {
+  display: inline-block !important;
+  vertical-align: baseline !important;
+  margin-left: 0 !important;
+  position: relative !important;
+  top: 0 !important;
+  left: 0 !important;
+  animation: typedjsBlink 0.7s infinite;
+  color: var(--teal-500) !important;
+  font-size: inherit;
+  line-height: inherit;
 }
-.nav-links a {
-  color: #ffffff;
+.typed-cursor.typed-cursor--blink {
+  animation: typedjsBlink 0.7s infinite;
+}
+@keyframes typedjsBlink {
+  50% { opacity: 0; }
+}
+
+.btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  padding: 0.875rem 1.75rem;
+  border-radius: 0.75rem;
+  font-weight: 600;
   text-decoration: none;
-  font-weight: 500;
+  transition: all 0.3s ease;
+  border: 2px solid transparent;
+}
+.btn-primary {
+  background: var(--teal-500);
+  color: var(--white);
+}
+.btn-primary:hover {
+  background: var(--teal-600);
+  transform: translateY(-2px);
+}
+.btn-outline {
+  border-color: rgba(255,255,255,0.5);
+  color: var(--white);
+}
+.btn-outline:hover {
+  background: rgba(255,255,255,0.1);
+  border-color: var(--teal-500);
+}
+
+.about-section,
+.skills-section,
+.projects-section,
+.contact-section {
+  padding: 5rem 0;
+  position: relative;
+  z-index: 1;
+  background: var(--cream-50);
+}
+.skills-section {
+  background: var(--gray-200);
+}
+.section-title {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+  color: var(--teal-600);
+}
+
+.about-grid {
+  display: grid;
+  grid-template-columns: 2fr 1fr;
+  gap: 2rem;
+  align-items: start;
+}
+.about-text h3,
+.about-job h3 {
+  color: var(--teal-600);
+  font-size: 1.5rem;
+  margin-bottom: 1rem;
+}
+.about-text p {
+  margin-bottom: 1.5rem;
+  font-size: 1.1rem;
+}
+.job-company {
+  color: var(--teal-500);
+  font-weight: 600;
+  margin-bottom: 1rem;
+}
+.about-job h4 {
+  margin-bottom: 1rem;
+  font-size: 1.2rem;
+}
+
+.skills-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2rem;
+}
+.skill-card {
+  text-align: center;
+  transition: transform 0.3s ease;
+}
+.skill-card:hover {
+  transform: translateY(-5px);
+}
+.skill-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 2rem;
+}
+.skill-icon {
+  width: 3rem;
+  height: 3rem;
+  background: var(--teal-500);
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+.skill-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+.skill-item {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: 1.5rem;
+}
+.skill-name {
+  font-weight: 600;
+}
+.skill-bar {
+  flex: 1;
+  height: 8px;
+  background: var(--gray-200);
+  border-radius: 1rem;
+  margin: 0 1rem;
+  overflow: hidden;
+}
+.skill-progress {
+  height: 100%;
+  background: linear-gradient(90deg, var(--teal-500), #6ee7b7);
+  border-radius: 1rem;
+  width: 0%;
+  transition: width 2s ease;
+}
+.skill-level {
+  font-size: 0.875rem;
+  color: var(--gray-500);
+  min-width: 3rem;
+  text-align: right;
+}
+
+.projects-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(350px, 1fr));
+  gap: 2rem;
+}
+.project-card {
+  transition: transform 0.3s ease;
+  cursor: pointer;
+}
+.project-card:hover {
+  transform: translateY(-8px);
+}
+.project-header {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  margin-bottom: 1rem;
+}
+.project-icon {
+  width: 3rem;
+  height: 3rem;
+  background: var(--teal-500);
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+}
+.project-title {
+  font-size: 1.25rem;
+  font-weight: 700;
+}
+.project-description {
+  margin-bottom: 1.5rem;
+  line-height: 1.7;
+  color: var(--gray-500);
+}
+.project-tech {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  margin-bottom: 1.5rem;
+}
+.tech-badge {
+  padding: 0.25rem 0.75rem;
+  background: var(--teal-500);
+  color: white;
+  border-radius: 1rem;
+  font-size: 0.75rem;
+  font-weight: 600;
+}
+.project-links {
+  display: flex;
+  gap: 1rem;
+}
+.project-link {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.5rem;
+  color: var(--teal-500);
+  text-decoration: none;
+  font-weight: 600;
   transition: color 0.3s ease;
 }
-.nav-links a:hover {
-  color: var(--teal-500);
+.project-link:hover {
+  color: var(--teal-600);
 }
 
-/* SEKCE, GRIDY, KARTY atd. – nech jak máš nebo uprav barvy podle proměnných výše. */
+/* Contact Section */
+.contact-grid {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+  gap: 1.5rem;
+  margin-bottom: 3rem;
+}
+.contact-card {
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  text-decoration: none;
+  color: inherit;
+  transition: transform 0.3s ease;
+}
+.contact-card:hover {
+  transform: translateY(-4px);
+}
+.contact-card i {
+  width: 3rem;
+  height: 3rem;
+  background: var(--teal-500);
+  border-radius: 0.75rem;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  color: white;
+  font-size: 1.5rem;
+}
+.contact-card h4 {
+  font-weight: 600;
+  margin-bottom: 0.25rem;
+}
+.contact-card p {
+  color: var(--gray-500);
+  font-size: 0.875rem;
+}
+.location {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 0.5rem;
+  font-weight: 500;
+  color: var(--teal-600);
+}
 
+/* Footer */
+.footer {
+  background: var(--charcoal-800);
+  color: var(--white);
+  padding: 2rem 0;
+  text-align: center;
+  position: relative;
+  z-index: 1;
+}
+.footer a {
+  color: var(--teal-500) !important;
+  font-weight: 700;
+  text-decoration: underline;
+  transition: color 0.2s;
+}
+.footer a:hover {
+  color: var(--teal-600) !important;
+}
+
+/* Responsive */
+@media (max-width: 768px) {
+  .nav-links {
+    display: none;
+  }
+  .hero {
+    height: 70vh;
+  }
+  .hero-actions {
+    flex-direction: column;
+    align-items: center;
+  }
+  .btn {
+    width: 100%;
+    max-width: 300px;
+    justify-content: center;
+  }
+  .about-grid {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  .skills-grid,
+  .projects-grid,
+  .contact-grid {
+    grid-template-columns: 1fr;
+  }
+  .skill-header {
+    flex-direction: column;
+    text-align: center;
+  }
+  .project-header {
+    flex-direction: column;
+    align-items: flex-start;
+  }
+  .project-links {
+    flex-direction: column;
+  }
+}
+
+@media (max-width: 480px) {
+  .container {
+    padding: 0 1rem;
+  }
+  .hero {
+    height: 60vh;
+  }
+  .hero-content {
+    padding: 0 0.5rem;
+  }
+  .glass-card {
+    padding: 1.5rem;
+  }
+}
