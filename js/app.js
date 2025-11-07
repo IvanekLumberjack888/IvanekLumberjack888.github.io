@@ -1,179 +1,116 @@
-// ========== TYPED.JS - NAME TYPING ANIMATION ==========
 document.addEventListener('DOMContentLoaded', function() {
-  const typed = new Typed('#typed-name', {
+  // Name Typing Animation
+  new Typed('#typed-name', {
     strings: ['Ivo Doležal'],
-    typeSpeed: 80,
+    typeSpeed: 88,
     showCursor: true,
     cursorChar: '|',
     loop: false,
     backSpeed: 0
   });
-});
 
-// ========== LUCIDE ICONS INITIALIZATION ==========
-lucide.createIcons();
+  // Skills Data
+  const skillsData = [
+    {
+      category: 'Programming',
+      skills: [
+        { name: 'Python', level: 95 },
+        { name: 'SQL', level: 90 },
+        { name: 'PostgreSQL', level: 85 },
+        { name: 'Web Scraping', level: 88 }
+      ]
+    },
+    {
+      category: 'Data Visualization',
+      skills: [
+        { name: 'Power BI', level: 92 },
+        { name: 'DAX', level: 87 },
+        { name: 'Dashboards', level: 90 },
+        { name: 'Reporting', level: 85 }
+      ]
+    },
+    {
+      category: 'Systems',
+      skills: [
+        { name: 'SharePoint', level: 88 },
+        { name: 'Power Automate', level: 82 },
+        { name: 'M365', level: 85 },
+        { name: 'Digitalization', level: 90 }
+      ]
+    }
+  ];
 
-// ========== SKILL PROGRESS BARS ANIMATION ==========
-const skillsData = [
-  {
-    category: 'Languages',
-    skills: [
-      { name: 'Python', level: 75 },
-      { name: 'SQL', level: 70 },
-      { name: 'PySpark', level: 55 }
-    ]
-  },
-  {
-    category: 'Platforms',
-    skills: [
-      { name: 'Microsoft Fabric', level: 70 },
-      { name: 'Azure', level: 60 },
-      { name: 'Notebooks', level: 75 }
-    ]
-  },
-  {
-    category: 'Tools',
-    skills: [
-      { name: 'VS Code', level: 85 },
-      { name: 'Git', level: 80 },
-      { name: 'Jupyter', level: 80 }
-    ]
-  }
-];
-
-function renderSkills() {
-  const container = document.getElementById('skills-container');
-  if (!container) return;
-
-  skillsData.forEach(skillGroup => {
-    const skillCard = document.createElement('div');
-    skillCard.className = 'skill-card';
-    
-    let skillsHTML = `
-      <div class="skill-header">
-        <div class="skill-icon">📊</div>
-        <h3 class="skill-title">${skillGroup.category}</h3>
-      </div>
-    `;
-    
-    skillGroup.skills.forEach(skill => {
-      skillsHTML += `
+  // Render Skills dynamically
+  const skillsContainer = document.getElementById('skills-container');
+  skillsContainer.innerHTML = '';
+  skillsData.forEach(group => {
+    const card = document.createElement('div');
+    card.className = 'skill-card glass-card';
+    let html = `<div class="skill-header">${group.category}</div>`;
+    group.skills.forEach(skill => {
+      html += `
         <div class="skill-item">
-          <span class="skill-name">${skill.name}</span>
+          <div class="skill-title">${skill.name}</div>
           <div class="skill-bar">
-            <div class="skill-progress" style="width: ${skill.level}%"></div>
+            <div class="skill-progress" style="width:0%;" data-final="${skill.level}"></div>
           </div>
           <span class="skill-level">${skill.level}%</span>
         </div>
       `;
     });
-    
-    skillCard.innerHTML = skillsHTML;
-    container.appendChild(skillCard);
+    card.innerHTML = html;
+    skillsContainer.appendChild(card);
   });
-  
-  // Trigger animation on scroll
-  animateProgressBars();
-}
+  // Animate Progress Bars
+  setTimeout(() => {
+    document.querySelectorAll('.skill-progress').forEach(bar => {
+      bar.style.width = bar.getAttribute('data-final') + '%';
+    });
+  }, 300);
 
-function animateProgressBars() {
-  const progressBars = document.querySelectorAll('.skill-progress');
-  progressBars.forEach(bar => {
-    const width = bar.style.width;
-    bar.style.width = '0%';
-    setTimeout(() => {
-      bar.style.width = width;
-    }, 100);
-  });
-}
+  // Projects Data
+  const projectsData = [
+    {
+      title: 'Text Analyzer',
+      description: 'Advanced tool for text data analysis using Python libraries and NLP algorithms.',
+      tech: ['Python', 'Pandas', 'NLP'],
+      github: '#',
+      demo: '#'
+    },
+    {
+      title: 'Bulls & Cows Game',
+      description: 'Interactive logic game implemented in Python with a clean algorithm.',
+      tech: ['Python', 'Algorithms', 'Game Logic'],
+      github: '#',
+      demo: '#'
+    },
+    {
+      title: 'Election Scraper',
+      description: 'Robust web scraping tool for collecting and analyzing election data.',
+      tech: ['Python', 'Web Scraping', 'Data Analysis'],
+      github: '#',
+      demo: '#'
+    }
+  ];
 
-// ========== PROJECTS DATA ==========
-const projectsData = [
-  {
-    title: 'Data Pipeline Automation',
-    description: 'Built an automated ETL pipeline using Python and SQL to extract, transform, and load data from multiple sources.',
-    tech: ['Python', 'SQL', 'Pandas'],
-    github: 'https://github.com/IvanekLumberjack888',
-    demo: '#'
-  },
-  {
-    title: 'Microsoft Fabric Learning Project',
-    description: 'Hands-on project exploring Microsoft Fabric capabilities, building notebooks and data workflows.',
-    tech: ['Fabric', 'Notebooks', 'DAX'],
-    github: 'https://github.com/IvanekLumberjack888',
-    demo: '#'
-  },
-  {
-    title: 'Web Scraping & Data Analysis',
-    description: 'Scrape web data using BeautifulSoup, clean with Pandas, and visualize insights.',
-    tech: ['Python', 'BeautifulSoup', 'Pandas'],
-    github: 'https://github.com/IvanekLumberjack888',
-    demo: '#'
-  }
-];
-
-function renderProjects() {
-  const container = document.getElementById('projects-container');
-  if (!container) return;
-
+  // Render Projects dynamically
+  const projectsContainer = document.getElementById('projects-container');
+  projectsContainer.innerHTML = '';
   projectsData.forEach(project => {
-    const projectCard = document.createElement('div');
-    projectCard.className = 'project-card';
-    
-    const techBadges = project.tech
-      .map(t => `<span class="tech-badge">${t}</span>`)
-      .join('');
-    
-    projectCard.innerHTML = `
-      <h3 class="project-title">${project.title}</h3>
-      <p class="project-description">${project.description}</p>
-      <div class="project-tech">${techBadges}</div>
+    const card = document.createElement('div');
+    card.className = 'project-card glass-card';
+    let html = `<div class="project-title">${project.title}</div>
+      <div class="project-description">${project.description}</div>
+      <div class="project-tech">`;
+    project.tech.forEach(t => {
+      html += `<span class="tech-badge">${t}</span>`;
+    });
+    html += `</div>
       <div class="project-links">
-        <a href="${project.github}" target="_blank" class="project-link">GitHub</a>
-        ${project.demo !== '#' ? `<a href="${project.demo}" target="_blank" class="project-link">Demo</a>` : ''}
-      </div>
-    `;
-    
-    container.appendChild(projectCard);
+        ${project.github !== '#' ? `<a href="${project.github}" class="project-link" target="_blank">GitHub</a>` : ''}
+        ${project.demo !== '#' ? `<a href="${project.demo}" class="project-link" target="_blank">Demo</a>` : ''}
+      </div>`;
+    card.innerHTML = html;
+    projectsContainer.appendChild(card);
   });
-}
-
-// ========== SMOOTH SCROLL FOR NAVIGATION ==========
-document.querySelectorAll('a[href^="#"]').forEach(anchor => {
-  anchor.addEventListener('click', function(e) {
-    e.preventDefault();
-    const target = document.querySelector(this.getAttribute('href'));
-    if (target) {
-      target.scrollIntoView({
-        behavior: 'smooth',
-        block: 'start'
-      });
-    }
-  });
-});
-
-// ========== INTERSECTION OBSERVER FOR ANIMATIONS ==========
-const observerOptions = {
-  threshold: 0.1,
-  rootMargin: '0px 0px -100px 0px'
-};
-
-const observer = new IntersectionObserver(function(entries) {
-  entries.forEach(entry => {
-    if (entry.isIntersecting) {
-      entry.target.style.animation = 'fadeInUp 0.6s ease forwards';
-      observer.unobserve(entry.target);
-    }
-  });
-}, observerOptions);
-
-document.querySelectorAll('.project-card, .skill-card, .contact-card').forEach(el => {
-  observer.observe(el);
-});
-
-// ========== INITIALIZE ON PAGE LOAD ==========
-window.addEventListener('load', function() {
-  renderSkills();
-  renderProjects();
-  lucide.createIcons();
 });
