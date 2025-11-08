@@ -1,144 +1,162 @@
 <!DOCTYPE html>
-<html lang="cs">
+<html lang="en">
 <head>
-    <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Ivo Doležal | Junior Data Engineer</title>
-    <meta name="description" content="Junior Data Engineer specializing in Python, SQL, Microsoft Fabric. Building data pipelines and learning modern data engineering.">
-    <link rel="icon" href="/images/favicon.ico">
-    <link rel="stylesheet" href="/styles/style.css">
-    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700;800&display=swap" rel="stylesheet">
-    <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
-    <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Ivo Doležal | Junior Data Engineer</title>
+  <meta name="description" content="Junior Data Engineer | Python | Fabric | Cloud | Lumberjack Story | Dark & Light Theme | Glassmorphism | Responsive Portfolio">
+  <link rel="icon" href="images/favicon.ico" />
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
+  <link rel="stylesheet" href="styles/style.css" />
+  <link rel="stylesheet" href="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.css" />
+  <script src="https://cdn.jsdelivr.net/npm/swiper@9/swiper-bundle.min.js"></script>
+  <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
+  <script type="application/ld+json">
+  {
+    "@context":"https://schema.org/",
+    "@type":"Person",
+    "name":"Ivo Doležal",
+    "jobTitle":"Junior Data Engineer",
+    "url":"https://ivaneklumberjack888.github.io",
+    "sameAs":[
+      "https://github.com/IvanekLumberjack888",
+      "https://www.linkedin.com/in/ivodolezal888"
+    ],
+    "knowsAbout":["Data Engineering","Microsoft Fabric","Python","SQL","ETL","PySpark","Notebooks"],
+    "location":{"@type":"Place","name":"Brno, Czech Republic"}
+  }
+  </script>
 </head>
 <body>
-    <!-- Navigation -->
-    <nav class="navbar">
-        <div class="nav-container">
-            <div class="nav-brand">Ivo Doležal</div>
-            <div class="nav-links">
-                <a href="#about">About</a>
-                <a href="#skills">Skills</a>
-                <a href="#projects">Projects</a>
-                <a href="#contact">Contact</a>
-            </div>
-        </div>
-    </nav>
+  <div id="loading-screen">
+    <div class="axe-loader"></div>
+    <span>Loading... building reliable systems</span>
+  </div>
 
-    <!-- Hero Section -->
-    <section class="hero">
-        <div class="hero-overlay"></div>
-        <div class="hero-content">
-            <h1 class="hero-title">
-                <span class="hero-name" id="typed-name"></span>
-            </h1>
-            <p class="hero-subtitle">Junior Data Engineer | Python | Fabric | Data Engineering</p>
-            <p class="hero-description">Building data pipelines. Learning Microsoft Fabric. Preparing for DP-700.</p>
-            <div class="hero-actions">
-                <a href="#projects" class="btn btn-primary">My Projects</a>
-                <a href="#contact" class="btn btn-outline">Contact</a>
-            </div>
-        </div>
-        <a href="#about" class="scroll-indicator">
-            <i data-lucide="chevron-down"></i>
-        </a>
-    </section>
+  <nav class="navbar">
+    <h1 class="logo">Ivo Doležal</h1>
+    <ul class="nav-links">
+      <li><a href="#about">About</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#contact">Contact</a></li>
+      <li><button id="theme-toggle" aria-label="Switch theme">🌓</button></li>
+    </ul>
+  </nav>
 
-    <!-- About Section -->
-    <section id="about" class="section about-section">
-        <div class="container">
-            <div class="about-card glass-card">
-                <h1>Ivo Doležal | Junior Data Engineer</h1>
-                <p class="about-intro">
-                    <strong>Building data pipelines and learning the modern data platform:</strong> Microsoft Fabric
-                </p>
-                <p>
-                    I'm on a journey from data analytics to data engineering. Currently learning <strong>Microsoft Fabric</strong> – the unified platform for modern data work. Building projects, preparing for <strong>DP-700</strong> certification, and sharing my learning path.
-                </p>
-                
-                <h2>What I Do</h2>
-                <ul class="about-list">
-                    <li>Build ETL pipelines and data workflows</li>
-                    <li>Extract and transform data (Python, SQL, BeautifulSoup)</li>
-                    <li>Learn Microsoft Fabric platform & modern data engineering</li>
-                    <li>Create data solutions from scratch to visualization</li>
-                </ul>
-                
-                <h2>Tech Stack</h2>
-                <ul class="about-list">
-                    <li><strong>Languages:</strong> Python | SQL | PySpark (learning)</li>
-                    <li><strong>Platform:</strong> Microsoft Fabric | Notebooks | OneLake | Data Factory</li>
-                    <li><strong>Tools:</strong> VS Code | Jupyter | Git | BeautifulSoup | Pandas</li>
-                </ul>
-                
-                <h2>Currently</h2>
-                <p>
-                    Preparing for <strong>DP-700: Fabric Data Engineer certification</strong> (Fabric Data Days, Nov-Dec 2025).<br>
-                    Building Python projects on <a href="https://github.com/IvanekLumberjack888" target="_blank">GitHub</a>.<br>
-                    Open to <strong>Junior Data Engineer</strong> opportunities.
-                </p>
-            </div>
+  <!-- Swiper Slider Hero -->
+  <section class="hero">
+    <div class="swiper mySwiper">
+      <div class="swiper-wrapper">
+        <div class="swiper-slide slide1">
+          <h2>Junior Data Engineer</h2>
+          <p><span id="typed-name"></span></p>
         </div>
-    </section>
-
-    <!-- Skills Section -->
-    <section id="skills" class="section skills-section">
-        <div class="container">
-            <h2 class="section-title">Skills</h2>
-            <div class="skills-grid" id="skills-container"></div>
+        <div class="swiper-slide slide2">
+          <h2>Microsoft Fabric | DP-700</h2>
+          <p>Learning cloud modern stack</p>
         </div>
-    </section>
-
-    <!-- Projects Section -->
-    <section id="projects" class="section projects-section">
-        <div class="container">
-            <h2 class="section-title">My Projects</h2>
-            <div class="projects-grid" id="projects-container"></div>
+        <div class="swiper-slide slide3">
+          <h2>Lumberjack ⟶ Data</h2>
+          <p>Hand-craft in code, precision in pipelines 🪓</p>
         </div>
-    </section>
-
-    <!-- Contact Section -->
-    <section id="contact" class="section contact-section">
-        <div class="container">
-            <h2 class="section-title">Contact</h2>
-            <div class="contact-grid">
-                <a href="mailto:ivousd@gmail.com" class="contact-card glass-card">
-                    <i data-lucide="mail"></i>
-                    <div class="contact-info">
-                        <h4>Email</h4>
-                        <p>ivousd@gmail.com</p>
-                    </div>
-                </a>
-                <a href="https://github.com/IvanekLumberjack888" target="_blank" class="contact-card glass-card">
-                    <i data-lucide="github"></i>
-                    <div class="contact-info">
-                        <h4>GitHub</h4>
-                        <p>IvanekLumberjack888</p>
-                    </div>
-                </a>
-                <a href="https://www.linkedin.com/in/ivodolezal888/" target="_blank" class="contact-card glass-card">
-                    <i data-lucide="linkedin"></i>
-                    <div class="contact-info">
-                        <h4>LinkedIn</h4>
-                        <p>Ivo Doležal</p>
-                    </div>
-                </a>
-            </div>
-            <div class="location">
-                <i data-lucide="map-pin"></i>
-                <span>Brno, Czech Republic</span>
-            </div>
+        <div class="swiper-slide slide4">
+          <h2>Portfolio & Projects</h2>
+          <p>Brno, remote-friendly | Open to collaborate</p>
         </div>
-    </section>
+      </div>
+      <div class="swiper-pagination"></div>
+    </div>
+  </section>
 
-    <!-- Footer -->
-    <footer class="footer">
-        <div class="footer-content">
-            <p>© 2025 Ivo Doležal | Junior Data Engineer | Brno, CZ</p>
-            <p>Learning Microsoft Fabric • Preparing for DP-700 • Open to opportunities</p>
-        </div>
-    </footer>
+  <section id="about" class="glass about-section">
+    <h2>About me</h2>
+    <div class="about-container">
+      <img src="images/background.jpg" alt="Lumberjack Data Engineer" class="profile-bg" />
+      <div class="about-text">
+        <p>I used to build with wood. Now I build with data, pipelines, and code. The same principles of patience, precision, and honest craft underpin my journey into Data Engineering and Cloud. I care about modern tooling, cloud solutions, and meaningful, resilient systems for people.</p>
+        <ul>
+          <li>Learning: <b>Python</b>, <b>SQL</b>, <b>Microsoft Fabric</b>, <b>PySpark</b></li>
+          <li>Focusing on Fabric Data Engineering | DP-700 journey</li>
+          <li>Mixing green forests (🌲) and green code (🌐)</li>
+          <li>“From woodcutting to modern cloud: do it right, do it honest.”</li>
+        </ul>
+      </div>
+    </div>
+  </section>
 
-    <script src="/js/app.js"></script>
+  <section id="skills" class="glass skills-section">
+    <h2>Skills & Stack</h2>
+    <div class="skills-grid">
+      <div class="skill mono">Python</div>
+      <div class="skill mono">SQL</div>
+      <div class="skill mono">Microsoft Fabric</div>
+      <div class="skill mono">PySpark</div>
+      <div class="skill mono">ETL</div>
+      <div class="skill mono">Notebooks</div>
+      <div class="skill mono">Power BI</div>
+      <div class="skill mono">Git & GitHub</div>
+      <div class="skill mono">BeautifulSoup</div>
+      <div class="skill mono">VS Code</div>
+    </div>
+  </section>
+
+  <section id="projects" class="glass projects-section">
+    <h2>Projects</h2>
+    <div class="projects-grid">
+      <div class="project-card featured">
+        <h3>SQL Analytics (ENGETO)</h3>
+        <p>Comprehensive data analysis on wages and food prices in CZ 2006–2018.</p>
+        <a class="btn" href="https://github.com/IvanekLumberjack888/sql-projekt-engeto" target="_blank">GitHub</a>
+        <button class="btn video-btn" data-youtube="S3CI0gypRuU">Demo Video</button>
+      </div>
+      <div class="project-card featured">
+        <h3>Czech Election Scraper</h3>
+        <p>Python scraper for chamber of deputies elections, CSV export.</p>
+        <a class="btn" href="https://github.com/IvanekLumberjack888/Elections-Scraper" target="_blank">GitHub</a>
+      </div>
+      <div class="project-card old">
+        <h3>PowerBI for Engeto</h3>
+        <p>Business Intelligence experiments – Data viz dashboards</p>
+        <a class="btn" href="https://github.com/IvanekLumberjack888/PowerBI-for-Engeto" target="_blank">GitHub</a>
+      </div>
+      <div class="project-card old">
+        <h3>Bulls and Cows (legacy)</h3>
+        <p>Python text-based game. Everyone started somewhere!</p>
+        <a class="btn" href="https://github.com/IvanekLumberjack888/Bulls-and-Cows" target="_blank">GitHub</a>
+      </div>
+      <div class="project-card old">
+        <h3>Text Analyzer (legacy)</h3>
+        <p>Basic Python text tools. Edu step in programming 🐍</p>
+        <a class="btn" href="https://github.com/IvanekLumberjack888/text_analyzer" target="_blank">GitHub</a>
+      </div>
+      <div class="project-card in-progress">
+        <h3>More coming soon...</h3>
+      </div>
+    </div>
+  </section>
+
+  <section id="contact" class="glass contact-section">
+    <h2>Contact</h2>
+    <ul>
+      <li>Email: <a href="mailto:ivousd@gmail.com">ivousd@gmail.com</a></li>
+      <li>GitHub: <a href="https://github.com/IvanekLumberjack888" target="_blank">IvanekLumberjack888</a></li>
+      <li>LinkedIn: <a href="https://www.linkedin.com/in/ivodolezal888/" target="_blank">Ivo Doležal</a></li>
+    </ul>
+  </section>
+
+  <footer class="footer glass">
+    <span>© 2025 Ivo Doležal | Junior Data Engineer. Built with craft and code.</span>
+  </footer>
+
+  <!-- YouTube modal -->
+  <div id="video-modal" class="modal hidden">
+    <div class="modal-content">
+      <span class="close-btn">&times;</span>
+      <iframe id="youtube-video" width="400" height="225" frameborder="0" allowfullscreen></iframe>
+    </div>
+  </div>
+
+  <script src="js/app.js"></script>
 </body>
 </html>
