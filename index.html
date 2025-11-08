@@ -3,8 +3,8 @@
 <head>
   <meta charset="UTF-8">
   <meta name="viewport" content="width=device-width, initial-scale=1.0">
-  <title>Ivo Doležal | Junior Data Engineer</title>
-  <meta name="description" content="Junior Data Engineer | Python | Fabric | Cloud | Lumberjack Story | Dark & Light Theme | Glassmorphism | Responsive Portfolio">
+  <title>Ivo Doležal | Junior Data Engineer | Brno</title>
+  <meta name="description" content="Junior Data Engineer based in Brno | Python, SQL, Microsoft Fabric, ETL, PySpark | Open to remote opportunities | From wood to data - precision, patience, honest craft">
   <link rel="icon" href="images/favicon.ico" />
   <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;600;700&display=swap" rel="stylesheet" />
   <link rel="stylesheet" href="styles/style.css" />
@@ -22,8 +22,10 @@
       "https://github.com/IvanekLumberjack888",
       "https://www.linkedin.com/in/ivodolezal888"
     ],
-    "knowsAbout":["Data Engineering","Microsoft Fabric","Python","SQL","ETL","PySpark","Notebooks"],
-    "location":{"@type":"Place","name":"Brno, Czech Republic"}
+    "knowsAbout":["Data Engineering","Microsoft Fabric","Python","SQL","ETL","PySpark","Notebooks","Cloud"],
+    "address":{"@type":"PostalAddress","addressLocality":"Brno","addressCountry":"CZ"},
+    "jobTitle":"Junior Data Engineer",
+    "seeks":"Remote opportunities in Data Engineering"
   }
   </script>
 </head>
@@ -40,6 +42,7 @@
       <li><a href="#skills">Skills</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#contact">Contact</a></li>
+      <li><a href="https://www.linkedin.com/in/ivodolezal888" target="_blank" aria-label="LinkedIn" title="LinkedIn Profile">💼</a></li>
       <li><button id="theme-toggle" aria-label="Switch theme">🌓</button></li>
     </ul>
   </nav>
@@ -51,6 +54,7 @@
         <div class="swiper-slide slide1">
           <h2>Junior Data Engineer</h2>
           <p><span id="typed-name"></span></p>
+          <p class="location-tag">📍 Brno | Open to remote</p>
         </div>
         <div class="swiper-slide slide2">
           <h2>Microsoft Fabric | DP-700</h2>
@@ -62,7 +66,7 @@
         </div>
         <div class="swiper-slide slide4">
           <h2>Portfolio & Projects</h2>
-          <p>Brno, remote-friendly | Open to collaborate</p>
+          <p>Brno-based, remote-friendly | Open to collaborate</p>
         </div>
       </div>
       <div class="swiper-pagination"></div>
@@ -76,10 +80,10 @@
       <div class="about-text">
         <p>I used to build with wood. Now I build with data, pipelines, and code. The same principles of patience, precision, and honest craft underpin my journey into Data Engineering and Cloud. I care about modern tooling, cloud solutions, and meaningful, resilient systems for people.</p>
         <ul>
-          <li>Learning: <b>Python</b>, <b>SQL</b>, <b>Microsoft Fabric</b>, <b>PySpark</b></li>
-          <li>Focusing on Fabric Data Engineering | DP-700 journey</li>
-          <li>Mixing green forests (🌲) and green code (🌐)</li>
-          <li>“From woodcutting to modern cloud: do it right, do it honest.”</li>
+          <li>🛠️ <b>Core Skills:</b> Python, SQL, Microsoft Fabric, PySpark, ETL</li>
+          <li>🎯 <b>Focus:</b> Fabric Data Engineering | DP-700 journey</li>
+          <li>🌲 <b>Philosophy:</b> From forests to data - do it right, do it honest</li>
+          <li>📍 <b>Location:</b> Brno, Czech Republic | Remote-friendly</li>
         </ul>
       </div>
     </div>
@@ -110,26 +114,31 @@
         <a class="btn" href="https://github.com/IvanekLumberjack888/sql-projekt-engeto" target="_blank">GitHub</a>
         <button class="btn video-btn" data-youtube="S3CI0gypRuU">Demo Video</button>
       </div>
+
       <div class="project-card featured">
         <h3>Czech Election Scraper</h3>
         <p>Python scraper for chamber of deputies elections, CSV export.</p>
         <a class="btn" href="https://github.com/IvanekLumberjack888/Elections-Scraper" target="_blank">GitHub</a>
       </div>
+
       <div class="project-card old">
         <h3>PowerBI for Engeto</h3>
         <p>Business Intelligence experiments – Data viz dashboards</p>
         <a class="btn" href="https://github.com/IvanekLumberjack888/PowerBI-for-Engeto" target="_blank">GitHub</a>
       </div>
+
       <div class="project-card old">
         <h3>Bulls and Cows (legacy)</h3>
         <p>Python text-based game. Everyone started somewhere!</p>
         <a class="btn" href="https://github.com/IvanekLumberjack888/Bulls-and-Cows" target="_blank">GitHub</a>
       </div>
+
       <div class="project-card old">
         <h3>Text Analyzer (legacy)</h3>
         <p>Basic Python text tools. Edu step in programming 🐍</p>
         <a class="btn" href="https://github.com/IvanekLumberjack888/text_analyzer" target="_blank">GitHub</a>
       </div>
+
       <div class="project-card in-progress">
         <h3>More coming soon...</h3>
       </div>
@@ -141,7 +150,7 @@
     <ul>
       <li>Email: <a href="mailto:ivousd@gmail.com">ivousd@gmail.com</a></li>
       <li>GitHub: <a href="https://github.com/IvanekLumberjack888" target="_blank">IvanekLumberjack888</a></li>
-      <li>LinkedIn: <a href="https://www.linkedin.com/in/ivodolezal888/" target="_blank">Ivo Doležal</a></li>
+      <li>LinkedIn: <a href="https://www.linkedin.com/in/ivodolezal888" target="_blank">Ivo Doležal</a></li>
     </ul>
   </section>
 
@@ -152,7 +161,7 @@
   <!-- YouTube modal -->
   <div id="video-modal" class="modal hidden">
     <div class="modal-content">
-      <span class="close-btn">&times;</span>
+      <span class="close-btn">×</span>
       <iframe id="youtube-video" width="400" height="225" frameborder="0" allowfullscreen></iframe>
     </div>
   </div>
@@ -225,6 +234,6 @@ if(modal){
     }
   });
 }
-</script>
+  </script>
 </body>
 </html>
