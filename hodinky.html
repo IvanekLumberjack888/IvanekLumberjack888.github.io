@@ -1,0 +1,598 @@
+<!DOCTYPE html>
+<html lang="cs">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Výběr hodinek 🕐</title>
+<link href="https://fonts.googleapis.com/css2?family=Cormorant+Garamond:ital,wght@0,300;0,400;0,600;1,300&family=DM+Sans:wght@300;400;500&display=swap" rel="stylesheet">
+<style>
+  *, *::before, *::after { box-sizing: border-box; margin: 0; padding: 0; }
+
+  :root {
+    --bg: #0e0e0f;
+    --surface: #161618;
+    --card: #1c1c1f;
+    --card-hover: #222226;
+    --border: #2a2a2e;
+    --accent: #c9a96e;
+    --accent2: #e8c88a;
+    --text: #f0ede8;
+    --text-muted: #8a8780;
+    --text-dim: #4a4845;
+    --yes: #4caf87;
+    --no: #c45f5f;
+    --maybe: #c9a96e;
+  }
+
+  body {
+    background: var(--bg);
+    color: var(--text);
+    font-family: 'DM Sans', sans-serif;
+    font-weight: 300;
+    min-height: 100vh;
+    overflow-x: hidden;
+  }
+
+  body::before {
+    content: '';
+    position: fixed;
+    inset: 0;
+    background: 
+      radial-gradient(ellipse 80% 50% at 50% -20%, rgba(201,169,110,0.06) 0%, transparent 70%),
+      radial-gradient(ellipse 60% 40% at 80% 100%, rgba(201,169,110,0.03) 0%, transparent 60%);
+    pointer-events: none;
+    z-index: 0;
+  }
+
+  header {
+    position: relative;
+    z-index: 10;
+    text-align: center;
+    padding: 60px 20px 40px;
+    border-bottom: 1px solid var(--border);
+  }
+
+  .header-eyebrow {
+    font-family: 'DM Sans', sans-serif;
+    font-size: 11px;
+    letter-spacing: 4px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 16px;
+  }
+
+  header h1 {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: clamp(2.2rem, 5vw, 3.8rem);
+    font-weight: 300;
+    letter-spacing: -0.02em;
+    line-height: 1.1;
+    color: var(--text);
+    margin-bottom: 16px;
+  }
+
+  header h1 em {
+    font-style: italic;
+    color: var(--accent);
+  }
+
+  header p {
+    color: var(--text-muted);
+    font-size: 14px;
+    font-weight: 300;
+    max-width: 420px;
+    margin: 0 auto 28px;
+    line-height: 1.7;
+  }
+
+  .stats-bar {
+    display: flex;
+    gap: 32px;
+    justify-content: center;
+    padding: 20px;
+    background: var(--surface);
+    border-bottom: 1px solid var(--border);
+    position: sticky;
+    top: 0;
+    z-index: 100;
+    backdrop-filter: blur(20px);
+  }
+
+  .stat {
+    display: flex;
+    align-items: center;
+    gap: 8px;
+    font-size: 13px;
+    color: var(--text-muted);
+  }
+
+  .stat-count {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 20px;
+    font-weight: 600;
+    line-height: 1;
+  }
+
+  .stat-count.yes { color: var(--yes); }
+  .stat-count.no { color: var(--no); }
+  .stat-count.maybe { color: var(--maybe); }
+  .stat-count.total { color: var(--text); }
+
+  .filters {
+    display: flex;
+    gap: 8px;
+    padding: 24px 40px;
+    flex-wrap: wrap;
+    position: relative;
+    z-index: 5;
+  }
+
+  .filter-btn {
+    padding: 7px 18px;
+    border-radius: 100px;
+    border: 1px solid var(--border);
+    background: transparent;
+    color: var(--text-muted);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    letter-spacing: 0.5px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .filter-btn:hover, .filter-btn.active {
+    background: var(--accent);
+    border-color: var(--accent);
+    color: #0e0e0f;
+    font-weight: 500;
+  }
+
+  .grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fill, minmax(280px, 1fr));
+    gap: 2px;
+    padding: 0 2px 40px;
+    position: relative;
+    z-index: 5;
+  }
+
+  @media (min-width: 900px) {
+    .grid { grid-template-columns: repeat(3, 1fr); }
+  }
+  @media (min-width: 1300px) {
+    .grid { grid-template-columns: repeat(4, 1fr); }
+  }
+
+  .card {
+    background: var(--card);
+    position: relative;
+    overflow: hidden;
+    cursor: pointer;
+    transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
+    aspect-ratio: 3/4;
+    display: flex;
+    flex-direction: column;
+  }
+
+  .card:hover {
+    background: var(--card-hover);
+    z-index: 2;
+    transform: scale(1.02);
+    box-shadow: 0 20px 60px rgba(0,0,0,0.5);
+  }
+
+  .card.voted-yes { outline: 2px solid var(--yes); }
+  .card.voted-no { opacity: 0.45; }
+  .card.voted-maybe { outline: 2px solid var(--maybe); }
+  .card.hidden { display: none; }
+
+  .card-img {
+    flex: 1;
+    overflow: hidden;
+    position: relative;
+    background: #111;
+  }
+
+  .card-img img {
+    width: 100%;
+    height: 100%;
+    object-fit: cover;
+    transition: transform 0.5s cubic-bezier(0.4, 0, 0.2, 1);
+    filter: brightness(0.92);
+  }
+
+  .card:hover .card-img img {
+    transform: scale(1.06);
+    filter: brightness(1);
+  }
+
+  .vote-overlay {
+    position: absolute;
+    inset: 0;
+    background: rgba(14, 14, 15, 0.85);
+    backdrop-filter: blur(4px);
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    gap: 12px;
+    opacity: 0;
+    transition: opacity 0.25s;
+  }
+
+  .card:hover .vote-overlay {
+    opacity: 1;
+  }
+
+  .vote-btns {
+    display: flex;
+    gap: 10px;
+  }
+
+  .vote-btn {
+    width: 52px;
+    height: 52px;
+    border-radius: 50%;
+    border: 2px solid;
+    background: transparent;
+    font-size: 20px;
+    cursor: pointer;
+    transition: all 0.2s;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+  }
+
+  .vote-btn.yes-btn { border-color: var(--yes); color: var(--yes); }
+  .vote-btn.no-btn { border-color: var(--no); color: var(--no); }
+  .vote-btn.maybe-btn { border-color: var(--maybe); color: var(--maybe); }
+
+  .vote-btn:hover, .vote-btn.active { transform: scale(1.15); }
+  .vote-btn.yes-btn:hover, .vote-btn.yes-btn.active { background: var(--yes); color: #fff; }
+  .vote-btn.no-btn:hover, .vote-btn.no-btn.active { background: var(--no); color: #fff; }
+  .vote-btn.maybe-btn:hover, .vote-btn.maybe-btn.active { background: var(--maybe); color: #0e0e0f; }
+
+  .vote-hint {
+    font-size: 11px;
+    letter-spacing: 2px;
+    text-transform: uppercase;
+    color: var(--text-muted);
+  }
+
+  .status-badge {
+    position: absolute;
+    top: 12px;
+    right: 12px;
+    width: 32px;
+    height: 32px;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    font-size: 16px;
+    z-index: 10;
+    opacity: 0;
+    transform: scale(0.5);
+    transition: all 0.3s cubic-bezier(0.34, 1.56, 0.64, 1);
+  }
+
+  .status-badge.visible { opacity: 1; transform: scale(1); }
+  .status-badge.yes { background: var(--yes); }
+  .status-badge.no { background: var(--no); }
+  .status-badge.maybe { background: var(--maybe); }
+
+  .card-info {
+    padding: 16px;
+    border-top: 1px solid var(--border);
+    background: var(--card);
+  }
+
+  .card-brand {
+    font-size: 10px;
+    letter-spacing: 3px;
+    text-transform: uppercase;
+    color: var(--accent);
+    margin-bottom: 4px;
+  }
+
+  .card-name {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 17px;
+    font-weight: 400;
+    color: var(--text);
+    margin-bottom: 6px;
+    line-height: 1.2;
+  }
+
+  .card-footer {
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+  }
+
+  .card-price {
+    font-size: 14px;
+    font-weight: 500;
+    color: var(--text-muted);
+  }
+
+  .card-link {
+    font-size: 11px;
+    color: var(--text-dim);
+    text-decoration: none;
+    letter-spacing: 0.5px;
+    transition: color 0.2s;
+  }
+
+  .card-link:hover { color: var(--accent); }
+
+  .results-panel {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background: var(--surface);
+    border: 1px solid var(--border);
+    border-radius: 16px;
+    padding: 20px 24px;
+    z-index: 200;
+    min-width: 220px;
+    box-shadow: 0 8px 40px rgba(0,0,0,0.6);
+    display: none;
+  }
+
+  .results-panel.show { display: block; }
+
+  .results-title {
+    font-family: 'Cormorant Garamond', serif;
+    font-size: 18px;
+    margin-bottom: 14px;
+    color: var(--accent);
+  }
+
+  .result-item {
+    font-size: 13px;
+    padding: 6px 0;
+    border-bottom: 1px solid var(--border);
+    display: flex;
+    justify-content: space-between;
+    gap: 16px;
+  }
+
+  .result-item:last-child { border: none; }
+
+  .reset-btn {
+    margin-top: 14px;
+    width: 100%;
+    padding: 8px;
+    background: transparent;
+    border: 1px solid var(--border);
+    border-radius: 8px;
+    color: var(--text-muted);
+    font-family: 'DM Sans', sans-serif;
+    font-size: 12px;
+    cursor: pointer;
+    transition: all 0.2s;
+  }
+
+  .reset-btn:hover { border-color: var(--no); color: var(--no); }
+
+  .toggle-results {
+    position: fixed;
+    bottom: 24px;
+    right: 24px;
+    background: var(--accent);
+    color: #0e0e0f;
+    border: none;
+    border-radius: 100px;
+    padding: 12px 20px;
+    font-family: 'DM Sans', sans-serif;
+    font-size: 13px;
+    font-weight: 500;
+    cursor: pointer;
+    z-index: 201;
+    letter-spacing: 0.5px;
+    box-shadow: 0 4px 20px rgba(201,169,110,0.3);
+    transition: all 0.2s;
+  }
+
+  .toggle-results:hover { transform: translateY(-2px); box-shadow: 0 8px 30px rgba(201,169,110,0.4); }
+
+  .second-hand-badge {
+    position: absolute;
+    top: 12px;
+    left: 12px;
+    background: rgba(201,169,110,0.15);
+    border: 1px solid var(--accent);
+    color: var(--accent);
+    font-size: 9px;
+    letter-spacing: 1.5px;
+    text-transform: uppercase;
+    padding: 3px 8px;
+    border-radius: 100px;
+    z-index: 10;
+  }
+</style>
+</head>
+<body>
+
+<header>
+  <div class="header-eyebrow">Výběr pro tebe</div>
+  <h1>Jaké hodinky se<br><em>ti líbí?</em></h1>
+  <p>Klikni na hodinky a ohodnoť je. Tvůj výběr se uloží automaticky.</p>
+</header>
+
+<div class="stats-bar">
+  <div class="stat">
+    <span class="stat-count total" id="cnt-total">22</span>
+    <span>celkem</span>
+  </div>
+  <div class="stat">
+    <span class="stat-count yes" id="cnt-yes">0</span>
+    <span>✓ líbí se</span>
+  </div>
+  <div class="stat">
+    <span class="stat-count maybe" id="cnt-maybe">0</span>
+    <span>~ možná</span>
+  </div>
+  <div class="stat">
+    <span class="stat-count no" id="cnt-no">0</span>
+    <span>✕ ne</span>
+  </div>
+</div>
+
+<div class="filters">
+  <button class="filter-btn active" data-filter="all">Vše</button>
+  <button class="filter-btn" data-filter="yes">❤️ Líbí se</button>
+  <button class="filter-btn" data-filter="maybe">🤔 Možná</button>
+  <button class="filter-btn" data-filter="no">✕ Odmítnuto</button>
+  <button class="filter-btn" data-filter="unvoted">Nehodnocené</button>
+</div>
+
+<div class="grid" id="grid"></div>
+
+<button class="toggle-results" id="toggle-results-btn">Zobrazit výsledky</button>
+<div class="results-panel" id="results-panel">
+  <div class="results-title">Tvůj výběr ❤️</div>
+  <div id="results-list"></div>
+  <button class="reset-btn" id="reset-btn">Resetovat vše</button>
+</div>
+
+<script>
+const watches = [
+  { brand: "Casio", name: "Casio Collection AEQ-110W", price: 1377, img: "https://cdn.timestore.cz/images/w700/1175590-2.jpg?v=1770019645", url: "https://www.timestore.cz/Znacka/Casio-256/Casio-Collection-383/Casio-Collection-70272", secondHand: false },
+  { brand: "Casio", name: "G-Shock GA-B2100", price: 2910, img: "https://cdn.timestore.cz/images/w700/2017376-1.jpg?v=1684844118", url: "https://www.timestore.cz/ga-b2100-1aer", secondHand: false },
+  { brand: "Versus Versace", name: "Versus Versace Aberdeen", price: 2484, img: "https://cdn.timestore.cz/images/w700/2007928-1.jpg?v=1676639254", url: "https://www.timestore.cz/vsplo1321", secondHand: false },
+  { brand: "Casio", name: "G-Shock DW-6900", price: 3919, img: "https://cdn.timestore.cz/images/w700/1178644-8.jpg?v=1770368421", url: "https://www.timestore.cz/Znacka/Casio-256/Casio-G-Shock/Casio-84708", secondHand: false },
+  { brand: "Casio", name: "Casio AMW-870", price: 1978, img: "https://cdn.timestore.cz/images/w700/199322-3.jpg?v=1675078930", url: "https://www.timestore.cz/amw-870-1avdf", secondHand: false },
+  { brand: "Festina", name: "Festina The Originals", price: 4599, img: "https://cdn.timestore.cz/images/w700/1174949-9.jpg?v=1701693307", url: "https://www.timestore.cz/Znacka/Festina-268/The-Originals/Festina-THE-ORIGINALS-54765", secondHand: false },
+  { brand: "Casio", name: "Casio Collection MRW-200H", price: 1309, img: "https://cdn.timestore.cz/images/w700/1174622-10.jpg?v=1769782410", url: "https://www.timestore.cz/Panske-hodinky/Casio/Collection-25929/Casio-Collection-48818", secondHand: false },
+  { brand: "Hugo Boss", name: "Hugo Boss", price: 2209, img: "https://cdn.timestore.cz/images/w700/439138-1.jpg?v=1675078930", url: "https://www.timestore.cz/Znacka/Hugo-Boss-277/Hugo-Boss-84619", secondHand: false },
+  { brand: "Casio", name: "G-Shock Original", price: 2390, img: "https://cdn.timestore.cz/images/w700/1178786-12.jpg?v=1770369354", url: "https://www.timestore.cz/Znacka/Casio-256/Casio-G-Shock-Original-83245", secondHand: false },
+  { brand: "Casio", name: "G-Shock G-Classic", price: 2590, img: "https://cdn.timestore.cz/images/w700/85750-4.jpg?v=1675078930", url: "https://www.timestore.cz/Znacka/Casio-256/Casio-G-Shock/Casio-G-Shock-G-Classic-29052", secondHand: false },
+  { brand: "Casio", name: "Edifice ECB-900PB", price: 4618, img: "https://cdn.timestore.cz/images/w700/2018462-1.jpg?v=1686162696", url: "https://www.timestore.cz/ecb-900pb-1adr", secondHand: false },
+  { brand: "Tommy Hilfiger", name: "Tommy Hilfiger Decker", price: 2450, img: "https://cdn.timestore.cz/images/w700/171746-6.jpg?v=1675078930", url: "https://www.timestore.cz/Panske-hodinky/Tommy-Hilfiger-1343/Decker-28389/Tommy-Hilfiger-Decker-50931", secondHand: false },
+  { brand: "Casio", name: "Edifice ECB-40PB", price: 3390, img: "https://cdn.timestore.cz/images/w700/2034122-1.jpg?v=1709641083", url: "https://www.timestore.cz/casio-edifice-ecb-40pb-1aef", secondHand: false },
+  { brand: "Invicta", name: "Invicta Pro Diver", price: 2309, img: "https://cdn.timestore.cz/images/w700/2031177-1.jpg?v=1705657508", url: "https://www.timestore.cz/invicta-pro-diver-46120", secondHand: false },
+  { brand: "Guess", name: "Guess Mens Sport", price: 1890, img: "https://cdn.timestore.cz/images/w700/464427-3.jpg?v=1675078930", url: "https://www.timestore.cz/Znacka/Guess-275/Guess-Mens-Sport", secondHand: false },
+  { brand: "Invicta", name: "Invicta Pro Diver II", price: 1690, img: "https://cdn.timestore.cz/images/w700/2057418-1.jpg?v=1739357622", url: "https://www.timestore.cz/panske-hodinky-invicta-pro-diver-46095", secondHand: false },
+  { brand: "Emporio Armani", name: "EA Chronograph", price: 2518, img: "https://cdn.timestore.cz/images/w700/448553-1.jpg?v=1675078930", url: "https://www.timestore.cz/Znacka/Emporio-Armani-265/Emporio-Armani-Chronograph/Emporio-Armani-Chrono-4967", secondHand: false },
+  { brand: "Invicta", name: "Invicta Quartz", price: 1938, img: "https://cdn.timestore.cz/images/w700/2075551-1.jpg?v=1758277583", url: "https://www.timestore.cz/invicta-quartz-47234", secondHand: false },
+  { brand: "Casio", name: "Casio GBA-800", price: 1900, img: "https://cdn.timestore.cz/images/w700/2065629-1.jpg?v=1749042970", url: "https://www.timestore.cz/casio-second-hand-gba-800-1aer-nh-h6", secondHand: true },
+  { brand: "Casio", name: "Edifice EQS-960PB", price: 4007, img: "https://cdn.timestore.cz/images/w700/2080653-1.jpg?v=1768470698", url: "https://www.timestore.cz/casio-edifice-eqs-960pb-1a", secondHand: false },
+  { brand: "Casio", name: "Casio AE-1700H", price: 1337, img: "https://cdn.timestore.cz/images/w700/2080354-1.jpg?v=1767947870", url: "https://www.timestore.cz/casio-timeless-ae-1700h-1bvdf", secondHand: false },
+  { brand: "Casio", name: "Casio GA-100", price: 1700, img: "https://cdn.timestore.cz/images/w700/2074448-1.jpg?v=1755596767", url: "https://www.timestore.cz/casio-second-hand-ga-100-1a1er-ph-h6p2r2", secondHand: true },
+];
+
+let votes = JSON.parse(localStorage.getItem('watch_votes') || '{}');
+let currentFilter = 'all';
+
+function saveVotes() { localStorage.setItem('watch_votes', JSON.stringify(votes)); }
+function formatPrice(p) { return p.toLocaleString('cs-CZ') + ' Kč'; }
+
+function vote(idx, v) {
+  if (votes[idx] === v) { delete votes[idx]; } else { votes[idx] = v; }
+  saveVotes(); renderVoteState(idx); updateStats(); applyFilter(); updateResults();
+}
+
+function renderVoteState(idx) {
+  const card = document.querySelector(`.card[data-idx="${idx}"]`);
+  if (!card) return;
+  const v = votes[idx];
+  card.className = 'card' + (v ? ` voted-${v}` : '');
+  card.dataset.vote = v || '';
+  const badge = card.querySelector('.status-badge');
+  badge.className = 'status-badge';
+  if (v) {
+    badge.textContent = v === 'yes' ? '❤️' : v === 'maybe' ? '~' : '✕';
+    badge.classList.add('visible', v);
+  }
+  card.querySelectorAll('.vote-btn').forEach(b => b.classList.toggle('active', b.dataset.vote === v));
+}
+
+function updateStats() {
+  const counts = { yes: 0, no: 0, maybe: 0 };
+  Object.values(votes).forEach(v => counts[v]++);
+  document.getElementById('cnt-yes').textContent = counts.yes;
+  document.getElementById('cnt-no').textContent = counts.no;
+  document.getElementById('cnt-maybe').textContent = counts.maybe;
+}
+
+function applyFilter() {
+  document.querySelectorAll('.card').forEach(card => {
+    const v = card.dataset.vote;
+    const show = currentFilter === 'all' || (currentFilter === 'yes' && v === 'yes') ||
+      (currentFilter === 'no' && v === 'no') || (currentFilter === 'maybe' && v === 'maybe') ||
+      (currentFilter === 'unvoted' && !v);
+    card.classList.toggle('hidden', !show);
+  });
+}
+
+function updateResults() {
+  const list = document.getElementById('results-list');
+  const yesItems = watches.map((w, i) => ({ ...w, idx: i })).filter(w => votes[w.idx] === 'yes');
+  if (yesItems.length === 0) {
+    list.innerHTML = '<div style="color:var(--text-muted);font-size:13px;padding:8px 0;">Zatím žádný výběr ❤️</div>';
+    return;
+  }
+  list.innerHTML = yesItems.map(w => `
+    <div class="result-item">
+      <span style="color:var(--text)">${w.name}</span>
+      <span style="color:var(--accent)">${formatPrice(w.price)}</span>
+    </div>`).join('');
+}
+
+function renderGrid() {
+  const grid = document.getElementById('grid');
+  grid.innerHTML = watches.map((w, idx) => `
+    <div class="card" data-idx="${idx}" data-vote="">
+      <div class="card-img">
+        <img src="${w.img}" alt="${w.name}" loading="lazy">
+        ${w.secondHand ? '<div class="second-hand-badge">Second Hand</div>' : ''}
+        <div class="status-badge"></div>
+        <div class="vote-overlay">
+          <div class="vote-hint">Jak se ti líbí?</div>
+          <div class="vote-btns">
+            <button class="vote-btn yes-btn" data-vote="yes" onclick="vote(${idx},'yes');event.stopPropagation()">❤️</button>
+            <button class="vote-btn maybe-btn" data-vote="maybe" onclick="vote(${idx},'maybe');event.stopPropagation()">🤔</button>
+            <button class="vote-btn no-btn" data-vote="no" onclick="vote(${idx},'no');event.stopPropagation()">✕</button>
+          </div>
+        </div>
+      </div>
+      <div class="card-info">
+        <div class="card-brand">${w.brand}</div>
+        <div class="card-name">${w.name}</div>
+        <div class="card-footer">
+          <span class="card-price">${formatPrice(w.price)}</span>
+          <a class="card-link" href="${w.url}" target="_blank">→ timestore.cz</a>
+        </div>
+      </div>
+    </div>`).join('');
+  watches.forEach((_, idx) => { if (votes[idx]) renderVoteState(idx); });
+}
+
+document.querySelectorAll('.filter-btn').forEach(btn => {
+  btn.addEventListener('click', () => {
+    document.querySelectorAll('.filter-btn').forEach(b => b.classList.remove('active'));
+    btn.classList.add('active');
+    currentFilter = btn.dataset.filter;
+    applyFilter();
+  });
+});
+
+let resultsOpen = false;
+document.getElementById('toggle-results-btn').addEventListener('click', () => {
+  resultsOpen = !resultsOpen;
+  document.getElementById('results-panel').classList.toggle('show', resultsOpen);
+  document.getElementById('toggle-results-btn').textContent = resultsOpen ? 'Zavřít' : 'Zobrazit výsledky';
+});
+
+document.getElementById('reset-btn').addEventListener('click', () => {
+  if (confirm('Resetovat všechny hlasy?')) {
+    votes = {}; saveVotes(); renderGrid(); updateStats(); updateResults();
+  }
+});
+
+renderGrid(); updateStats(); updateResults();
+</script>
+</body>
+</html>
