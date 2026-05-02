@@ -12,7 +12,7 @@
  * - Scroll animations
  */
 
-// =====================================================
+// =====================================================h
 // CONFIGURATION & DATA
 // =====================================================
 
@@ -50,6 +50,17 @@ const skillsData = [
             { name: 'Jupyter', level: 85 },
             { name: 'REST APIs', level: 75 }
         ]
+    },
+        // AI & Automation – pozn.: používáme evropské pomlčky (–) ne americké (—)
+    {
+                category: 'AI & Automation',
+                icon: 'cpu',
+                skills: [
+                    { name: 'AIVOS – Personal AI OS', level: 75 },
+                    { name: 'Ollama – lokální LLM', level: 70 },
+                    { name: 'Next.js', level: 65 },
+                    { name: 'Notion API', level: 60 }
+                            ]
     }
 ];
 
@@ -82,6 +93,15 @@ const projectsData = [
         demo: null,
         icon: 'bar-chart-2',
         status: 'in-progress'
+    },
+    {
+                title: 'AIVOS – Personal AI OS',
+                description: 'Osobní AI operační systém postavený na Next.js s napojením na Notion a lokálním LLM přes Ollama. P.A.R.A. struktura, interaktivní chat a real-time dashboard.',
+                tech: ['Next.js', 'TypeScript', 'Notion API', 'Ollama', 'Tailwind CSS'],
+                github: '#',
+                demo: null,
+                icon: 'cpu',
+                status: 'in-progress'
     }
 ];
 
@@ -269,7 +289,7 @@ function createProjectCard(project, index) {
     
     // Add in-progress indicator if applicable
     const statusBadge = project.status === 'in-progress' 
-        ? '<span class="tech-badge" style="background: linear-gradient(135deg, #f59e0b, #f97316);">In Progress</span>'
+        ? '<span class="tech-badge" style="background: linear-gradient(135deg, #7c3aed, #8b5cf6);">In Progress</span>'
         : '';
     
     // Build tech badges
