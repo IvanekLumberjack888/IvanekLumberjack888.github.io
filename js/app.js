@@ -284,7 +284,7 @@ function createProjectCard(project, index) {
 
     if (project.github && project.github !== '#') {
         linksHtml += `
-            ${project.github}
+            <a href="${project.github}" target="_blank" rel="noopener" class="project-link">
                 <i data-lucide="github"></i>
                 <span>View Code</span>
             </a>
@@ -293,7 +293,7 @@ function createProjectCard(project, index) {
 
     if (project.demo && project.demo !== '#') {
         linksHtml += `
-            ${project.demo}
+            <a href="${project.demo}" target="_blank" rel="noopener" class="project-link">
                 <i data-lucide="external-link"></i>
                 <span>Live Demo</span>
             </a>
