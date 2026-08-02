@@ -8,6 +8,8 @@
     <link rel="icon" href="images/favicon.ico">
 
     <!-- Fonts -->
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
     <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700;800&family=JetBrains+Mono:wght@400;600;700&display=swap" rel="stylesheet">
 
     <!-- Styles -->
@@ -17,7 +19,7 @@
     <script src="https://unpkg.com/lucide@latest/dist/umd/lucide.js"></script>
     <script src="https://cdn.jsdelivr.net/npm/typed.js@2.0.12"></script>
 
-    <!-- JSON-LD for SEO and ATS systems -->
+    <!-- JSON-LD for SEO -->
     <script type="application/ld+json">
     {
         "@context": "https://schema.org/",
@@ -25,7 +27,7 @@
         "name": "Ivo Doležal",
         "url": "https://ivaneklumberjack888.github.io",
         "jobTitle": "Azure Integration & Data Platform Specialist",
-        "description": "IT Support Consultant focused on Central Data Platform operations, enterprise integrations, Azure Data Factory, Databricks, SQL investigations and automation.",
+        "description": "IT Support Consultant focused on enterprise integrations, Central Data Platform operations, Azure Data Factory, Databricks, Event Hub, Service Bus, SQL investigations and automation.",
         "sameAs": [
             "https://github.com/IvanekLumberjack888"
         ],
@@ -37,15 +39,14 @@
             "Azure Service Bus",
             "SQL",
             "Python",
+            "PySpark",
             "Power BI",
             "DAX",
-            "Spark Data Processing",
-            "Enterprise Data Integrations",
+            "Enterprise Integrations",
             "Data Pipeline Monitoring",
             "Troubleshooting",
             "Microsoft Copilot",
-            "Azure DevOps",
-            "Vercel Deployment"
+            "Azure DevOps"
         ],
         "location": {
             "@type": "Place",
@@ -54,13 +55,11 @@
     }
     </script>
 </head>
-
 <body>
     <!-- Navigation -->
     <nav class="navbar">
         <div class="nav-container">
             <div class="nav-brand">Ivo Doležal</div>
-
             <div class="nav-links">
                 <a href="#about">About</a>
                 <a href="#experience">Experience</a>
@@ -81,7 +80,6 @@
                 <span class="hero-greeting">Hi, I'm</span>
                 <span class="hero-name" id="typed-name"></span>
             </h1>
-
             <p class="hero-subtitle">Azure Integration & Data Platform Specialist</p>
             <p class="hero-description">
                 Central Data Platform • Azure Data Factory • Databricks • Event Hub • Service Bus • SQL
@@ -92,7 +90,6 @@
                     <i data-lucide="briefcase"></i>
                     View Experience
                 </a>
-
                 <a href="#projects" class="btn btn-outline">
                     <i data-lucide="folder-open"></i>
                     View Projects
@@ -113,15 +110,12 @@
             <div class="about-content">
                 <div class="about-main">
                     <h3>Central Data Platform, Azure Integrations and Automation</h3>
-
                     <p>
                         I work on a Central Data Platform, supporting enterprise data integrations and Azure-based data flows between business systems.
                     </p>
-
                     <p>
                         My daily work includes monitoring and troubleshooting integration processes, investigating data issues with SQL, working with Azure Data Factory and Databricks, and collaborating with engineering teams on operational problems.
                     </p>
-
                     <p>
                         I am focused on growing towards cloud integration, data platform engineering and automation, with practical experience from an enterprise Azure environment.
                     </p>
@@ -147,7 +141,7 @@
                             <i data-lucide="workflow"></i>
                             <div>
                                 <h4>Specialization</h4>
-                                <p>Azure Data Factory • Databricks • Event Hub • Service Bus • Enterprise data integrations</p>
+                                <p>Azure Data Factory • Databricks • Event Hub • Service Bus • Enterprise integrations</p>
                             </div>
                         </div>
                     </div>
@@ -155,7 +149,6 @@
 
                 <div class="about-tech">
                     <h3>What I Work With</h3>
-
                     <div class="tech-grid">
                         <div class="tech-category">
                             <h4>Cloud & Integration</h4>
@@ -163,7 +156,7 @@
                                 <li>Azure Data Factory</li>
                                 <li>Azure Event Hub</li>
                                 <li>Azure Service Bus</li>
-                                <li>Enterprise data integrations</li>
+                                <li>Enterprise integration flows</li>
                             </ul>
                         </div>
 
@@ -179,13 +172,13 @@
                         </div>
 
                         <div class="tech-category">
-                            <h4>Development & Tools</h4>
+                            <h4>Tools & Automation</h4>
                             <ul>
                                 <li>Python scripting</li>
                                 <li>Azure DevOps</li>
                                 <li>Git & GitHub</li>
                                 <li>VS Code</li>
-                                <li>Vercel Deployment</li>
+                                <li>Microsoft Copilot agents</li>
                             </ul>
                         </div>
                     </div>
@@ -238,7 +231,6 @@
     <section id="skills" class="skills-section">
         <div class="container">
             <h2 class="section-title">Skills & Expertise</h2>
-
             <div class="skills-grid" id="skills-container">
                 <!-- Skills will be dynamically generated by JavaScript -->
             </div>
@@ -249,7 +241,6 @@
     <section id="projects" class="projects-section">
         <div class="container">
             <h2 class="section-title">Featured Projects</h2>
-
             <div class="projects-grid" id="projects-container">
                 <!-- Projects will be dynamically generated by JavaScript -->
             </div>
@@ -260,10 +251,7 @@
     <section id="contact" class="contact-section">
         <div class="container">
             <h2 class="section-title">Let's Connect</h2>
-
-            <p class="contact-intro">
-                Open to roles around Azure integrations, data platform support, automation, technical consulting and cloud-based enterprise systems.
-            </p>
+            <p class="contact-intro">Open to roles around Azure integrations, data platform support, automation, technical consulting and cloud-based enterprise systems.</p>
 
             <div class="contact-grid">
                 <a href="mailto:ivousd@gmail.com" class="contact-card">

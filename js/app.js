@@ -152,7 +152,9 @@ function initializeTypedName() {
             cursorChar: '|',
             loop: false,
             onComplete: function (self) {
-                self.cursor.style.animation = 'blink 1s infinite';
+                if (self.cursor) {
+                    self.cursor.style.animation = 'blink 1s infinite';
+                }
             }
         });
     }
@@ -419,35 +421,6 @@ function initializeAnimations() {
     );
 
     elementsToAnimate.forEach(el => observer.observe(el));
-}
-
-// =====================================================
-// UTILITY FUNCTIONS
-// =====================================================
-
-function debounce(func, wait) {
-    let timeout;
-
-    return function executedFunction(...args) {
-        const later = () => {
-            clearTimeout(timeout);
-            func(...args);
-        };
-
-        clearTimeout(timeout);
-        timeout = setTimeout(later, wait);
-    };
-}
-
-function isInViewport(element) {
-    const rect = element.getBoundingClientRect();
-
-    return (
-        rect.top >= 0 &&
-        rect.left >= 0 &&
-        rect.bottom <= (window.innerHeight || document.documentElement.clientHeight) &&
-        rect.right <= (window.innerWidth || document.documentElement.clientWidth)
-    );
 }
 
 // =====================================================
